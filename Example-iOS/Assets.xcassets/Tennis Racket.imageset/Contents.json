@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "alignment-insets" : {
+        "bottom" : -10,
+        "left" : 0,
+        "right" : 0,
+        "top" : 0
+      },
+      "filename" : "Tennis Racket.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
