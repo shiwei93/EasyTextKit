@@ -25,7 +25,7 @@ public class Style: StyleProtocol {
         self.styleDescription = style?.styleDescription.copy() ?? StyleDescription()
     }
     
-    @discardableResult
+    @discardableResult @available(iOS 11.0, *)
     public func dynamicText(_ dynamicText: DynamicText) -> Style {
         self.styleDescription.dynamicText = dynamicText
         return self

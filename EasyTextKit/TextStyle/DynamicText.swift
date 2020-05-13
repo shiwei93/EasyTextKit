@@ -8,7 +8,6 @@
 
 import UIKit
 
-@available(iOS 11.0, *)
 public struct DynamicText {
     
     public var style: UIFont.TextStyle?

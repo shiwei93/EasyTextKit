@@ -13,7 +13,6 @@
 		C40FE299246AA507009F8210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40FE297246AA507009F8210 /* Main.storyboard */; };
 		C40FE29B246AA508009F8210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C40FE29A246AA508009F8210 /* Assets.xcassets */; };
 		C40FE29E246AA508009F8210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40FE29C246AA508009F8210 /* LaunchScreen.storyboard */; };
-		C40FE2A9246AA508009F8210 /* Example_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2A8246AA508009F8210 /* Example_iOSTests.swift */; };
 		C40FE2C1246AA568009F8210 /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit.framework */; };
 		C40FE2C8246AA568009F8210 /* EasyTextKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2C7246AA568009F8210 /* EasyTextKitTests.swift */; };
 		C40FE2CA246AA568009F8210 /* EasyTextKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C40FE2BA246AA568009F8210 /* EasyTextKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,13 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C40FE2A5246AA508009F8210 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C40FE286246AA507009F8210 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C40FE28D246AA507009F8210;
-			remoteInfo = "Example-iOS";
-		};
 		C40FE2C2246AA568009F8210 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C40FE286246AA507009F8210 /* Project object */;
@@ -89,7 +81,6 @@
 		C40FE29A246AA508009F8210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C40FE29D246AA508009F8210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C40FE29F246AA508009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C40FE2A4246AA508009F8210 /* Example-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40FE2A8246AA508009F8210 /* Example_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_iOSTests.swift; sourceTree = "<group>"; };
 		C40FE2AA246AA508009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40FE2B8246AA568009F8210 /* EasyTextKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTextKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,13 +111,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40FE2CD246AA568009F8210 /* EasyTextKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C40FE2A1246AA508009F8210 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				C40FE28E246AA507009F8210 /* Example-iOS.app */,
-				C40FE2A4246AA508009F8210 /* Example-iOSTests.xctest */,
 				C40FE2B8246AA568009F8210 /* EasyTextKit.framework */,
 				C40FE2C0246AA568009F8210 /* EasyTextKitTests.xctest */,
 			);
@@ -290,24 +273,6 @@
 			productReference = C40FE28E246AA507009F8210 /* Example-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C40FE2A3246AA508009F8210 /* Example-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C40FE2B0246AA508009F8210 /* Build configuration list for PBXNativeTarget "Example-iOSTests" */;
-			buildPhases = (
-				C40FE2A0246AA508009F8210 /* Sources */,
-				C40FE2A1246AA508009F8210 /* Frameworks */,
-				C40FE2A2246AA508009F8210 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C40FE2A6246AA508009F8210 /* PBXTargetDependency */,
-			);
-			name = "Example-iOSTests";
-			productName = "Example-iOSTests";
-			productReference = C40FE2A4246AA508009F8210 /* Example-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		C40FE2B7246AA568009F8210 /* EasyTextKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C40FE2D4246AA568009F8210 /* Build configuration list for PBXNativeTarget "EasyTextKit" */;
@@ -358,10 +323,6 @@
 					C40FE28D246AA507009F8210 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
-					C40FE2A3246AA508009F8210 = {
-						CreatedOnToolsVersion = 11.4.1;
-						TestTargetID = C40FE28D246AA507009F8210;
-					};
 					C40FE2B7246AA568009F8210 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -385,7 +346,6 @@
 			projectRoot = "";
 			targets = (
 				C40FE28D246AA507009F8210 /* Example-iOS */,
-				C40FE2A3246AA508009F8210 /* Example-iOSTests */,
 				C40FE2B7246AA568009F8210 /* EasyTextKit */,
 				C40FE2BF246AA568009F8210 /* EasyTextKitTests */,
 			);
@@ -401,13 +361,6 @@
 				C40FE2F9246B8062009F8210 /* EBGaramond12-Regular.otf in Resources */,
 				C40FE29B246AA508009F8210 /* Assets.xcassets in Resources */,
 				C40FE299246AA507009F8210 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C40FE2A2246AA508009F8210 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,14 +389,6 @@
 				C40FE296246AA507009F8210 /* ViewController.swift in Sources */,
 				C40FE292246AA507009F8210 /* AppDelegate.swift in Sources */,
 				C40FE294246AA507009F8210 /* SceneDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C40FE2A0246AA508009F8210 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C40FE2A9246AA508009F8210 /* Example_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,11 +422,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C40FE2A6246AA508009F8210 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C40FE28D246AA507009F8210 /* Example-iOS */;
-			targetProxy = C40FE2A5246AA508009F8210 /* PBXContainerItemProxy */;
-		};
 		C40FE2C3246AA568009F8210 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C40FE2B7246AA568009F8210 /* EasyTextKit */;
@@ -569,7 +509,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -623,7 +563,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -666,48 +606,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		C40FE2B1246AA508009F8210 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Example-iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.Example-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example-iOS.app/Example-iOS";
-			};
-			name = Debug;
-		};
-		C40FE2B2246AA508009F8210 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Example-iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.Example-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example-iOS.app/Example-iOS";
 			};
 			name = Release;
 		};
@@ -818,15 +716,6 @@
 			buildConfigurations = (
 				C40FE2AE246AA508009F8210 /* Debug */,
 				C40FE2AF246AA508009F8210 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C40FE2B0246AA508009F8210 /* Build configuration list for PBXNativeTarget "Example-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C40FE2B1246AA508009F8210 /* Debug */,
-				C40FE2B2246AA508009F8210 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

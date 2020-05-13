@@ -31,11 +31,20 @@ struct Example {
         """
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
-        let style = Style()
-            .font(UIFont(name: "GillSans-Light", size: 18)!)
-            .lineHeightMultiple(1.8)
-            .foregroundColor(.darkGray)
-            .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
+        let style: Style
+        if #available(iOS 11.0, *) {
+            style = Style()
+                .font(UIFont(name: "GillSans-Light", size: 18)!)
+                .lineHeightMultiple(1.8)
+                .foregroundColor(.darkGray)
+                .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
+        } else {
+            style = Style()
+                .font(UIFont(name: "GillSans-Light", size: 18)!)
+                .lineHeightMultiple(1.8)
+                .foregroundColor(.darkGray)
+        }
+        
         
         let accent = Style(style)
             .font(UIFont(name: "SuperClarendon-Black", size: 18)!)
@@ -432,10 +441,17 @@ struct Example {
     }()
     
     static let dynamic: NSAttributedString = {
-        let base = Style()
-            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
-            .lineHeightMultiple(1.2)
-            .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
+        let base: Style
+        if #available(iOS 11.0, *) {
+            base = Style()
+                .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+                .lineHeightMultiple(1.2)
+                .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
+        } else {
+            base = Style()
+                .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+                .lineHeightMultiple(1.2)
+        }
         
         let string = "Hello, ceci estun texte anticonstitutionnellement tràs."
         
