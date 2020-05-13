@@ -81,8 +81,6 @@
 		C40FE29A246AA508009F8210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C40FE29D246AA508009F8210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C40FE29F246AA508009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C40FE2A8246AA508009F8210 /* Example_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_iOSTests.swift; sourceTree = "<group>"; };
-		C40FE2AA246AA508009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40FE2B8246AA568009F8210 /* EasyTextKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTextKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40FE2BA246AA568009F8210 /* EasyTextKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyTextKit.h; sourceTree = "<group>"; };
 		C40FE2BB246AA568009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				C40FE290246AA507009F8210 /* Example-iOS */,
-				C40FE2A7246AA508009F8210 /* Example-iOSTests */,
 				C40FE2B9246AA568009F8210 /* EasyTextKit */,
 				C40FE2C6246AA568009F8210 /* EasyTextKitTests */,
 				C40FE28F246AA507009F8210 /* Products */,
@@ -167,15 +164,6 @@
 				C40FE2F2246AA5F5009F8210 /* Example.swift */,
 			);
 			path = "Example-iOS";
-			sourceTree = "<group>";
-		};
-		C40FE2A7246AA508009F8210 /* Example-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				C40FE2A8246AA508009F8210 /* Example_iOSTests.swift */,
-				C40FE2AA246AA508009F8210 /* Info.plist */,
-			);
-			path = "Example-iOSTests";
 			sourceTree = "<group>";
 		};
 		C40FE2B9246AA568009F8210 /* EasyTextKit */ = {
@@ -332,7 +320,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C40FE289246AA507009F8210 /* Build configuration list for PBXProject "Example-iOS" */;
+			buildConfigurationList = C40FE289246AA507009F8210 /* Build configuration list for PBXProject "EasyTextKit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -702,7 +690,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C40FE289246AA507009F8210 /* Build configuration list for PBXProject "Example-iOS" */ = {
+		C40FE289246AA507009F8210 /* Build configuration list for PBXProject "EasyTextKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C40FE2AB246AA508009F8210 /* Debug */,
