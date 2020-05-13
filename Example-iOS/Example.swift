@@ -13,13 +13,13 @@ import EasyTextKit
 struct Example {
     
     static let normal: NSAttributedString = {
-        let style = TextStyle {
-            $0.font = UIFont(name: "AvenirNextCondensed-Bold", size: 24)!
-            $0.alignment = .center
-            $0.lineSpacing = 5
-            $0.tracking = .point(6)
-            $0.foregroundColor = UIColor(red: 0.15, green: 0.4, blue: 0.86, alpha: 1.0)
-        }
+        let style = Style()
+            .font(UIFont(name: "AvenirNextCondensed-Bold", size: 24)!)
+            .alignment(.center)
+            .lineSpacing(5)
+            .tracking(.point(6))
+            .foregroundColor(UIColor(red: 0.15, green: 0.4, blue: 0.86, alpha: 1.0))
+        
         return "JUST SAMPLE".set(style: style)
     }()
     
@@ -31,40 +31,32 @@ struct Example {
         """
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
-        let style = TextStyle {
-            $0.font = UIFont(name: "GillSans-Light", size: 18)!
-            $0.lineHeightMultiple = 1.8
-            $0.foregroundColor = .darkGray
-            if #available(iOS 11, *) {
-                $0.dynamicText = DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone))
-            }
-        }
+        let style = Style()
+            .font(UIFont(name: "GillSans-Light", size: 18)!)
+            .lineHeightMultiple(1.8)
+            .foregroundColor(.darkGray)
+            .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
         
-        let accent = style.adding {
-            $0.font = UIFont(name: "SuperClarendon-Black", size: 18)!
-        }
+        let accent = Style(style)
+            .font(UIFont(name: "SuperClarendon-Black", size: 18)!)
         
-        let black = accent.adding {
-            $0.foregroundColor = .white
-            $0.backgroudColor = .black
-        }
+        let black = Style(accent)
+            .foregroundColor(.white)
+            .backgroundColor(.black)
         
-        let red = accent.adding {
-            $0.foregroundColor = .white
-            $0.backgroudColor = color
-        }
+        let red = Style(accent)
+            .foregroundColor(.white)
+            .backgroundColor(color)
         
-        let signed = accent.adding {
-            $0.foregroundColor = color
-        }
+        let signed = Style(accent)
+            .foregroundColor(color)
         
         let image = UIImage(named: "Tennis Racket")!
-        let imageStyle = signed.adding {
-            $0.baselineOffset = -4
-        }
+        let imageStyle = Style(signed)
+            .baselineOffset(-4)
         let racket = image.set(style: imageStyle)
         
-        let group = XMLTextStyle(
+        let group = XMLStyle(
             base: style,
             [
                 "black": black,
@@ -84,24 +76,22 @@ struct Example {
         You can parse HTML with <strong>strong</strong>, <em>em</em>, and even <strong><em>nested strong and em</em></strong> tags.
         """
         
-        let base = TextStyle {
-            $0.font = .systemFont(ofSize: 17)
-            $0.foregroundColor = .black
-        }
+        let base = Style()
+            .font(.systemFont(ofSize: 17))
+            .foregroundColor(.black)
         
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
-        let em = base.adding {
-            $0.foregroundColor = color
-            $0.emphasizeStyle = .italic
-        }
         
-        let strong = base.adding {
-            $0.foregroundColor = color
-            $0.emphasizeStyle = .bold
-        }
+        let em = Style(base)
+            .foregroundColor(color)
+            .emphasizeStyle(.italic)
         
-        let xmlStyle = XMLTextStyle(
+        let strong = Style(base)
+            .foregroundColor(color)
+            .emphasizeStyle(.bold)
+        
+        let xmlStyle = XMLStyle(
             base: base,
             [
                 "em": em,
@@ -112,64 +102,60 @@ struct Example {
     }()
     
     static let digital: NSAttributedString = {
-        let garamondStyle = TextStyle {
-            $0.font = UIFont(name: "EBGaramond12-Regular", size: 24)!
-            $0.lineHeightMultiple = 1.2
-        }
+        let garamondStyle = Style()
+            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .lineHeightMultiple(1.2)
         
         let digits = "\n0123456789"
         
-        let color = garamondStyle.adding {
-            $0.smallCaps = [.fromLowercase]
-            $0.foregroundColor = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
-        }
+        
+        let color = Style(garamondStyle)
+            .smallCaps([.fromLowercase])
+            .foregroundColor(UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0))
+        
+        Style(garamondStyle)
+            .numberCase(.lower)
+            .numberSpacing(.monospaced)
+            .foregroundColor(UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0))
         
         return NSAttributedString {
             "Number Styles".set(style: color)
-            digits.set(style: garamondStyle.adding({
-                $0.numberCase = .lower
-                $0.numberSpacing = .monospaced
-            }))
-            digits.set(style: garamondStyle.adding({
-                $0.numberCase = .upper
-                $0.numberSpacing = .monospaced
-            }))
-            digits.set(style: garamondStyle.adding({
-                $0.numberCase = .lower
-                $0.numberSpacing = .proportional
-            }))
-            digits.set(style: garamondStyle.adding({
-                $0.numberCase = .upper
-                $0.numberSpacing = .proportional
-            }))
+            digits.set(style: Style(garamondStyle)
+                .numberCase(.lower)
+                .numberSpacing(.monospaced))
+            digits.set(style: Style(garamondStyle)
+                .numberCase(.upper)
+                .numberSpacing(.monospaced))
+            digits.set(style: Style(garamondStyle)
+                .numberCase(.lower)
+                .numberSpacing(.proportional))
+            digits.set(style: Style(garamondStyle)
+                .numberCase(.upper)
+                .numberSpacing(.proportional))
         }
     }()
     
     // 科学符号
     static let scientificInferiors: NSAttributedString = {
-        let garamondStyle = TextStyle {
-            $0.font = UIFont(name: "EBGaramond12-Regular", size: 24)!
-            $0.lineHeightMultiple = 1.2
-            $0.numberCase = .upper
-        }
+        let garamondStyle = Style()
+            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .lineHeightMultiple(1.2)
+            .numberCase(.upper)
         
         let string = "<name>Johnny</name> was a little boy, but <name>Johnny</name> is no more, for what he thought was <chemical>H<number>2</number>O</chemical> was really <chemical>H<number>2</number>SO<number>4</number></chemical>."
         
         let foregroundColor = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
-        let name = garamondStyle.adding {
-            $0.smallCaps.insert(.fromLowercase)
-        }
+        let name = Style(garamondStyle)
+            .smallCaps([.fromLowercase])
         
-        let chemical = garamondStyle.adding {
-            $0.foregroundColor = foregroundColor
-        }
+        let chemical = Style(garamondStyle)
+            .foregroundColor(foregroundColor)
         
-        let number = chemical.adding {
-            $0.scientificInferiors = true
-        }
+        let number = Style(chemical)
+            .scientificInferiors(isOn: true)
         
-        let style = XMLTextStyle(
+        let style = XMLStyle(
             base: garamondStyle,
             [
                 "name": name,
@@ -182,11 +168,10 @@ struct Example {
     
     // 分数
     static let fraction: NSAttributedString = {
-        let garamondStyle = TextStyle {
-            $0.font = UIFont(name: "EBGaramond12-Regular", size: 24)!
-            $0.lineHeightMultiple = 1.2
-            $0.numberCase = .upper
-        }
+        let garamondStyle = Style()
+            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .lineHeightMultiple(1.2)
+            .numberCase(.upper)
         
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
@@ -197,25 +182,23 @@ struct Example {
             1336 <normal>6/10</normal> + <normal>4/10</normal> = 1337
         """
         
-        let fraction = garamondStyle.adding {
-            $0.fractions = .diagonal
-            $0.numberCase = .lower
-            $0.foregroundColor = color
-        }
         
-        let vfraction = garamondStyle.adding {
-            $0.fractions = .vertical
-            $0.numberCase = .lower
-            $0.foregroundColor = color
-        }
+        let fraction = Style(garamondStyle)
+            .fractions(.diagonal)
+            .numberCase(.lower)
+            .foregroundColor(color)
         
-        let normalFraction = garamondStyle.adding {
-            $0.fractions = .disabled
-            $0.numberCase = .lower
-            $0.foregroundColor = color
-        }
+        let vfraction = Style(garamondStyle)
+            .fractions(.vertical)
+            .numberCase(.lower)
+            .foregroundColor(color)
         
-        let style = XMLTextStyle(
+        let normalFraction = Style(garamondStyle)
+            .fractions(.disabled)
+            .numberCase(.lower)
+            .foregroundColor(color)
+        
+        let style = XMLStyle(
             base: garamondStyle,
             [
                 "fraction": fraction,
@@ -226,23 +209,21 @@ struct Example {
     }()
     
     static let superscript: NSAttributedString = {
-        let garamondStyle = TextStyle {
-            $0.font = UIFont(name: "EBGaramond12-Regular", size: 24)!
-            $0.lineHeightMultiple = 1.2
-        }
+        let garamondStyle = Style()
+            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .lineHeightMultiple(1.2)
+            
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         let string = "Today is my <number>111<ordinal>th</ordinal></number> birthday!"
         
-        let number = garamondStyle.adding {
-            $0.foregroundColor = color
-            $0.numberCase = .upper
-        }
+        let number = Style(garamondStyle)
+            .foregroundColor(color)
+            .numberCase(.upper)
         
-        let ordinal = garamondStyle.adding {
-            $0.superscript = true
-        }
+        let ordinal = Style(garamondStyle)
+            .superscript(isOn: true)
         
-        let style = XMLTextStyle(
+        let style = XMLStyle(
             base: garamondStyle,
             [
                 "number": number,
@@ -253,22 +234,18 @@ struct Example {
     }()
     
     static let ligature: NSAttributedString = {
-        let style = TextStyle {
-            $0.font = UIFont(name: "Zapfino", size: 24)!
-            $0.foregroundColor = UIColor(red: 0.82, green: 0.41, blue: 0.11, alpha: 1.0)
-            $0.tracking = .point(6)
-        }
+        let style = Style()
+            .font(UIFont(name: "Zapfino", size: 24)!)
+            .foregroundColor(UIColor(red: 0.82, green: 0.41, blue: 0.11, alpha: 1.0))
+            .tracking(.point(6))
         
         let text = "Hello Swift!!!"
         
         return NSAttributedString {
-            text.set(style: style.adding({ style in
-                style.ligature = .default
-            }))
+            text.set(style: Style(style).ligature(.default))
             "\n"
-            text.set(style: style.adding({ style in
-                style.ligature = .disabled
-            }))
+            text.set(style: Style(style)
+                .ligature(.disabled))
             "\n"
         }
     }()
@@ -285,13 +262,11 @@ struct Example {
         let oar = accessibleImage(named: "oar")
         let knot = accessibleImage(named: "knot")
         
-        let base = TextStyle {
-            $0.font = UIFont(name: "HelveticaNeue-Bold", size: 24)!
-        }
+        let base = Style()
+            .font(UIFont(name: "HelveticaNeue-Bold", size: 24)!)
         
-        let style = base.adding {
-            $0.baselineOffset = 8
-        }
+        let style = Style(base)
+            .baselineOffset(8)
         
         return NSAttributedString {
             "2".set(style: style)
@@ -304,11 +279,10 @@ struct Example {
     }()
     
     static let multiImages: NSAttributedString = {
-        let base = TextStyle {
-            $0.font = .systemFont(ofSize: 17)
-            $0.foregroundColor = .darkGray
-            $0.baselineOffset = 10
-        }
+        let base = Style()
+            .font(.systemFont(ofSize: 17))
+            .foregroundColor(.darkGray)
+            .baselineOffset(10)
         
         return NSAttributedString {
             UIImage(named: "barn")!
@@ -350,12 +324,11 @@ struct Example {
     
     static let kerning: NSAttributedString = {
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
-        let base = TextStyle {
-            $0.alignment = .center
-            $0.foregroundColor = color
-            $0.lineSpacing = 20
-            $0.font = UIFont(name: "AvenirNext-Medium", size: 16)!
-        }
+        let base = Style()
+            .alignment(.center)
+            .foregroundColor(color)
+            .lineSpacing(20)
+            .font(UIFont(name: "AvenirNext-Medium", size: 16)!)
         
         let phrase = """
             
@@ -366,16 +339,14 @@ struct Example {
         
         """
         
-        let large = base.adding {
-            $0.font = UIFont(name: "AvenirNext-Heavy", size: 64)!
-            $0.lineSpacing = 40
-        }
+        let large = Style(base)
+            .font(UIFont(name: "AvenirNext-Heavy", size: 64)!)
+            .lineSpacing(40)
         
-        let kern = large.adding {
-            $0.tracking = .adobe(-80)
-        }
+        let kern = Style(large)
+            .tracking(.adobe(-80))
         
-        let style = XMLTextStyle(
+        let style = XMLStyle(
             base: base,
             [
                 "large": large,
@@ -388,20 +359,22 @@ struct Example {
     static let composition: NSAttributedString = {
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
-        let base = TextStyle {
-            $0.alignment = .center
-        }
+        let base = Style()
+            .alignment(.center)
         
-        let preamble = base.adding {
-            $0.font = UIFont(name: "AvenirNext-Bold", size: 14)!
-        }
         
-        let bigger = base.adding {
-            $0.font = UIFont(name: "AvenirNext-Heavy", size: 64)!
-        }
+        let preamble = Style(base)
+            .font(UIFont(name: "AvenirNext-Bold", size: 14)!)
+        
+        
+        let bigger = Style(base)
+            .font(UIFont(name: "AvenirNext-Heavy", size: 64)!)
+        
+        let imageStyle = Style(base)
+            .foregroundColor(color)
         
         let image = UIImage(named: "boat")!
-        let boat = image.set(style: base.adding { $0.foregroundColor = color })
+        let boat = image.set(style: imageStyle)
         
         return NSAttributedString {
             "\n\n"
@@ -413,22 +386,21 @@ struct Example {
     }()
     
     static let indention: NSAttributedString = {
-        let base = TextStyle {
-            $0.font = UIFont(name: "AvenirNextCondensed-Medium", size: 18.0)!
-            $0.foregroundColor = .darkGray
-        }
+        let base = Style()
+            .font(UIFont(name: "AvenirNextCondensed-Medium", size: 18.0)!)
         
-        let indention = base.adding {
-            $0.firstLineHeadIndent = 18
-            $0.paragraphSpacingBefore = 9
-            $0.headIndent = 30.78
-        }
         
-        let emoji = base.adding {
-            $0.firstLineHeadIndent = 18
-            $0.paragraphSpacingBefore = 9
-            $0.headIndent = 64.78
-        }
+        let indention = Style(base)
+            .firstLineHeadIndent(18)
+            .paragraphSpacingBefore(9)
+            .headIndent(30.78)
+        
+        
+        
+        let emoji = Style(base)
+            .firstLineHeadIndent(18)
+            .paragraphSpacingBefore(9)
+            .headIndent(64.78)
         
         return NSAttributedString {
             "• You can also use strings (including emoji) for bullets, and they will still properly indent the appended text by the right amount.".set(style: indention)
@@ -440,44 +412,30 @@ struct Example {
     
     static let emphasisSet: NSAttributedString = {
         
-        let base = TextStyle {
-            $0.font = .systemFont(ofSize: 24.0)
-            $0.foregroundColor = .systemGreen
-        }
+        let base = Style()
+            .font(.systemFont(ofSize: 24.0))
+            .foregroundColor(.systemGreen)
         
         return NSAttributedString {
             "加粗 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: base.adding {
-                $0.emphasizeStyle = .bold
-            })
+            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.bold))
             "斜体 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: base.adding {
-                $0.emphasizeStyle = .italic
-            })
+            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.italic))
             "压缩 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: base.adding {
-                $0.emphasizeStyle = .condensed
-            })
+            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.condensed))
             "拉伸 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: base.adding {
-                $0.emphasizeStyle = .expanded
-            })
+            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.expanded))
             "等宽 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: base.adding {
-                $0.emphasizeStyle = .monoSpace
-            })
+            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.monoSpace))
         }
         
     }()
     
     static let dynamic: NSAttributedString = {
-        let base = TextStyle {
-            $0.font = UIFont(name: "EBGaramond12-Regular", size: 24)!
-            $0.lineHeightMultiple = 1.2
-            if #available(iOS 11, *) {
-                $0.dynamicText = DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone))
-            }
-        }
+        let base = Style()
+            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .lineHeightMultiple(1.2)
+            .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
         
         let string = "Hello, ceci estun texte anticonstitutionnellement tràs."
         

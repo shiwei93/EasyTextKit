@@ -19,10 +19,8 @@
 		C40FE2CA246AA568009F8210 /* EasyTextKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C40FE2BA246AA568009F8210 /* EasyTextKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C40FE2CD246AA568009F8210 /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit.framework */; };
 		C40FE2CE246AA568009F8210 /* EasyTextKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C40FE2E6246AA5B4009F8210 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2D7246AA5B4009F8210 /* TextStyle.swift */; };
-		C40FE2E7246AA5B4009F8210 /* TextStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2D8246AA5B4009F8210 /* TextStyleProtocol.swift */; };
-		C40FE2E8246AA5B4009F8210 /* CommonTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2D9246AA5B4009F8210 /* CommonTextStyle.swift */; };
-		C40FE2E9246AA5B4009F8210 /* XMLTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2DA246AA5B4009F8210 /* XMLTextStyle.swift */; };
+		C40FE2E7246AA5B4009F8210 /* StyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2D8246AA5B4009F8210 /* StyleProtocol.swift */; };
+		C40FE2E9246AA5B4009F8210 /* XMLStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2DA246AA5B4009F8210 /* XMLStyle.swift */; };
 		C40FE2EA246AA5B4009F8210 /* CommonsAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2DC246AA5B4009F8210 /* CommonsAttributes.swift */; };
 		C40FE2EC246AA5B4009F8210 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2DE246AA5B4009F8210 /* AttributedStringBuilder.swift */; };
 		C40FE2ED246AA5B4009F8210 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E0246AA5B4009F8210 /* Parser.swift */; };
@@ -31,8 +29,10 @@
 		C40FE2F0246AA5B4009F8210 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E4246AA5B4009F8210 /* AttributedString+Extension.swift */; };
 		C40FE2F1246AA5B4009F8210 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E5246AA5B4009F8210 /* Extensions.swift */; };
 		C40FE2F3246AA5F5009F8210 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2F2246AA5F5009F8210 /* Example.swift */; };
-		C40FE2F7246AA68E009F8210 /* CommonsTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2F6246AA68E009F8210 /* CommonsTextStyle.swift */; };
+		C40FE2F7246AA68E009F8210 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2F6246AA68E009F8210 /* Style.swift */; };
 		C40FE2F9246B8062009F8210 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C40FE2F8246B801C009F8210 /* EBGaramond12-Regular.otf */; };
+		C4ACAAE9246BD05E00981FEF /* DynamicText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAAE8246BD05E00981FEF /* DynamicText.swift */; };
+		C4ACAAEB246BE63700981FEF /* StyleDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAAEA246BE63700981FEF /* StyleDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,10 +98,8 @@
 		C40FE2C0246AA568009F8210 /* EasyTextKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyTextKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40FE2C7246AA568009F8210 /* EasyTextKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTextKitTests.swift; sourceTree = "<group>"; };
 		C40FE2C9246AA568009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C40FE2D7246AA5B4009F8210 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		C40FE2D8246AA5B4009F8210 /* TextStyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleProtocol.swift; sourceTree = "<group>"; };
-		C40FE2D9246AA5B4009F8210 /* CommonTextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTextStyle.swift; sourceTree = "<group>"; };
-		C40FE2DA246AA5B4009F8210 /* XMLTextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLTextStyle.swift; sourceTree = "<group>"; };
+		C40FE2D8246AA5B4009F8210 /* StyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleProtocol.swift; sourceTree = "<group>"; };
+		C40FE2DA246AA5B4009F8210 /* XMLStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLStyle.swift; sourceTree = "<group>"; };
 		C40FE2DC246AA5B4009F8210 /* CommonsAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonsAttributes.swift; sourceTree = "<group>"; };
 		C40FE2DE246AA5B4009F8210 /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
 		C40FE2E0246AA5B4009F8210 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -110,8 +108,10 @@
 		C40FE2E4246AA5B4009F8210 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
 		C40FE2E5246AA5B4009F8210 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C40FE2F2246AA5F5009F8210 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		C40FE2F6246AA68E009F8210 /* CommonsTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonsTextStyle.swift; sourceTree = "<group>"; };
+		C40FE2F6246AA68E009F8210 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		C40FE2F8246B801C009F8210 /* EBGaramond12-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond12-Regular.otf"; sourceTree = "<group>"; };
+		C4ACAAE8246BD05E00981FEF /* DynamicText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicText.swift; sourceTree = "<group>"; };
+		C4ACAAEA246BE63700981FEF /* StyleDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,11 +220,11 @@
 		C40FE2D6246AA5B4009F8210 /* TextStyle */ = {
 			isa = PBXGroup;
 			children = (
-				C40FE2D7246AA5B4009F8210 /* TextStyle.swift */,
-				C40FE2D8246AA5B4009F8210 /* TextStyleProtocol.swift */,
-				C40FE2D9246AA5B4009F8210 /* CommonTextStyle.swift */,
-				C40FE2DA246AA5B4009F8210 /* XMLTextStyle.swift */,
-				C40FE2F6246AA68E009F8210 /* CommonsTextStyle.swift */,
+				C40FE2D8246AA5B4009F8210 /* StyleProtocol.swift */,
+				C40FE2DA246AA5B4009F8210 /* XMLStyle.swift */,
+				C40FE2F6246AA68E009F8210 /* Style.swift */,
+				C4ACAAEA246BE63700981FEF /* StyleDescription.swift */,
+				C4ACAAE8246BD05E00981FEF /* DynamicText.swift */,
 			);
 			path = TextStyle;
 			sourceTree = "<group>";
@@ -451,18 +451,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4ACAAEB246BE63700981FEF /* StyleDescription.swift in Sources */,
 				C40FE2EA246AA5B4009F8210 /* CommonsAttributes.swift in Sources */,
-				C40FE2E9246AA5B4009F8210 /* XMLTextStyle.swift in Sources */,
-				C40FE2F7246AA68E009F8210 /* CommonsTextStyle.swift in Sources */,
+				C40FE2E9246AA5B4009F8210 /* XMLStyle.swift in Sources */,
+				C40FE2F7246AA68E009F8210 /* Style.swift in Sources */,
 				C40FE2EC246AA5B4009F8210 /* AttributedStringBuilder.swift in Sources */,
 				C40FE2EE246AA5B4009F8210 /* String+Extensions.swift in Sources */,
 				C40FE2F0246AA5B4009F8210 /* AttributedString+Extension.swift in Sources */,
 				C40FE2ED246AA5B4009F8210 /* Parser.swift in Sources */,
+				C4ACAAE9246BD05E00981FEF /* DynamicText.swift in Sources */,
 				C40FE2F1246AA5B4009F8210 /* Extensions.swift in Sources */,
-				C40FE2E8246AA5B4009F8210 /* CommonTextStyle.swift in Sources */,
 				C40FE2EF246AA5B4009F8210 /* UIImage+Extensions.swift in Sources */,
-				C40FE2E7246AA5B4009F8210 /* TextStyleProtocol.swift in Sources */,
-				C40FE2E6246AA5B4009F8210 /* TextStyle.swift in Sources */,
+				C40FE2E7246AA5B4009F8210 /* StyleProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

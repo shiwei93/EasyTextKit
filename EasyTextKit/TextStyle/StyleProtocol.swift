@@ -1,5 +1,5 @@
 //
-//  TextStyleProtocol.swift
+//  StyleProtocol.swift
 //  EasyTextKit
 //
 //  Created by shiwei on 2020/5/12.
@@ -8,14 +8,9 @@
 
 import Foundation
 
-public typealias AttributedString = NSMutableAttributedString
-
-/// 区分 UIKit String 和实际 TextStyle 的联系
-public protocol StyleProtocol { }
-
-public protocol TextStyleProtocol: StyleProtocol {
+public protocol StyleProtocol {
     
-    var attributes: [NSAttributedString.Key: Any] { get }
+    var styleDescription: StyleDescription { get }
     
     func set(to source: String, range: NSRange?) -> AttributedString
     
@@ -26,28 +21,28 @@ public protocol TextStyleProtocol: StyleProtocol {
     
 }
 
-extension TextStyleProtocol {
+extension StyleProtocol {
     
     public func set(to source: String, range: NSRange?) -> AttributedString {
         let range = range ?? NSRange(location: 0, length: source.count)
         let attributedText = AttributedString(string: source)
-        attributedText.addAttributes(attributes, range: range)
+        attributedText.addAttributes(styleDescription.constructAttributes(), range: range)
         return attributedText
     }
     
     public func set(to source: AttributedString, range: NSRange?) -> AttributedString {
         let range = range ?? NSRange(location: 0, length: source.length)
-        source.addAttributes(attributes, range: range)
+        source.addAttributes(styleDescription.constructAttributes(), range: range)
         return source
     }
     
     @discardableResult
     public func remove(from source: AttributedString, range: NSRange?) -> AttributedString {
         let range = range ?? NSRange(location: 0, length: source.length)
-        attributes.keys.forEach {
+        styleDescription.constructAttributes().keys.forEach {
             source.removeAttribute($0, range: range)
         }
-        return AttributedString()
+        return source
     }
     
 }

@@ -10,11 +10,11 @@ import Foundation
 
 extension String {
     
-    public func set(style: TextStyleProtocol, range: NSRange? = nil) -> AttributedString {
+    public func set(style: StyleProtocol, range: NSRange? = nil) -> AttributedString {
         return style.set(to: self, range: range)
     }
     
-    public func set(styles: [TextStyleProtocol], range: NSRange? = nil) -> AttributedString {
+    public func set(styles: [StyleProtocol], range: NSRange? = nil) -> AttributedString {
         return styles.merge().set(to: self, range: range)
     }
     

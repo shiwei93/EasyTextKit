@@ -40,28 +40,28 @@ class Parser: NSObject, XMLParserDelegate {
     private var xmlParser: XMLParser
     
     private var options: ParsingOptions {
-        return styleGroup.parsingOptions
+        return xmlStyle.parsingOptions
     }
     
     private var attributedString: AttributedString
     
-    private var base: TextStyleProtocol? {
-        return styleGroup.base
+    private var base: StyleProtocol? {
+        return xmlStyle.base
     }
     
     private var styles: [String: StyleProtocol] {
-        return styleGroup.styles
+        return xmlStyle.styles
     }
     
     private var xmlDynamicStyles: [XMLDynamicStyle] = []
     
     var currentString: String?
     
-    private weak var styleGroup: XMLTextStyle!
+    private weak var xmlStyle: XMLStyle!
     
-    init(styleGroup: XMLTextStyle, string: String) {
-        self.styleGroup = styleGroup
-        let options = styleGroup.parsingOptions
+    init(xmlStyle: XMLStyle, string: String) {
+        self.xmlStyle = xmlStyle
+        let options = xmlStyle.parsingOptions
         let xml = options.contains(.doNotWrapXML) ? string : "<\(Parser.topTag)>\(string)</\(Parser.topTag)>"
         guard let data = xml.data(using: .utf8) else {
             fatalError("无法转换为 utf8.")
@@ -70,7 +70,7 @@ class Parser: NSObject, XMLParserDelegate {
         self.attributedString = AttributedString()
         self.xmlParser = XMLParser(data: data)
         
-        if let base = styleGroup.base { // 带有默认 root tag
+        if let base = xmlStyle.base { // 带有默认 root tag
             self.xmlDynamicStyles = [
                 XMLDynamicStyle(
                     tag: Parser.topTag,
@@ -142,25 +142,15 @@ class Parser: NSObject, XMLParserDelegate {
             fatalError("发现了未定义样式的 xml tag!")
         }
         
-        let style: XMLDynamicStyle
         // 继承父标签属性
-        if
-            let last = xmlDynamicStyles.last?.style as? TextStyle,
-            let copy = custom as? TextStyle
-        {
-            style = XMLDynamicStyle(
-                tag: elementName,
-                style: copy.merge(last),
-                xmlAttributes: attributes
-            )
-        } else {
-            style = XMLDynamicStyle(
-                tag: elementName,
-                style: custom,
-                xmlAttributes: attributes
-            )
-        }
-        xmlDynamicStyles.append(style)
+        let last = xmlDynamicStyles.last?.style
+        let style = [last, custom].compactMap { $0 }.merge()
+        let dynamicStyle = XMLDynamicStyle(
+            tag: elementName,
+            style: custom, //TODO: replace this style after complete merge!
+            xmlAttributes: attributes
+        )
+        xmlDynamicStyles.append(dynamicStyle)
     }
     
     private func exit(element elementName: String) {
@@ -175,8 +165,8 @@ class Parser: NSObject, XMLParserDelegate {
                 new = attributedString
             } else if let image = style as? UIImage {
                 new = image.generateAttachment()
-            } else if let textStyle = style as? TextStyleProtocol {
-                new = new.set(style: textStyle)
+            } else {
+                new = new.set(style: style)
             }
         }
         attributedString.append(new)

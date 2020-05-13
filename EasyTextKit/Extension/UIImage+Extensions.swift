@@ -8,18 +8,18 @@
 
 import UIKit
 
-extension UIImage: StyleProtocol { }
-
 extension UIImage {
     
-    public func set(style: TextStyle) -> AttributedString {
-        let baselinesOffsetForAttachment = style.baselineOffset ?? 0
+    public func set(style: Style) -> AttributedString {
+        var attributes = style.styleDescription.constructAttributes()
+        let baselineOffset = attributes[.baselineOffset] as? CGFloat
+        let baselinesOffsetForAttachment = baselineOffset ?? 0
         let attachment = NSTextAttachment()
         
         let imageIsTemplate = (renderingMode != .alwaysOriginal)
         
         var imageToUse = self
-        if let color = style.foregroundColor {
+        if let color = attributes[.foregroundColor] as? UIColor {
             if imageIsTemplate {
                 imageToUse = tintedImage(color: color)
             }
@@ -31,15 +31,18 @@ extension UIImage {
         )
         
         let attachmentString = NSAttributedString(attachment: attachment).mutableAttributedStringCopy()
-        var attributes = style.attributes
+        
         attributes[.baselineOffset] = nil
-        attachmentString.addAttributes(attributes, range: NSRange(location: 0, length: attachmentString.length))
+        attachmentString.addAttributes(
+            attributes,
+            range: NSRange(location: 0, length: attachmentString.length)
+        )
         
         return attachmentString
     }
     
     func generateAttachment() -> AttributedString {
-        let style = TextStyle()
+        let style = Style()
         return set(style: style)
     }
     
@@ -52,7 +55,6 @@ extension UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let context = UIGraphicsGetCurrentContext()!
-        
         
         context.translateBy(x: 0.0, y: size.height)
         context.scaleBy(x: 1.0, y: -1.0)

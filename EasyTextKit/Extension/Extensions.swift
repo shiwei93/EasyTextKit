@@ -9,16 +9,17 @@
 import Foundation
 import UIKit
 
-extension Array where Array.Element == TextStyleProtocol {
+extension Array where Array.Element == StyleProtocol {
     
-    public func merge() -> TextStyle {
+    func merge() -> Style {
         var attributes: [NSAttributedString.Key: Any] = [:]
-        forEach {
-            attributes.merge($0.attributes) { (_, new) in
-                return new
-            }
-        }
-        return TextStyle(attributes: attributes)
+//        forEach {
+//            attributes.merge($0.attributes) { (_, new) in
+//                return new
+//            }
+//        }
+        //TODO: - merge description
+        return Style(attributes)
     }
     
 }

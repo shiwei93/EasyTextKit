@@ -11,13 +11,13 @@ import Foundation
 extension NSAttributedString {
     
     @discardableResult
-    public func set(style: TextStyleProtocol, range: NSRange? = nil) -> AttributedString {
+    public func set(style: StyleProtocol, range: NSRange? = nil) -> AttributedString {
         let attribtued = AttributedString(attributedString: self)
         return style.set(to: attribtued, range: range)
     }
     
     @discardableResult
-    public func set(styles: [TextStyleProtocol], range: NSRange? = nil) -> AttributedString {
+    public func set(styles: [StyleProtocol], range: NSRange? = nil) -> AttributedString {
         let attribtued = AttributedString(attributedString: self)
         return styles.merge().set(to: attribtued, range: range)
     }
@@ -30,14 +30,22 @@ extension NSAttributedString {
     }
     
     @discardableResult
-    public func remove(_ style: TextStyleProtocol) -> Self {
-        remove(attributes: Array(style.attributes.keys), range: NSRange(location: 0, length: self.length))
+    public func remove(_ style: StyleProtocol) -> Self {
+        let attributes = style.styleDescription.constructAttributes()
+        remove(
+            attributes: Array(attributes.keys),
+            range: NSRange(location: 0, length: length)
+        )
         return self
     }
     
 }
 
-extension NSAttributedString: StyleProtocol { }
+extension NSAttributedString: StyleProtocol {
+    public var styleDescription: StyleDescription {
+        StyleDescription()
+    }
+}
 
 extension NSAttributedString {
     func mutableAttributedStringCopy() -> AttributedString {
