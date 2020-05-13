@@ -42,11 +42,6 @@ extension UIImage {
         return attachmentString
     }
     
-    func generateAttachment() -> AttributedString {
-        let style = Style()
-        return set(style: style)
-    }
-    
     private func tintedImage(color: UIColor) -> UIImage {
         let imageRect = CGRect(origin: .zero, size: size)
         

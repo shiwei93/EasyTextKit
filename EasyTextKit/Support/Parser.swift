@@ -144,21 +144,23 @@ class Parser: NSObject, XMLParserDelegate {
         }
         
         let dynamicStyle: XMLDynamicStyle
-        // 继承父标签属性
-
-        if let last = xmlDynamicStyles.last?.style { // parent 节点
+        
+        if custom is NSAttributedString {
+            dynamicStyle = XMLDynamicStyle(
+                tag: elementName,
+                style: custom,
+                xmlAttributes: attributes
+            )
+        } else if let last = xmlDynamicStyles.last?.style {
             dynamicStyle = XMLDynamicStyle(
                 tag: elementName,
                 style: Style.combine(last, custom),
                 xmlAttributes: attributes
             )
         } else {
-            dynamicStyle = XMLDynamicStyle(
-                tag: elementName,
-                style: custom,
-                xmlAttributes: attributes
-            )
+            fatalError("")
         }
+        
         xmlDynamicStyles.append(dynamicStyle)
     }
     
@@ -172,8 +174,6 @@ class Parser: NSObject, XMLParserDelegate {
             let style = xmlStyle.style
             if let attributedString = style as? AttributedString {
                 new = attributedString
-            } else if let image = style as? UIImage {
-                new = image.generateAttachment()
             } else {
                 new = new.set(style: style)
             }
