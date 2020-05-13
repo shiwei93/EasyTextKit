@@ -30,7 +30,8 @@ extension UIImage {
             size: size
         )
         
-        let attachmentString = NSAttributedString(attachment: attachment).mutableAttributedStringCopy()
+        let attachmentString = NSAttributedString(
+            attachment: attachment).mutableAttributedStringCopy()
         
         attributes[.baselineOffset] = nil
         attachmentString.addAttributes(
@@ -75,7 +76,10 @@ extension UIImage {
         
         image = image.withAlignmentRectInsets(originalAlignmentRectInsets)
         if originalCapInsets != image.capInsets || originalResizingMode != image.resizingMode {
-            image = image.resizableImage(withCapInsets: originalCapInsets, resizingMode: originalResizingMode)
+            image = image.resizableImage(
+                withCapInsets: originalCapInsets,
+                resizingMode: originalResizingMode
+            )
         }
         
         image.accessibilityLabel = self.accessibilityLabel

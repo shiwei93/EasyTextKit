@@ -12,16 +12,63 @@ public typealias ParagraphStyle = NSMutableParagraphStyle
 
 public struct StyleDescription {
     
-    internal var attributes: [NSAttributedString.Key: Any]
+    var attributes: [NSAttributedString.Key: Any]
+    var dynamicText: DynamicText?
     
-    internal var dynamicText: DynamicText?
-    internal var paragraphStyle: ParagraphStyle
-    internal var tracking: Tracking?
-    internal var fontFeatureConstructors: [FontFeatureConstructor] = []
-    internal var emphasizeStyle: EmphasizeStyle?
-    internal var smallCaps: Set<SmallCaps> = []
+    var lineSpacing: CGFloat? {
+        didSet { paragraphStyle.lineSpacing = lineSpacing ?? 0 }
+    }
+    var paragraphSpacingBefore: CGFloat? {
+        didSet { paragraphStyle.paragraphSpacingBefore = paragraphSpacingBefore ?? 0.0 }
+    }
+    var paragraphSpacing: CGFloat? {
+        didSet { paragraphStyle.paragraphSpacing = paragraphSpacing ?? 0.0 }
+    }
+    var alignment: NSTextAlignment? {
+        didSet { paragraphStyle.alignment = alignment ?? .natural }
+    }
+    var firstLineHeadIndent: CGFloat? {
+        didSet { paragraphStyle.firstLineHeadIndent = firstLineHeadIndent ?? 0.0 }
+    }
+    var headIndent: CGFloat? {
+        didSet { paragraphStyle.headIndent = headIndent ?? 0.0 }
+    }
+    var tailIndent: CGFloat? {
+        didSet { paragraphStyle.tailIndent = tailIndent ?? 0.0 }
+    }
+    var lineBreakMode: NSLineBreakMode? {
+        didSet { paragraphStyle.lineBreakMode = lineBreakMode ?? .byWordWrapping }
+    }
+    var minimumLineHeight: CGFloat? {
+        didSet { paragraphStyle.minimumLineHeight = minimumLineHeight ?? 0.0 }
+    }
+    var maximumLineHeight: CGFloat? {
+        didSet { paragraphStyle.maximumLineHeight = maximumLineHeight ?? 0.0 }
+    }
+    var lineHeightMultiple: CGFloat? {
+        didSet { paragraphStyle.lineHeightMultiple = lineHeightMultiple ?? 0.0 }
+    }
+    var hyphenation: Hyphenation? {
+        didSet { paragraphStyle.hyphenationFactor = hyphenation?.rawValue ?? 0 }
+    }
+    var baseWritingDirection: NSWritingDirection? {
+        didSet { paragraphStyle.baseWritingDirection = baseWritingDirection ?? .natural }
+    }
     
-    internal init(
+    var tracking: Tracking?
+    var numberCase: NumberCase?
+    var numberSpacing: NumberSpacing?
+    var fractions: Fractions?
+    var superscript: Bool?
+    var `subscript`: Bool?
+    var ordinals: Bool?
+    var scientificInferiors: Bool?
+    var smallCaps: Set<SmallCaps>?
+    var emphasizeStyle: EmphasizeStyle?
+    
+    private(set) var paragraphStyle: ParagraphStyle
+    
+    init(
         attributes: [NSAttributedString.Key: Any] = [:],
         paragraphStyle: ParagraphStyle? = nil
     ) {
@@ -29,7 +76,7 @@ public struct StyleDescription {
         self.paragraphStyle = paragraphStyle?.paragraphCopy() ?? ParagraphStyle()
     }
     
-    internal mutating func set<T>(value: T?, forKey key: NSAttributedString.Key) {
+    mutating func set<T>(value: T?, forKey key: NSAttributedString.Key) {
         guard let value = value else {
             attributes.removeValue(forKey: key)
             return
@@ -37,24 +84,37 @@ public struct StyleDescription {
         attributes[key] = value
     }
     
-    internal func get<T>(attributeForKey key: NSAttributedString.Key) -> T? {
+    func get<T>(attributeForKey key: NSAttributedString.Key) -> T? {
         return attributes[key] as? T
     }
     
-    internal func constructAttributes() -> [NSAttributedString.Key: Any] {
+    func constructAttributes() -> [NSAttributedString.Key: Any] {
         var attributes: [NSAttributedString.Key: Any] = self.attributes
-        
         attributes[.paragraphStyle] = paragraphStyle
         
-        var font = (attributes[.font] as? UIFont) ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        var font = (attributes[.font] as? UIFont) ?? UIFont.systemFont(
+            ofSize: UIFont.systemFontSize
+        )
+        
+        var fontFeatureConstructors: [FontFeatureConstructor] = []
+        fontFeatureConstructors += [numberCase].compactMap { $0 }
+        fontFeatureConstructors += [numberSpacing].compactMap { $0 }
+        fontFeatureConstructors += [fractions].compactMap { $0 }
+        fontFeatureConstructors += [superscript].compactMap { $0 }
+            .map { $0 ? VerticalPosition.superscript : VerticalPosition.normal }
+        fontFeatureConstructors += [`subscript`].compactMap { $0 }
+            .map { $0 ? VerticalPosition.subscript : VerticalPosition.normal }
+        fontFeatureConstructors += [ordinals].compactMap { $0 }
+            .map { $0 ? VerticalPosition.ordinals : VerticalPosition.normal }
+        fontFeatureConstructors += [scientificInferiors].compactMap { $0 }
+            .map { $0 ? VerticalPosition.scientificInferiors : VerticalPosition.normal }
+        fontFeatureConstructors += smallCaps?.map { $0 } ?? []
         
         let fontFeatures = fontFeatureConstructors.flatMap { $0.attributes() }
-        
         if !fontFeatures.isEmpty {
             let descriptor = font.fontDescriptor.addingAttributes([
                 UIFontDescriptor.AttributeName.featureSettings: fontFeatures
             ])
-            
             font = UIFont(descriptor: descriptor, size: font.pointSize)
         }
         
@@ -100,15 +160,61 @@ public struct StyleDescription {
         )
     }
     
-    internal func copy() -> StyleDescription {
+    func copy() -> StyleDescription {
         var description = StyleDescription()
         description.attributes = attributes
         description.tracking = tracking
         description.dynamicText = dynamicText
         description.paragraphStyle = paragraphStyle.paragraphCopy()
-        description.fontFeatureConstructors = fontFeatureConstructors
-        description.emphasizeStyle = emphasizeStyle
+        description.numberCase = numberCase
+        description.numberSpacing = numberSpacing
+        description.fractions = fractions
+        description.superscript = superscript
+        description.subscript = `subscript`
+        description.ordinals = ordinals
+        description.scientificInferiors = scientificInferiors
         description.smallCaps = smallCaps
+        description.emphasizeStyle = emphasizeStyle
+        return description
+    }
+    
+    static func combine(_ parent: StyleDescription, _ child: StyleDescription) -> StyleDescription {
+        let attributes = parent.attributes.merging(child.attributes) { _, new in
+            return new
+        }
+        var description = StyleDescription(
+            attributes: attributes,
+            paragraphStyle: parent.paragraphStyle
+        )
+        description.dynamicText = child.dynamicText ?? parent.dynamicText
+        
+        description.lineSpacing = child.lineSpacing ?? parent.lineSpacing
+        description.paragraphSpacingBefore = child.paragraphSpacingBefore
+            ?? parent.paragraphSpacingBefore
+        description.paragraphSpacing = child.paragraphSpacing ?? parent.paragraphSpacing
+        description.alignment = child.alignment ?? parent.alignment
+        description.firstLineHeadIndent = child.firstLineHeadIndent ?? parent.firstLineHeadIndent
+        description.headIndent = child.headIndent ?? parent.headIndent
+        description.tailIndent = child.tailIndent ?? parent.tailIndent
+        description.lineBreakMode = child.lineBreakMode ?? parent.lineBreakMode
+        description.minimumLineHeight = child.minimumLineHeight ?? parent.minimumLineHeight
+        description.maximumLineHeight = child.maximumLineHeight ?? parent.maximumLineHeight
+        description.lineHeightMultiple = child.lineHeightMultiple ?? parent.lineHeightMultiple
+        description.hyphenation = child.hyphenation ?? parent.hyphenation
+        description.baseWritingDirection = child.baseWritingDirection ?? parent.baseWritingDirection
+        
+        description.tracking = child.tracking ?? parent.tracking
+        description.numberCase = child.numberCase ?? parent.numberCase
+        description.numberSpacing = child.numberSpacing ?? parent.numberSpacing
+        description.fractions = child.fractions ?? parent.fractions
+        description.superscript = child.superscript ?? parent.superscript
+        description.subscript = child.subscript ?? parent.subscript
+        description.ordinals = child.ordinals ?? parent.ordinals
+        description.scientificInferiors = child.scientificInferiors ?? parent.scientificInferiors
+        description.smallCaps = parent.smallCaps?.union(child.smallCaps ?? []) ?? child.smallCaps
+        description.emphasizeStyle = parent.emphasizeStyle?.union(
+            child.emphasizeStyle ?? []) ?? child.emphasizeStyle
+        
         return description
     }
     

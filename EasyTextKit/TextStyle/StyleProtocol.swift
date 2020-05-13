@@ -23,6 +23,8 @@ public protocol StyleProtocol {
 
 extension StyleProtocol {
     
+    public var styleDescription: StyleDescription { StyleDescription() }
+    
     public func set(to source: String, range: NSRange?) -> AttributedString {
         let range = range ?? NSRange(location: 0, length: source.count)
         let attributedText = AttributedString(string: source)
@@ -43,6 +45,11 @@ extension StyleProtocol {
             source.removeAttribute($0, range: range)
         }
         return source
+    }
+    
+    static func combine(_ parent: StyleProtocol, _ child: StyleProtocol) -> StyleProtocol {
+        let description = StyleDescription.combine(parent.styleDescription, child.styleDescription)
+        return Style(description)
     }
     
 }

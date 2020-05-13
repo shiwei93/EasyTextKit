@@ -17,12 +17,6 @@ extension NSAttributedString {
     }
     
     @discardableResult
-    public func set(styles: [StyleProtocol], range: NSRange? = nil) -> AttributedString {
-        let attribtued = AttributedString(attributedString: self)
-        return styles.merge().set(to: attribtued, range: range)
-    }
-    
-    @discardableResult
     public func remove(attributes keys: [NSAttributedString.Key], range: NSRange) -> Self {
         let attribtued = AttributedString(attributedString: self)
         keys.forEach { attribtued.removeAttribute($0, range: range) }
@@ -41,11 +35,7 @@ extension NSAttributedString {
     
 }
 
-extension NSAttributedString: StyleProtocol {
-    public var styleDescription: StyleDescription {
-        StyleDescription()
-    }
-}
+extension NSAttributedString: StyleProtocol { }
 
 extension NSAttributedString {
     func mutableAttributedStringCopy() -> AttributedString {

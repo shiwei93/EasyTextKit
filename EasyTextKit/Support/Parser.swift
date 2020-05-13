@@ -62,7 +62,8 @@ class Parser: NSObject, XMLParserDelegate {
     init(xmlStyle: XMLStyle, string: String) {
         self.xmlStyle = xmlStyle
         let options = xmlStyle.parsingOptions
-        let xml = options.contains(.doNotWrapXML) ? string : "<\(Parser.topTag)>\(string)</\(Parser.topTag)>"
+        let xml = options.contains(.doNotWrapXML) ?
+            string : "<\(Parser.topTag)>\(string)</\(Parser.topTag)>"
         guard let data = xml.data(using: .utf8) else {
             fatalError("无法转换为 utf8.")
         }
@@ -142,14 +143,22 @@ class Parser: NSObject, XMLParserDelegate {
             fatalError("发现了未定义样式的 xml tag!")
         }
         
+        let dynamicStyle: XMLDynamicStyle
         // 继承父标签属性
-        let last = xmlDynamicStyles.last?.style
-        let style = [last, custom].compactMap { $0 }.merge()
-        let dynamicStyle = XMLDynamicStyle(
-            tag: elementName,
-            style: custom, //TODO: replace this style after complete merge!
-            xmlAttributes: attributes
-        )
+
+        if let last = xmlDynamicStyles.last?.style { // parent 节点
+            dynamicStyle = XMLDynamicStyle(
+                tag: elementName,
+                style: Style.combine(last, custom),
+                xmlAttributes: attributes
+            )
+        } else {
+            dynamicStyle = XMLDynamicStyle(
+                tag: elementName,
+                style: custom,
+                xmlAttributes: attributes
+            )
+        }
         xmlDynamicStyles.append(dynamicStyle)
     }
     

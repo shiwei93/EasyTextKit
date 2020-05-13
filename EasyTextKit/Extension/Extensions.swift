@@ -6,23 +6,7 @@
 //  Copyright © 2020 easy. All rights reserved.
 //
 
-import Foundation
 import UIKit
-
-extension Array where Array.Element == StyleProtocol {
-    
-    func merge() -> Style {
-        var attributes: [NSAttributedString.Key: Any] = [:]
-//        forEach {
-//            attributes.merge($0.attributes) { (_, new) in
-//                return new
-//            }
-//        }
-        //TODO: - merge description
-        return Style(attributes)
-    }
-    
-}
 
 extension NSParagraphStyle {
     func paragraphCopy() -> NSMutableParagraphStyle {

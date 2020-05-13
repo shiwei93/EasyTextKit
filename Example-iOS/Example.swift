@@ -80,9 +80,9 @@ struct Example {
     
     static let emphasis: NSAttributedString = {
         let string = """
-        You can parse HTML with <strong>strong</strong>, <em>em</em>, and even <strong><em>nested strong and em</em></strong> tags
+        You can parse HTML with <strong>strong</strong>, <em>em</em>, <strong>and even <em>nested strong and em</em></strong> tags
 
-        You can parse HTML with <strong>strong</strong>, <em>em</em>, and even <strong><em>nested strong and em</em></strong> tags.
+        You can parse HTML with <strong>strong</strong>, <em>em</em>, <strong>and even <em>nested strong and em</em></strong> tags.
         """
         
         let base = Style()

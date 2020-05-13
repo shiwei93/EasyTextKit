@@ -14,8 +14,4 @@ extension String {
         return style.set(to: self, range: range)
     }
     
-    public func set(styles: [StyleProtocol], range: NSRange? = nil) -> AttributedString {
-        return styles.merge().set(to: self, range: range)
-    }
-    
 }

@@ -16,7 +16,11 @@ public struct DynamicText {
     
     public var traitCollection: UITraitCollection?
     
-    public init(style: UIFont.TextStyle? = nil, maximumPointSize: CGFloat = 0.0, compatibleWith traitCollection: UITraitCollection? = nil) {
+    public init(
+        style: UIFont.TextStyle? = nil,
+        maximumPointSize: CGFloat = 0.0,
+        compatibleWith traitCollection: UITraitCollection? = nil
+    ) {
         self.style = style
         self.maximumPointSize = maximumPointSize
         self.traitCollection = traitCollection
