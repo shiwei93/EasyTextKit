@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImage {
     
-    public func applying(style: Style) -> AttributedString {
+    public func attributedString(style: Style) -> AttributedString {
         var attributes = style.styleDescription.constructAttributes()
         let baselineOffset = attributes[.baselineOffset] as? CGFloat
         let baselinesOffsetForAttachment = baselineOffset ?? 0

@@ -175,7 +175,7 @@ class Parser: NSObject, XMLParserDelegate {
             if let attributedString = style as? AttributedString {
                 new = attributedString
             } else {
-                new = new.attributedString(style: style)
+                new = new.applying(style: style)
             }
         }
         attributedString.append(new)
