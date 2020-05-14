@@ -23,7 +23,7 @@ public protocol StyleProtocol {
 
 extension StyleProtocol {
     
-    public var styleDescription: StyleDescription { StyleDescription() }
+    public var styleDescription: StyleDescription { StyleDescription(attributes: [:]) }
     
     public func set(to source: String, range: NSRange?) -> AttributedString {
         let range = range ?? NSRange(location: 0, length: source.count)

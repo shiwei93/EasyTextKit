@@ -24,7 +24,7 @@ public class XMLStyle: StyleProtocol {
         _ styles: [String: StyleProtocol] = [:],
         options: ParsingOptions = []
     ) {
-        self.styleDescription = StyleDescription()
+        self.styleDescription = StyleDescription(attributes: [:])
         self.styles = styles
         self.base = base
         self.parsingOptions = options

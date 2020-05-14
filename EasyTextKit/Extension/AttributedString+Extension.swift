@@ -11,7 +11,7 @@ import Foundation
 extension NSAttributedString {
     
     @discardableResult
-    public func set(style: StyleProtocol, range: NSRange? = nil) -> AttributedString {
+    public func applying(style: StyleProtocol, range: NSRange? = nil) -> AttributedString {
         let attribtued = AttributedString(attributedString: self)
         return style.set(to: attribtued, range: range)
     }
@@ -24,7 +24,7 @@ extension NSAttributedString {
     }
     
     @discardableResult
-    public func remove(_ style: StyleProtocol) -> Self {
+    public func remove(style: StyleProtocol) -> Self {
         let attributes = style.styleDescription.constructAttributes()
         remove(
             attributes: Array(attributes.keys),

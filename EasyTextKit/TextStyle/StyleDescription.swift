@@ -15,45 +15,19 @@ public struct StyleDescription {
     var attributes: [NSAttributedString.Key: Any]
     var dynamicText: DynamicText?
     
-    var lineSpacing: CGFloat? {
-        didSet { paragraphStyle.lineSpacing = lineSpacing ?? 0 }
-    }
-    var paragraphSpacingBefore: CGFloat? {
-        didSet { paragraphStyle.paragraphSpacingBefore = paragraphSpacingBefore ?? 0.0 }
-    }
-    var paragraphSpacing: CGFloat? {
-        didSet { paragraphStyle.paragraphSpacing = paragraphSpacing ?? 0.0 }
-    }
-    var alignment: NSTextAlignment? {
-        didSet { paragraphStyle.alignment = alignment ?? .natural }
-    }
-    var firstLineHeadIndent: CGFloat? {
-        didSet { paragraphStyle.firstLineHeadIndent = firstLineHeadIndent ?? 0.0 }
-    }
-    var headIndent: CGFloat? {
-        didSet { paragraphStyle.headIndent = headIndent ?? 0.0 }
-    }
-    var tailIndent: CGFloat? {
-        didSet { paragraphStyle.tailIndent = tailIndent ?? 0.0 }
-    }
-    var lineBreakMode: NSLineBreakMode? {
-        didSet { paragraphStyle.lineBreakMode = lineBreakMode ?? .byWordWrapping }
-    }
-    var minimumLineHeight: CGFloat? {
-        didSet { paragraphStyle.minimumLineHeight = minimumLineHeight ?? 0.0 }
-    }
-    var maximumLineHeight: CGFloat? {
-        didSet { paragraphStyle.maximumLineHeight = maximumLineHeight ?? 0.0 }
-    }
-    var lineHeightMultiple: CGFloat? {
-        didSet { paragraphStyle.lineHeightMultiple = lineHeightMultiple ?? 0.0 }
-    }
-    var hyphenation: Hyphenation? {
-        didSet { paragraphStyle.hyphenationFactor = hyphenation?.rawValue ?? 0 }
-    }
-    var baseWritingDirection: NSWritingDirection? {
-        didSet { paragraphStyle.baseWritingDirection = baseWritingDirection ?? .natural }
-    }
+    var lineSpacing: CGFloat?
+    var paragraphSpacingBefore: CGFloat?
+    var paragraphSpacing: CGFloat?
+    var alignment: NSTextAlignment?
+    var firstLineHeadIndent: CGFloat?
+    var headIndent: CGFloat?
+    var tailIndent: CGFloat?
+    var lineBreakMode: NSLineBreakMode?
+    var minimumLineHeight: CGFloat?
+    var maximumLineHeight: CGFloat?
+    var lineHeightMultiple: CGFloat?
+    var hyphenation: Hyphenation?
+    var baseWritingDirection: NSWritingDirection?
     
     var tracking: Tracking?
     var numberCase: NumberCase?
@@ -66,14 +40,10 @@ public struct StyleDescription {
     var smallCaps: Set<SmallCaps>?
     var emphasizeStyle: EmphasizeStyle?
     
-    private(set) var paragraphStyle: ParagraphStyle
-    
     init(
-        attributes: [NSAttributedString.Key: Any] = [:],
-        paragraphStyle: ParagraphStyle? = nil
+        attributes: [NSAttributedString.Key: Any]
     ) {
         self.attributes = attributes
-        self.paragraphStyle = paragraphStyle?.paragraphCopy() ?? ParagraphStyle()
     }
     
     mutating func set<T>(value: T?, forKey key: NSAttributedString.Key) {
@@ -90,7 +60,25 @@ public struct StyleDescription {
     
     func constructAttributes() -> [NSAttributedString.Key: Any] {
         var attributes: [NSAttributedString.Key: Any] = self.attributes
-        attributes[.paragraphStyle] = paragraphStyle
+        
+        // paragraph style
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing ?? 0.0
+        paragraphStyle.paragraphSpacingBefore = paragraphSpacingBefore ?? 0.0
+        paragraphStyle.paragraphSpacing = paragraphSpacing ?? 0.0
+        paragraphStyle.alignment = alignment ?? .natural
+        paragraphStyle.firstLineHeadIndent = firstLineHeadIndent ?? 0.0
+        paragraphStyle.headIndent = headIndent ?? 0.0
+        paragraphStyle.tailIndent = tailIndent ?? 0.0
+        paragraphStyle.lineBreakMode = lineBreakMode ?? .byWordWrapping
+        paragraphStyle.minimumLineHeight = minimumLineHeight ?? 0.0
+        paragraphStyle.maximumLineHeight = maximumLineHeight ?? 0.0
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple ?? 0.0
+        paragraphStyle.hyphenationFactor = (hyphenation ?? .disabled).rawValue
+        paragraphStyle.baseWritingDirection = baseWritingDirection ?? .natural
+        if paragraphStyle != NSParagraphStyle.default {
+            attributes[.paragraphStyle] = paragraphStyle
+        }
         
         var font = (attributes[.font] as? UIFont) ?? UIFont.systemFont(
             ofSize: UIFont.systemFontSize
@@ -160,31 +148,12 @@ public struct StyleDescription {
         )
     }
     
-    func copy() -> StyleDescription {
-        var description = StyleDescription()
-        description.attributes = attributes
-        description.tracking = tracking
-        description.dynamicText = dynamicText
-        description.paragraphStyle = paragraphStyle.paragraphCopy()
-        description.numberCase = numberCase
-        description.numberSpacing = numberSpacing
-        description.fractions = fractions
-        description.superscript = superscript
-        description.subscript = `subscript`
-        description.ordinals = ordinals
-        description.scientificInferiors = scientificInferiors
-        description.smallCaps = smallCaps
-        description.emphasizeStyle = emphasizeStyle
-        return description
-    }
-    
     static func combine(_ parent: StyleDescription, _ child: StyleDescription) -> StyleDescription {
         let attributes = parent.attributes.merging(child.attributes) { _, new in
             return new
         }
         var description = StyleDescription(
-            attributes: attributes,
-            paragraphStyle: parent.paragraphStyle
+            attributes: attributes
         )
         description.dynamicText = child.dynamicText ?? parent.dynamicText
         

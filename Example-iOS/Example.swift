@@ -20,7 +20,7 @@ struct Example {
             .tracking(.point(6))
             .foregroundColor(UIColor(red: 0.15, green: 0.4, blue: 0.86, alpha: 1.0))
         
-        return "JUST SAMPLE".set(style: style)
+        return "JUST SAMPLE".attributedString(style: style)
     }()
     
     static let xmlSample: NSAttributedString = {
@@ -46,24 +46,24 @@ struct Example {
         }
         
         
-        let accent = Style(style)
+        let accent = style
             .font(UIFont(name: "SuperClarendon-Black", size: 18)!)
         
-        let black = Style(accent)
+        let black = accent
             .foregroundColor(.white)
             .backgroundColor(.black)
         
-        let red = Style(accent)
+        let red = accent
             .foregroundColor(.white)
             .backgroundColor(color)
         
-        let signed = Style(accent)
+        let signed = accent
             .foregroundColor(color)
         
         let image = UIImage(named: "Tennis Racket")!
-        let imageStyle = Style(signed)
+        let imageStyle = signed
             .baselineOffset(-4)
-        let racket = image.set(style: imageStyle)
+        let racket = image.attributedString(style: imageStyle)
         
         let group = XMLStyle(
             base: style,
@@ -75,7 +75,7 @@ struct Example {
             ]
         )
         
-        return xml.set(style: group)
+        return xml.attributedString(style: group)
     }()
     
     static let emphasis: NSAttributedString = {
@@ -92,11 +92,11 @@ struct Example {
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
         
-        let em = Style(base)
+        let em = base
             .foregroundColor(color)
             .emphasizeStyle(.italic)
         
-        let strong = Style(base)
+        let strong = base
             .foregroundColor(color)
             .emphasizeStyle(.bold)
         
@@ -107,7 +107,7 @@ struct Example {
                 "strong": strong
             ]
         )
-        return string.set(style: xmlStyle)
+        return string.attributedString(style: xmlStyle)
     }()
     
     static let digital: NSAttributedString = {
@@ -117,28 +117,22 @@ struct Example {
         
         let digits = "\n0123456789"
         
-        
-        let color = Style(garamondStyle)
+        let color = garamondStyle
             .smallCaps([.fromLowercase])
             .foregroundColor(UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0))
         
-        Style(garamondStyle)
-            .numberCase(.lower)
-            .numberSpacing(.monospaced)
-            .foregroundColor(UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0))
-        
         return NSAttributedString {
-            "Number Styles".set(style: color)
-            digits.set(style: Style(garamondStyle)
+            "Number Styles".attributedString(style: color)
+            digits.attributedString(style: garamondStyle
                 .numberCase(.lower)
                 .numberSpacing(.monospaced))
-            digits.set(style: Style(garamondStyle)
+            digits.attributedString(style: garamondStyle
                 .numberCase(.upper)
                 .numberSpacing(.monospaced))
-            digits.set(style: Style(garamondStyle)
+            digits.attributedString(style: garamondStyle
                 .numberCase(.lower)
                 .numberSpacing(.proportional))
-            digits.set(style: Style(garamondStyle)
+            digits.attributedString(style: garamondStyle
                 .numberCase(.upper)
                 .numberSpacing(.proportional))
         }
@@ -155,13 +149,13 @@ struct Example {
         
         let foregroundColor = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
-        let name = Style(garamondStyle)
+        let name = garamondStyle
             .smallCaps([.fromLowercase])
         
-        let chemical = Style(garamondStyle)
+        let chemical = garamondStyle
             .foregroundColor(foregroundColor)
         
-        let number = Style(chemical)
+        let number = chemical
             .scientificInferiors(isOn: true)
         
         let style = XMLStyle(
@@ -172,7 +166,7 @@ struct Example {
                 "number": number
             ]
         )
-        return string.set(style: style)
+        return string.attributedString(style: style)
     }()
     
     // 分数
@@ -191,18 +185,17 @@ struct Example {
             1336 <normal>6/10</normal> + <normal>4/10</normal> = 1337
         """
         
-        
-        let fraction = Style(garamondStyle)
+        let fraction = garamondStyle
             .fractions(.diagonal)
             .numberCase(.lower)
             .foregroundColor(color)
         
-        let vfraction = Style(garamondStyle)
+        let vfraction = garamondStyle
             .fractions(.vertical)
             .numberCase(.lower)
             .foregroundColor(color)
         
-        let normalFraction = Style(garamondStyle)
+        let normalFraction = garamondStyle
             .fractions(.disabled)
             .numberCase(.lower)
             .foregroundColor(color)
@@ -214,7 +207,7 @@ struct Example {
                 "normal": normalFraction
             ]
         )
-        return string.set(style: style)
+        return string.attributedString(style: style)
     }()
     
     static let superscript: NSAttributedString = {
@@ -225,11 +218,11 @@ struct Example {
         let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         let string = "Today is my <number>111<ordinal>th</ordinal></number> birthday!"
         
-        let number = Style(garamondStyle)
+        let number = garamondStyle
             .foregroundColor(color)
             .numberCase(.upper)
         
-        let ordinal = Style(garamondStyle)
+        let ordinal = garamondStyle
             .superscript(isOn: true)
         
         let style = XMLStyle(
@@ -239,7 +232,7 @@ struct Example {
                 "ordinal": ordinal
             ]
         )
-        return string.set(style: style)
+        return string.attributedString(style: style)
     }()
     
     static let ligature: NSAttributedString = {
@@ -251,9 +244,9 @@ struct Example {
         let text = "Hello Swift!!!"
         
         return NSAttributedString {
-            text.set(style: Style(style).ligature(.default))
+            text.attributedString(style: style.ligature(.default))
             "\n"
-            text.set(style: Style(style)
+            text.attributedString(style: style
                 .ligature(.disabled))
             "\n"
         }
@@ -274,15 +267,15 @@ struct Example {
         let base = Style()
             .font(UIFont(name: "HelveticaNeue-Bold", size: 24)!)
         
-        let style = Style(base)
+        let style = base
             .baselineOffset(8)
         
         return NSAttributedString {
-            "2".set(style: style)
+            "2".attributedString(style: style)
             bee
             oar
             knot
-            "2".set(style: style)
+            "2".attributedString(style: style)
             bee
         }
     }()
@@ -296,35 +289,35 @@ struct Example {
         return NSAttributedString {
             UIImage(named: "barn")!
             " "
-            "This".set(style: base)
+            "This".attributedString(style: base)
             " "
             UIImage(named: "bee")!
             " "
-            "string".set(style: base)
+            "string".attributedString(style: base)
             " "
             UIImage(named: "bug")!
             " "
-            "is".set(style: base)
+            "is".attributedString(style: base)
             " "
             UIImage(named: "circuit")!
             " "
-            "separated".set(style: base)
+            "separated".attributedString(style: base)
             " "
             UIImage(named: "cut")!
             " "
-            "by".set(style: base)
+            "by".attributedString(style: base)
             " "
             UIImage(named: "discount")!
             " "
-            "images".set(style: base)
+            "images".attributedString(style: base)
             " "
             UIImage(named: "gift")!
             " "
-            "and".set(style: base)
+            "and".attributedString(style: base)
             " "
             UIImage(named: "pin")!
             " "
-            "spaces".set(style: base)
+            "spaces".attributedString(style: base)
             " "
             UIImage(named: "robot")!
             "\n"
@@ -348,11 +341,11 @@ struct Example {
         
         """
         
-        let large = Style(base)
+        let large = base
             .font(UIFont(name: "AvenirNext-Heavy", size: 64)!)
             .lineSpacing(40)
         
-        let kern = Style(large)
+        let kern = large
             .tracking(.adobe(-80))
         
         let style = XMLStyle(
@@ -362,7 +355,7 @@ struct Example {
                 "kern": kern
             ]
         )
-        return phrase.set(style: style)
+        return phrase.attributedString(style: style)
     }()
     
     static let composition: NSAttributedString = {
@@ -372,23 +365,23 @@ struct Example {
             .alignment(.center)
         
         
-        let preamble = Style(base)
+        let preamble = base
             .font(UIFont(name: "AvenirNext-Bold", size: 14)!)
         
         
-        let bigger = Style(base)
+        let bigger = base
             .font(UIFont(name: "AvenirNext-Heavy", size: 64)!)
         
-        let imageStyle = Style(base)
+        let imageStyle = base
             .foregroundColor(color)
         
         let image = UIImage(named: "boat")!
-        let boat = image.set(style: imageStyle)
+        let boat = image.attributedString(style: imageStyle)
         
         return NSAttributedString {
             "\n\n"
-            "You're going to need a\n".set(style: preamble)
-            "Bigger\n".localizedUppercase.set(style: bigger)
+            "You're going to need a\n".attributedString(style: preamble)
+            "Bigger\n".localizedUppercase.attributedString(style: bigger)
             boat
             "\n\n"
         }
@@ -399,22 +392,22 @@ struct Example {
             .font(UIFont(name: "AvenirNextCondensed-Medium", size: 18.0)!)
         
         
-        let indention = Style(base)
+        let indention = base
             .firstLineHeadIndent(18)
             .paragraphSpacingBefore(9)
             .headIndent(30.78)
         
         
         
-        let emoji = Style(base)
+        let emoji = base
             .firstLineHeadIndent(18)
             .paragraphSpacingBefore(9)
             .headIndent(64.78)
         
         return NSAttributedString {
-            "• You can also use strings (including emoji) for bullets, and they will still properly indent the appended text by the right amount.".set(style: indention)
+            "• You can also use strings (including emoji) for bullets, and they will still properly indent the appended text by the right amount.".attributedString(style: indention)
             "\n"
-            "🍑 → You can also use strings (including emoji) for bullets, and they will still properly indent the appended text by the right amount.".set(style: emoji)
+            "🍑 → You can also use strings (including emoji) for bullets, and they will still properly indent the appended text by the right amount.".attributedString(style: emoji)
             "\n"
         }
     }()
@@ -427,15 +420,15 @@ struct Example {
         
         return NSAttributedString {
             "加粗 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.bold))
+            "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.bold))
             "斜体 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.italic))
+            "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.italic))
             "压缩 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.condensed))
+            "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.condensed))
             "拉伸 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.expanded))
+            "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.expanded))
             "等宽 "
-            "SymbolicTraits 01234\n".localizedUppercase.set(style: Style(base).emphasizeStyle(.monoSpace))
+            "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.monoSpace))
         }
         
     }()
@@ -455,7 +448,7 @@ struct Example {
         
         let string = "Hello, ceci estun texte anticonstitutionnellement tràs."
         
-        return string.set(style: base)
+        return string.attributedString(style: base)
     }()
     
 }

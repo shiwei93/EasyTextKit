@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    public func set(style: StyleProtocol, range: NSRange? = nil) -> AttributedString {
+    public func attributedString(style: StyleProtocol, range: NSRange? = nil) -> AttributedString {
         return style.set(to: self, range: range)
     }
     
