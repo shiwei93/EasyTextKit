@@ -145,7 +145,7 @@ class Parser: NSObject, XMLParserDelegate {
         
         let dynamicStyle: XMLDynamicStyle
         
-        if custom is NSAttributedString {
+        if custom is NSAttributedString || xmlDynamicStyles.count == 1 {
             dynamicStyle = XMLDynamicStyle(
                 tag: elementName,
                 style: custom,
