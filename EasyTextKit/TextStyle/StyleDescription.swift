@@ -8,8 +8,6 @@
 
 import UIKit
 
-public typealias ParagraphStyle = NSMutableParagraphStyle
-
 public struct StyleDescription {
     
     var attributes: [NSAttributedString.Key: Any]
