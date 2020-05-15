@@ -6,8 +6,11 @@
 //  Copyright © 2020 easy. All rights reserved.
 //
 
-import Foundation
+#if os(OSX)
+import AppKit
+#else
 import UIKit
+#endif
 
 // MARK: - ParserError
 

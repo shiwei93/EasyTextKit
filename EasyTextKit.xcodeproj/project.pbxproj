@@ -13,25 +13,31 @@
 		C40FE299246AA507009F8210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40FE297246AA507009F8210 /* Main.storyboard */; };
 		C40FE29B246AA508009F8210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C40FE29A246AA508009F8210 /* Assets.xcassets */; };
 		C40FE29E246AA508009F8210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40FE29C246AA508009F8210 /* LaunchScreen.storyboard */; };
-		C40FE2C1246AA568009F8210 /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit.framework */; };
+		C40FE2C1246AA568009F8210 /* EasyTextKit iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit iOS.framework */; };
 		C40FE2C8246AA568009F8210 /* EasyTextKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2C7246AA568009F8210 /* EasyTextKitTests.swift */; };
 		C40FE2CA246AA568009F8210 /* EasyTextKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C40FE2BA246AA568009F8210 /* EasyTextKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C40FE2CD246AA568009F8210 /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit.framework */; };
-		C40FE2CE246AA568009F8210 /* EasyTextKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C40FE2E7246AA5B4009F8210 /* StyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2D8246AA5B4009F8210 /* StyleProtocol.swift */; };
-		C40FE2E9246AA5B4009F8210 /* XMLStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2DA246AA5B4009F8210 /* XMLStyle.swift */; };
-		C40FE2EA246AA5B4009F8210 /* CommonsAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2DC246AA5B4009F8210 /* CommonsAttributes.swift */; };
-		C40FE2EC246AA5B4009F8210 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2DE246AA5B4009F8210 /* AttributedStringBuilder.swift */; };
-		C40FE2ED246AA5B4009F8210 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E0246AA5B4009F8210 /* Parser.swift */; };
-		C40FE2EE246AA5B4009F8210 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E2246AA5B4009F8210 /* String+Extensions.swift */; };
-		C40FE2EF246AA5B4009F8210 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E3246AA5B4009F8210 /* UIImage+Extensions.swift */; };
-		C40FE2F0246AA5B4009F8210 /* AttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E4246AA5B4009F8210 /* AttributedString+Extension.swift */; };
-		C40FE2F1246AA5B4009F8210 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2E5246AA5B4009F8210 /* Extensions.swift */; };
+		C40FE2CD246AA568009F8210 /* EasyTextKit iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit iOS.framework */; };
+		C40FE2CE246AA568009F8210 /* EasyTextKit iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C40FE2B8246AA568009F8210 /* EasyTextKit iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C40FE2F3246AA5F5009F8210 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2F2246AA5F5009F8210 /* Example.swift */; };
-		C40FE2F7246AA68E009F8210 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2F6246AA68E009F8210 /* Style.swift */; };
 		C40FE2F9246B8062009F8210 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C40FE2F8246B801C009F8210 /* EBGaramond12-Regular.otf */; };
-		C4ACAAE9246BD05E00981FEF /* DynamicText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAAE8246BD05E00981FEF /* DynamicText.swift */; };
-		C4ACAAEB246BE63700981FEF /* StyleDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAAEA246BE63700981FEF /* StyleDescription.swift */; };
+		C4ACAC7C246E956600981FEF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4ACAC7A246E956600981FEF /* Interface.storyboard */; };
+		C4ACAC7E246E956900981FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4ACAC7D246E956900981FEF /* Assets.xcassets */; };
+		C4ACAC85246E956900981FEF /* Example-watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C4ACAC84246E956900981FEF /* Example-watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4ACAC8A246E956900981FEF /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAC89246E956900981FEF /* InterfaceController.swift */; };
+		C4ACAC8C246E956900981FEF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAC8B246E956900981FEF /* ExtensionDelegate.swift */; };
+		C4ACAC8E246E956900981FEF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAC8D246E956900981FEF /* NotificationController.swift */; };
+		C4ACAC90246E956A00981FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4ACAC8F246E956A00981FEF /* Assets.xcassets */; };
+		C4ACAC95246E956A00981FEF /* Example-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C4ACAC78246E956600981FEF /* Example-watchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4ACAC9D246E96E200981FEF /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40FE2F2246AA5F5009F8210 /* Example.swift */; };
+		C4ACACD2246E9B3300981FEF /* EasyTextKit_watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C4ACACD0246E9B3300981FEF /* EasyTextKit_watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4ACACD5246E9B3300981FEF /* EasyTextKit_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACACCE246E9B3300981FEF /* EasyTextKit_watchOS.framework */; };
+		C4ACACD6246E9B3300981FEF /* EasyTextKit_watchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACACCE246E9B3300981FEF /* EasyTextKit_watchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C4ACACE9246E9B4600981FEF /* EasyTextKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACACE0246E9B4600981FEF /* EasyTextKit_tvOS.framework */; };
+		C4ACACEE246E9B4600981FEF /* EasyTextKit_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACACED246E9B4600981FEF /* EasyTextKit_tvOSTests.swift */; };
+		C4ACACF0246E9B4600981FEF /* EasyTextKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C4ACACE2246E9B4600981FEF /* EasyTextKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4ACAD05246E9B6100981FEF /* EasyTextKit_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACACFC246E9B6100981FEF /* EasyTextKit_macOS.framework */; };
+		C4ACAD0A246E9B6100981FEF /* EasyTextKit_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACAD09246E9B6100981FEF /* EasyTextKit_macOSTests.swift */; };
+		C4ACAD0C246E9B6100981FEF /* EasyTextKit_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C4ACACFE246E9B6100981FEF /* EasyTextKit_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +62,41 @@
 			remoteGlobalIDString = C40FE2B7246AA568009F8210;
 			remoteInfo = EasyTextKit;
 		};
+		C4ACAC86246E956900981FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C40FE286246AA507009F8210 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4ACAC83246E956900981FEF;
+			remoteInfo = "Example-watchOS Extension";
+		};
+		C4ACAC93246E956A00981FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C40FE286246AA507009F8210 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4ACAC77246E956600981FEF;
+			remoteInfo = "Example-watchOS";
+		};
+		C4ACACD3246E9B3300981FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C40FE286246AA507009F8210 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4ACACCD246E9B3300981FEF;
+			remoteInfo = "EasyTextKit watchOS";
+		};
+		C4ACACEA246E9B4600981FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C40FE286246AA507009F8210 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4ACACDF246E9B4600981FEF;
+			remoteInfo = "EasyTextKit tvOS";
+		};
+		C4ACAD06246E9B6100981FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C40FE286246AA507009F8210 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4ACACFB246E9B6100981FEF;
+			remoteInfo = "EasyTextKit macOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,7 +106,40 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C40FE2CE246AA568009F8210 /* EasyTextKit.framework in Embed Frameworks */,
+				C40FE2CE246AA568009F8210 /* EasyTextKit iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAC40246E932400981FEF /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C4ACAC95246E956A00981FEF /* Example-watchOS.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAC99246E956A00981FEF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C4ACAC85246E956900981FEF /* Example-watchOS Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACDA246E9B3300981FEF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C4ACACD6246E9B3300981FEF /* EasyTextKit_watchOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,26 +155,40 @@
 		C40FE29A246AA508009F8210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C40FE29D246AA508009F8210 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C40FE29F246AA508009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C40FE2B8246AA568009F8210 /* EasyTextKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTextKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40FE2B8246AA568009F8210 /* EasyTextKit iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "EasyTextKit iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40FE2BA246AA568009F8210 /* EasyTextKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyTextKit.h; sourceTree = "<group>"; };
 		C40FE2BB246AA568009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40FE2C0246AA568009F8210 /* EasyTextKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyTextKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40FE2C7246AA568009F8210 /* EasyTextKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTextKitTests.swift; sourceTree = "<group>"; };
 		C40FE2C9246AA568009F8210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C40FE2D8246AA5B4009F8210 /* StyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleProtocol.swift; sourceTree = "<group>"; };
-		C40FE2DA246AA5B4009F8210 /* XMLStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLStyle.swift; sourceTree = "<group>"; };
-		C40FE2DC246AA5B4009F8210 /* CommonsAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonsAttributes.swift; sourceTree = "<group>"; };
-		C40FE2DE246AA5B4009F8210 /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
-		C40FE2E0246AA5B4009F8210 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		C40FE2E2246AA5B4009F8210 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		C40FE2E3246AA5B4009F8210 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		C40FE2E4246AA5B4009F8210 /* AttributedString+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+Extension.swift"; sourceTree = "<group>"; };
-		C40FE2E5246AA5B4009F8210 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C40FE2F2246AA5F5009F8210 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		C40FE2F6246AA68E009F8210 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		C40FE2F8246B801C009F8210 /* EBGaramond12-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond12-Regular.otf"; sourceTree = "<group>"; };
-		C4ACAAE8246BD05E00981FEF /* DynamicText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicText.swift; sourceTree = "<group>"; };
-		C4ACAAEA246BE63700981FEF /* StyleDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleDescription.swift; sourceTree = "<group>"; };
+		C4ACAC78246E956600981FEF /* Example-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4ACAC7B246E956600981FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C4ACAC7D246E956900981FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4ACAC7F246E956900981FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4ACAC84246E956900981FEF /* Example-watchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Example-watchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4ACAC89246E956900981FEF /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C4ACAC8B246E956900981FEF /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C4ACAC8D246E956900981FEF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C4ACAC8F246E956A00981FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4ACAC91246E956A00981FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4ACAC92246E956A00981FEF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C4ACACCE246E9B3300981FEF /* EasyTextKit_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTextKit_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4ACACD0246E9B3300981FEF /* EasyTextKit_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyTextKit_watchOS.h; sourceTree = "<group>"; };
+		C4ACACD1246E9B3300981FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4ACACE0246E9B4600981FEF /* EasyTextKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTextKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4ACACE2246E9B4600981FEF /* EasyTextKit_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyTextKit_tvOS.h; sourceTree = "<group>"; };
+		C4ACACE3246E9B4600981FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4ACACE8246E9B4600981FEF /* EasyTextKit tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyTextKit tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4ACACED246E9B4600981FEF /* EasyTextKit_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTextKit_tvOSTests.swift; sourceTree = "<group>"; };
+		C4ACACEF246E9B4600981FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4ACACFC246E9B6100981FEF /* EasyTextKit_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyTextKit_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4ACACFE246E9B6100981FEF /* EasyTextKit_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyTextKit_macOS.h; sourceTree = "<group>"; };
+		C4ACACFF246E9B6100981FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4ACAD04246E9B6100981FEF /* EasyTextKit macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyTextKit macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4ACAD09246E9B6100981FEF /* EasyTextKit_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTextKit_macOSTests.swift; sourceTree = "<group>"; };
+		C4ACAD0B246E9B6100981FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C40FE2CD246AA568009F8210 /* EasyTextKit.framework in Frameworks */,
+				C40FE2CD246AA568009F8210 /* EasyTextKit iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +211,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C40FE2C1246AA568009F8210 /* EasyTextKit.framework in Frameworks */,
+				C40FE2C1246AA568009F8210 /* EasyTextKit iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAC81246E956900981FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACACD5246E9B3300981FEF /* EasyTextKit_watchOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACCB246E9B3300981FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACDD246E9B4600981FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACE5246E9B4600981FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACACE9246E9B4600981FEF /* EasyTextKit_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACF9246E9B6100981FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAD01246E9B6100981FEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACAD05246E9B6100981FEF /* EasyTextKit_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +269,13 @@
 				C40FE290246AA507009F8210 /* Example-iOS */,
 				C40FE2B9246AA568009F8210 /* EasyTextKit */,
 				C40FE2C6246AA568009F8210 /* EasyTextKitTests */,
+				C4ACAC79246E956600981FEF /* Example-watchOS */,
+				C4ACAC88246E956900981FEF /* Example-watchOS Extension */,
+				C4ACACCF246E9B3300981FEF /* EasyTextKit watchOS */,
+				C4ACACE1246E9B4600981FEF /* EasyTextKit tvOS */,
+				C4ACACEC246E9B4600981FEF /* EasyTextKit tvOSTests */,
+				C4ACACFD246E9B6100981FEF /* EasyTextKit macOS */,
+				C4ACAD08246E9B6100981FEF /* EasyTextKit macOSTests */,
 				C40FE28F246AA507009F8210 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -144,8 +284,15 @@
 			isa = PBXGroup;
 			children = (
 				C40FE28E246AA507009F8210 /* Example-iOS.app */,
-				C40FE2B8246AA568009F8210 /* EasyTextKit.framework */,
+				C40FE2B8246AA568009F8210 /* EasyTextKit iOS.framework */,
 				C40FE2C0246AA568009F8210 /* EasyTextKitTests.xctest */,
+				C4ACAC78246E956600981FEF /* Example-watchOS.app */,
+				C4ACAC84246E956900981FEF /* Example-watchOS Extension.appex */,
+				C4ACACCE246E9B3300981FEF /* EasyTextKit_watchOS.framework */,
+				C4ACACE0246E9B4600981FEF /* EasyTextKit_tvOS.framework */,
+				C4ACACE8246E9B4600981FEF /* EasyTextKit tvOSTests.xctest */,
+				C4ACACFC246E9B6100981FEF /* EasyTextKit_macOS.framework */,
+				C4ACAD04246E9B6100981FEF /* EasyTextKit macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,10 +316,6 @@
 		C40FE2B9246AA568009F8210 /* EasyTextKit */ = {
 			isa = PBXGroup;
 			children = (
-				C40FE2DB246AA5B4009F8210 /* Attributes */,
-				C40FE2E1246AA5B4009F8210 /* Extension */,
-				C40FE2DF246AA5B4009F8210 /* Support */,
-				C40FE2D6246AA5B4009F8210 /* TextStyle */,
 				C40FE2BA246AA568009F8210 /* EasyTextKit.h */,
 				C40FE2BB246AA568009F8210 /* Info.plist */,
 			);
@@ -188,44 +331,72 @@
 			path = EasyTextKitTests;
 			sourceTree = "<group>";
 		};
-		C40FE2D6246AA5B4009F8210 /* TextStyle */ = {
+		C4ACAC79246E956600981FEF /* Example-watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				C40FE2D8246AA5B4009F8210 /* StyleProtocol.swift */,
-				C40FE2DA246AA5B4009F8210 /* XMLStyle.swift */,
-				C40FE2F6246AA68E009F8210 /* Style.swift */,
-				C4ACAAEA246BE63700981FEF /* StyleDescription.swift */,
-				C4ACAAE8246BD05E00981FEF /* DynamicText.swift */,
+				C4ACAC7A246E956600981FEF /* Interface.storyboard */,
+				C4ACAC7D246E956900981FEF /* Assets.xcassets */,
+				C4ACAC7F246E956900981FEF /* Info.plist */,
 			);
-			path = TextStyle;
+			path = "Example-watchOS";
 			sourceTree = "<group>";
 		};
-		C40FE2DB246AA5B4009F8210 /* Attributes */ = {
+		C4ACAC88246E956900981FEF /* Example-watchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C40FE2DC246AA5B4009F8210 /* CommonsAttributes.swift */,
-				C40FE2DE246AA5B4009F8210 /* AttributedStringBuilder.swift */,
+				C4ACAC89246E956900981FEF /* InterfaceController.swift */,
+				C4ACAC8B246E956900981FEF /* ExtensionDelegate.swift */,
+				C4ACAC8D246E956900981FEF /* NotificationController.swift */,
+				C4ACAC8F246E956A00981FEF /* Assets.xcassets */,
+				C4ACAC91246E956A00981FEF /* Info.plist */,
+				C4ACAC92246E956A00981FEF /* PushNotificationPayload.apns */,
 			);
-			path = Attributes;
+			path = "Example-watchOS Extension";
 			sourceTree = "<group>";
 		};
-		C40FE2DF246AA5B4009F8210 /* Support */ = {
+		C4ACACCF246E9B3300981FEF /* EasyTextKit watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				C40FE2E0246AA5B4009F8210 /* Parser.swift */,
+				C4ACACD0246E9B3300981FEF /* EasyTextKit_watchOS.h */,
+				C4ACACD1246E9B3300981FEF /* Info.plist */,
 			);
-			path = Support;
+			path = "EasyTextKit watchOS";
 			sourceTree = "<group>";
 		};
-		C40FE2E1246AA5B4009F8210 /* Extension */ = {
+		C4ACACE1246E9B4600981FEF /* EasyTextKit tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				C40FE2E2246AA5B4009F8210 /* String+Extensions.swift */,
-				C40FE2E3246AA5B4009F8210 /* UIImage+Extensions.swift */,
-				C40FE2E4246AA5B4009F8210 /* AttributedString+Extension.swift */,
-				C40FE2E5246AA5B4009F8210 /* Extensions.swift */,
+				C4ACACE2246E9B4600981FEF /* EasyTextKit_tvOS.h */,
+				C4ACACE3246E9B4600981FEF /* Info.plist */,
 			);
-			path = Extension;
+			path = "EasyTextKit tvOS";
+			sourceTree = "<group>";
+		};
+		C4ACACEC246E9B4600981FEF /* EasyTextKit tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACACED246E9B4600981FEF /* EasyTextKit_tvOSTests.swift */,
+				C4ACACEF246E9B4600981FEF /* Info.plist */,
+			);
+			path = "EasyTextKit tvOSTests";
+			sourceTree = "<group>";
+		};
+		C4ACACFD246E9B6100981FEF /* EasyTextKit macOS */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACACFE246E9B6100981FEF /* EasyTextKit_macOS.h */,
+				C4ACACFF246E9B6100981FEF /* Info.plist */,
+			);
+			path = "EasyTextKit macOS";
+			sourceTree = "<group>";
+		};
+		C4ACAD08246E9B6100981FEF /* EasyTextKit macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4ACAD09246E9B6100981FEF /* EasyTextKit_macOSTests.swift */,
+				C4ACAD0B246E9B6100981FEF /* Info.plist */,
+			);
+			path = "EasyTextKit macOSTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +407,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40FE2CA246AA568009F8210 /* EasyTextKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACC9246E9B3300981FEF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACACD2246E9B3300981FEF /* EasyTextKit_watchOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACDB246E9B4600981FEF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACACF0246E9B4600981FEF /* EasyTextKit_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACF7246E9B6100981FEF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACAD0C246E9B6100981FEF /* EasyTextKit_macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,11 +445,13 @@
 				C40FE28B246AA507009F8210 /* Frameworks */,
 				C40FE28C246AA507009F8210 /* Resources */,
 				C40FE2CF246AA568009F8210 /* Embed Frameworks */,
+				C4ACAC40246E932400981FEF /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C40FE2CC246AA568009F8210 /* PBXTargetDependency */,
+				C4ACAC94246E956A00981FEF /* PBXTargetDependency */,
 			);
 			name = "Example-iOS";
 			productName = "Example-iOS";
@@ -276,7 +473,7 @@
 			);
 			name = EasyTextKit;
 			productName = EasyTextKit;
-			productReference = C40FE2B8246AA568009F8210 /* EasyTextKit.framework */;
+			productReference = C40FE2B8246AA568009F8210 /* EasyTextKit iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C40FE2BF246AA568009F8210 /* EasyTextKitTests */ = {
@@ -296,6 +493,132 @@
 			name = EasyTextKitTests;
 			productName = EasyTextKitTests;
 			productReference = C40FE2C0246AA568009F8210 /* EasyTextKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C4ACAC77246E956600981FEF /* Example-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4ACAC9A246E956A00981FEF /* Build configuration list for PBXNativeTarget "Example-watchOS" */;
+			buildPhases = (
+				C4ACAC76246E956600981FEF /* Resources */,
+				C4ACAC99246E956A00981FEF /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4ACAC87246E956900981FEF /* PBXTargetDependency */,
+			);
+			name = "Example-watchOS";
+			productName = "Example-watchOS";
+			productReference = C4ACAC78246E956600981FEF /* Example-watchOS.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C4ACAC83246E956900981FEF /* Example-watchOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4ACAC96246E956A00981FEF /* Build configuration list for PBXNativeTarget "Example-watchOS Extension" */;
+			buildPhases = (
+				C4ACAC80246E956900981FEF /* Sources */,
+				C4ACAC81246E956900981FEF /* Frameworks */,
+				C4ACAC82246E956900981FEF /* Resources */,
+				C4ACACDA246E9B3300981FEF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4ACACD4246E9B3300981FEF /* PBXTargetDependency */,
+			);
+			name = "Example-watchOS Extension";
+			productName = "Example-watchOS Extension";
+			productReference = C4ACAC84246E956900981FEF /* Example-watchOS Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		C4ACACCD246E9B3300981FEF /* EasyTextKit watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4ACACD7246E9B3300981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit watchOS" */;
+			buildPhases = (
+				C4ACACC9246E9B3300981FEF /* Headers */,
+				C4ACACCA246E9B3300981FEF /* Sources */,
+				C4ACACCB246E9B3300981FEF /* Frameworks */,
+				C4ACACCC246E9B3300981FEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EasyTextKit watchOS";
+			productName = "EasyTextKit watchOS";
+			productReference = C4ACACCE246E9B3300981FEF /* EasyTextKit_watchOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C4ACACDF246E9B4600981FEF /* EasyTextKit tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4ACACF1246E9B4600981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit tvOS" */;
+			buildPhases = (
+				C4ACACDB246E9B4600981FEF /* Headers */,
+				C4ACACDC246E9B4600981FEF /* Sources */,
+				C4ACACDD246E9B4600981FEF /* Frameworks */,
+				C4ACACDE246E9B4600981FEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EasyTextKit tvOS";
+			productName = "EasyTextKit tvOS";
+			productReference = C4ACACE0246E9B4600981FEF /* EasyTextKit_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C4ACACE7246E9B4600981FEF /* EasyTextKit tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4ACACF4246E9B4600981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit tvOSTests" */;
+			buildPhases = (
+				C4ACACE4246E9B4600981FEF /* Sources */,
+				C4ACACE5246E9B4600981FEF /* Frameworks */,
+				C4ACACE6246E9B4600981FEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4ACACEB246E9B4600981FEF /* PBXTargetDependency */,
+			);
+			name = "EasyTextKit tvOSTests";
+			productName = "EasyTextKit tvOSTests";
+			productReference = C4ACACE8246E9B4600981FEF /* EasyTextKit tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C4ACACFB246E9B6100981FEF /* EasyTextKit macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4ACAD0D246E9B6100981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit macOS" */;
+			buildPhases = (
+				C4ACACF7246E9B6100981FEF /* Headers */,
+				C4ACACF8246E9B6100981FEF /* Sources */,
+				C4ACACF9246E9B6100981FEF /* Frameworks */,
+				C4ACACFA246E9B6100981FEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EasyTextKit macOS";
+			productName = "EasyTextKit macOS";
+			productReference = C4ACACFC246E9B6100981FEF /* EasyTextKit_macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C4ACAD03246E9B6100981FEF /* EasyTextKit macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4ACAD10246E9B6100981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit macOSTests" */;
+			buildPhases = (
+				C4ACAD00246E9B6100981FEF /* Sources */,
+				C4ACAD01246E9B6100981FEF /* Frameworks */,
+				C4ACAD02246E9B6100981FEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4ACAD07246E9B6100981FEF /* PBXTargetDependency */,
+			);
+			name = "EasyTextKit macOSTests";
+			productName = "EasyTextKit macOSTests";
+			productReference = C4ACAD04246E9B6100981FEF /* EasyTextKit macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -318,6 +641,27 @@
 						CreatedOnToolsVersion = 11.4.1;
 						TestTargetID = C40FE28D246AA507009F8210;
 					};
+					C4ACAC77246E956600981FEF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					C4ACAC83246E956900981FEF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					C4ACACCD246E9B3300981FEF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					C4ACACDF246E9B4600981FEF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					C4ACACE7246E9B4600981FEF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					C4ACACFB246E9B6100981FEF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					C4ACAD03246E9B6100981FEF = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 				};
 			};
 			buildConfigurationList = C40FE289246AA507009F8210 /* Build configuration list for PBXProject "EasyTextKit" */;
@@ -336,6 +680,13 @@
 				C40FE28D246AA507009F8210 /* Example-iOS */,
 				C40FE2B7246AA568009F8210 /* EasyTextKit */,
 				C40FE2BF246AA568009F8210 /* EasyTextKitTests */,
+				C4ACAC77246E956600981FEF /* Example-watchOS */,
+				C4ACAC83246E956900981FEF /* Example-watchOS Extension */,
+				C4ACACCD246E9B3300981FEF /* EasyTextKit watchOS */,
+				C4ACACDF246E9B4600981FEF /* EasyTextKit tvOS */,
+				C4ACACE7246E9B4600981FEF /* EasyTextKit tvOSTests */,
+				C4ACACFB246E9B6100981FEF /* EasyTextKit macOS */,
+				C4ACAD03246E9B6100981FEF /* EasyTextKit macOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -366,6 +717,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4ACAC76246E956600981FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACAC7E246E956900981FEF /* Assets.xcassets in Resources */,
+				C4ACAC7C246E956600981FEF /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAC82246E956900981FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACAC90246E956A00981FEF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACCC246E9B3300981FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACDE246E9B4600981FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACE6246E9B4600981FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACFA246E9B6100981FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAD02246E9B6100981FEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -384,18 +787,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4ACAAEB246BE63700981FEF /* StyleDescription.swift in Sources */,
-				C40FE2EA246AA5B4009F8210 /* CommonsAttributes.swift in Sources */,
-				C40FE2E9246AA5B4009F8210 /* XMLStyle.swift in Sources */,
-				C40FE2F7246AA68E009F8210 /* Style.swift in Sources */,
-				C40FE2EC246AA5B4009F8210 /* AttributedStringBuilder.swift in Sources */,
-				C40FE2EE246AA5B4009F8210 /* String+Extensions.swift in Sources */,
-				C40FE2F0246AA5B4009F8210 /* AttributedString+Extension.swift in Sources */,
-				C40FE2ED246AA5B4009F8210 /* Parser.swift in Sources */,
-				C4ACAAE9246BD05E00981FEF /* DynamicText.swift in Sources */,
-				C40FE2F1246AA5B4009F8210 /* Extensions.swift in Sources */,
-				C40FE2EF246AA5B4009F8210 /* UIImage+Extensions.swift in Sources */,
-				C40FE2E7246AA5B4009F8210 /* StyleProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +795,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40FE2C8246AA568009F8210 /* EasyTextKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAC80246E956900981FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACAC9D246E96E200981FEF /* Example.swift in Sources */,
+				C4ACAC8E246E956900981FEF /* NotificationController.swift in Sources */,
+				C4ACAC8C246E956900981FEF /* ExtensionDelegate.swift in Sources */,
+				C4ACAC8A246E956900981FEF /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACCA246E9B3300981FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACDC246E9B4600981FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACE4246E9B4600981FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACACEE246E9B4600981FEF /* EasyTextKit_tvOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACACF8246E9B6100981FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ACAD00246E9B6100981FEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ACAD0A246E9B6100981FEF /* EasyTextKit_macOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +864,31 @@
 			target = C40FE2B7246AA568009F8210 /* EasyTextKit */;
 			targetProxy = C40FE2CB246AA568009F8210 /* PBXContainerItemProxy */;
 		};
+		C4ACAC87246E956900981FEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4ACAC83246E956900981FEF /* Example-watchOS Extension */;
+			targetProxy = C4ACAC86246E956900981FEF /* PBXContainerItemProxy */;
+		};
+		C4ACAC94246E956A00981FEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4ACAC77246E956600981FEF /* Example-watchOS */;
+			targetProxy = C4ACAC93246E956A00981FEF /* PBXContainerItemProxy */;
+		};
+		C4ACACD4246E9B3300981FEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4ACACCD246E9B3300981FEF /* EasyTextKit watchOS */;
+			targetProxy = C4ACACD3246E9B3300981FEF /* PBXContainerItemProxy */;
+		};
+		C4ACACEB246E9B4600981FEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4ACACDF246E9B4600981FEF /* EasyTextKit tvOS */;
+			targetProxy = C4ACACEA246E9B4600981FEF /* PBXContainerItemProxy */;
+		};
+		C4ACAD07246E9B6100981FEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4ACACFB246E9B6100981FEF /* EasyTextKit macOS */;
+			targetProxy = C4ACAD06246E9B6100981FEF /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -442,6 +906,14 @@
 				C40FE29D246AA508009F8210 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C4ACAC7A246E956600981FEF /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4ACAC7B246E956600981FEF /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -564,7 +1036,6 @@
 		C40FE2AE246AA508009F8210 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
@@ -582,7 +1053,6 @@
 		C40FE2AF246AA508009F8210 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Example-iOS/Info.plist";
@@ -614,7 +1084,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easy.EasyTextKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "EasyTextKit iOS";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -640,7 +1110,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.easy.EasyTextKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "EasyTextKit iOS";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -652,7 +1122,6 @@
 		C40FE2D2246AA568009F8210 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EasyTextKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -671,7 +1140,6 @@
 		C40FE2D3246AA568009F8210 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EasyTextKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -684,6 +1152,330 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example-iOS.app/Example-iOS";
+			};
+			name = Release;
+		};
+		C4ACAC97246E956A00981FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Example-watchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.Example-iOS.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		C4ACAC98246E956A00981FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Example-watchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.Example-iOS.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+		C4ACAC9B246E956A00981FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = Example_watchOS_Extension;
+				INFOPLIST_FILE = "Example-watchOS/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.Example-iOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		C4ACAC9C246E956A00981FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = Example_watchOS_Extension;
+				INFOPLIST_FILE = "Example-watchOS/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.Example-iOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		C4ACACD8246E9B3300981FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "EasyTextKit watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-watchOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		C4ACACD9246E9B3300981FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "EasyTextKit watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-watchOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		C4ACACF2246E9B4600981FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "EasyTextKit tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C4ACACF3246E9B4600981FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "EasyTextKit tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C4ACACF5246E9B4600981FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "EasyTextKit tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.4;
+			};
+			name = Debug;
+		};
+		C4ACACF6246E9B4600981FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "EasyTextKit tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.4;
+			};
+			name = Release;
+		};
+		C4ACAD0E246E9B6100981FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "EasyTextKit macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C4ACAD0F246E9B6100981FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "EasyTextKit macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C4ACAD11246E9B6100981FEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "EasyTextKit macOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C4ACAD12246E9B6100981FEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "EasyTextKit macOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easy.EasyTextKit-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -722,6 +1514,69 @@
 			buildConfigurations = (
 				C40FE2D2246AA568009F8210 /* Debug */,
 				C40FE2D3246AA568009F8210 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4ACAC96246E956A00981FEF /* Build configuration list for PBXNativeTarget "Example-watchOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4ACAC97246E956A00981FEF /* Debug */,
+				C4ACAC98246E956A00981FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4ACAC9A246E956A00981FEF /* Build configuration list for PBXNativeTarget "Example-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4ACAC9B246E956A00981FEF /* Debug */,
+				C4ACAC9C246E956A00981FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4ACACD7246E9B3300981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4ACACD8246E9B3300981FEF /* Debug */,
+				C4ACACD9246E9B3300981FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4ACACF1246E9B4600981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4ACACF2246E9B4600981FEF /* Debug */,
+				C4ACACF3246E9B4600981FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4ACACF4246E9B4600981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4ACACF5246E9B4600981FEF /* Debug */,
+				C4ACACF6246E9B4600981FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4ACAD0D246E9B6100981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4ACAD0E246E9B6100981FEF /* Debug */,
+				C4ACAD0F246E9B6100981FEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4ACAD10246E9B6100981FEF /* Build configuration list for PBXNativeTarget "EasyTextKit macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4ACAD11246E9B6100981FEF /* Debug */,
+				C4ACAD12246E9B6100981FEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -6,7 +6,11 @@
 //  Copyright © 2020 easy. All rights reserved.
 //
 
+#if os(OSX)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// 字间距枚举
 public enum Tracking {
