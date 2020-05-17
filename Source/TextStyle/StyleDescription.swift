@@ -114,7 +114,7 @@ public struct StyleDescription {
         fontFeatureConstructors += smallCaps?.map { $0 } ?? []
         
         let fontFeatures = fontFeatureConstructors.flatMap { $0.attributes() }
-        var descriptor: FontDescriptor?
+        var descriptor: FontDescriptor? = font.fontDescriptor
         if !fontFeatures.isEmpty {
             descriptor = font.fontDescriptor.addingAttributes([
                 FontDescriptor.AttributeName.featureSettings: fontFeatures
