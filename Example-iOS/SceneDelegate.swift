@@ -2,8 +2,7 @@
 //  SceneDelegate.swift
 //  Example-iOS
 //
-//  Created by shiwei on 2020/5/12.
-//  Copyright © 2020 easy. All rights reserved.
+//  Created by 施伟 on 2020/5/17.
 //
 
 import UIKit
@@ -19,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
     }
+
 
 }
 

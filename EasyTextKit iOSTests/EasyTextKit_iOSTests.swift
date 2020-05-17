@@ -1,15 +1,14 @@
 //
-//  EasyTextKitTests.swift
-//  EasyTextKitTests
+//  EasyTextKit_iOSTests.swift
+//  EasyTextKit iOSTests
 //
-//  Created by shiwei on 2020/5/12.
-//  Copyright © 2020 easy. All rights reserved.
+//  Created by shiwei on 2020/5/15.
 //
 
 import XCTest
-@testable import EasyTextKit
+@testable import EasyTextKit_iOS
 
-class EasyTextKitTests: XCTestCase {
+class EasyTextKit_iOSTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

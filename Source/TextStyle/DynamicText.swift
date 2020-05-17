@@ -6,11 +6,9 @@
 //  Copyright © 2020 easy. All rights reserved.
 //
 
-#if os(OSX)
-import AppKit
-#else
+#if canImport(UIKit)
+
 import UIKit
-#endif
 
 public struct DynamicText {
     
@@ -18,6 +16,7 @@ public struct DynamicText {
     
     public var maximumPointSize: CGFloat
     
+    #if os(iOS) || os(tvOS)
     public var traitCollection: UITraitCollection?
     
     public init(
@@ -29,6 +28,16 @@ public struct DynamicText {
         self.maximumPointSize = maximumPointSize
         self.traitCollection = traitCollection
     }
+    #else
+    public init(
+        style: UIFont.TextStyle? = nil,
+        maximumPointSize: CGFloat = 0.0
+    ) {
+        self.style = style
+        self.maximumPointSize = maximumPointSize
+    }
+    #endif
     
 }
 
+#endif

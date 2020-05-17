@@ -28,11 +28,13 @@ public struct AttributedStringBuilder {
         return attr
     }
     
-    public static func buildExpression(_ image: UIImage?) -> NSAttributedString {
+    #if os(iOS) || os(OSX)
+    public static func buildExpression(_ image: Image?) -> NSAttributedString {
         let attachment = NSTextAttachment()
         attachment.image = image
         return NSAttributedString(attachment: attachment)
     }
+    #endif
 }
 
 public extension NSAttributedString {

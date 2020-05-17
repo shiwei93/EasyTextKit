@@ -27,16 +27,18 @@ public struct Style: StyleProtocol {
     }
     
     /// 动态字体，根据用户设置实现对字体大小的控制
-    @discardableResult @available(iOS 11.0, *)
+    #if os(tvOS) || os(iOS) || os(watchOS)
+    @discardableResult @available(iOS 11.0, tvOS 11.0, iOSApplicationExtension 11.0, watchOS 4, *)
     public func dynamicText(_ dynamicText: DynamicText?) -> Style {
         var description = styleDescription
         description.dynamicText = dynamicText
         return Style(description)
     }
+    #endif
     
     /// 文本字体
     @discardableResult
-    public func font(_ font: UIFont?) -> Style {
+    public func font(_ font: Font?) -> Style {
         var description = styleDescription
         description.set(value: font, forKey: .font)
         return Style(description)
@@ -44,7 +46,7 @@ public struct Style: StyleProtocol {
     
     /// 文本颜色
     @discardableResult
-    public func foregroundColor(_ color: UIColor?) -> Style {
+    public func foregroundColor(_ color: Color?) -> Style {
         var description = styleDescription
         description.set(value: color, forKey: .foregroundColor)
         return Style(description)
@@ -52,7 +54,7 @@ public struct Style: StyleProtocol {
     
     /// 文本背景色
     @discardableResult
-    public func backgroundColor(_ color: UIColor?) -> Style {
+    public func backgroundColor(_ color: Color?) -> Style {
         var description = styleDescription
         description.set(value: color, forKey: .backgroundColor)
         return Style(description)
@@ -60,7 +62,7 @@ public struct Style: StyleProtocol {
     
     /// 文本下划线样式
     @discardableResult
-    public func underline(_ style: NSUnderlineStyle?, color: UIColor?) -> Style {
+    public func underline(_ style: NSUnderlineStyle?, color: Color?) -> Style {
         var description = styleDescription
         description.set(value: style, forKey: .underlineStyle)
         description.set(value: color, forKey: .underlineColor)
@@ -71,7 +73,7 @@ public struct Style: StyleProtocol {
     /// - Attention: width 值为正数时，不填充文字内部，只显示描边。
     /// 为负数时，显示描边也会填充内部
     @discardableResult
-    public func stroke(_ color: UIColor?, width: CGFloat?) -> Style {
+    public func stroke(_ color: Color?, width: CGFloat?) -> Style {
         var description = styleDescription
         description.set(value: color, forKey: .strokeColor)
         description.set(value: width, forKey: .strokeWidth)
@@ -80,7 +82,7 @@ public struct Style: StyleProtocol {
     
     /// 添加删除线
     @discardableResult
-    public func strikethroughStyle(_ style: NSUnderlineStyle?, color: UIColor?) -> Style {
+    public func strikethroughStyle(_ style: NSUnderlineStyle?, color: Color?) -> Style {
         var description = styleDescription
         description.set(value: style, forKey: .strikethroughStyle)
         description.set(value: color, forKey: .strikethroughColor)

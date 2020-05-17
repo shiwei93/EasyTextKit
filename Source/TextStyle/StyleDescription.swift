@@ -12,10 +12,16 @@ import AppKit
 import UIKit
 #endif
 
+let TVOS_SYSTEMFONT_SIZE: CGFloat = 29.0
+let WATCHOS_SYSTEMFONT_SIZE: CGFloat = 12.0
+
 public struct StyleDescription {
     
     var attributes: [NSAttributedString.Key: Any]
+    
+    #if os(tvOS) || os(iOS) || os(watchOS)
     var dynamicText: DynamicText?
+    #endif
     
     var lineSpacing: CGFloat?
     var paragraphSpacingBefore: CGFloat?
@@ -81,9 +87,16 @@ public struct StyleDescription {
         if paragraphStyle != NSParagraphStyle.default {
             attributes[.paragraphStyle] = paragraphStyle
         }
-        
-        var font = (attributes[.font] as? UIFont) ?? UIFont.systemFont(
-            ofSize: UIFont.systemFontSize
+        let size: CGFloat
+        #if os(tvOS)
+        size = TVOS_SYSTEMFONT_SIZE
+        #elseif os(watchOS)
+        size = WATCHOS_SYSTEMFONT_SIZE
+        #else
+        size = Font.systemFontSize
+        #endif
+        var font = (attributes[.font] as? Font) ?? Font.systemFont(
+            ofSize: size
         )
         
         var fontFeatureConstructors: [FontFeatureConstructor] = []
@@ -101,30 +114,38 @@ public struct StyleDescription {
         fontFeatureConstructors += smallCaps?.map { $0 } ?? []
         
         let fontFeatures = fontFeatureConstructors.flatMap { $0.attributes() }
+        var descriptor: FontDescriptor?
         if !fontFeatures.isEmpty {
-            let descriptor = font.fontDescriptor.addingAttributes([
-                UIFontDescriptor.AttributeName.featureSettings: fontFeatures
+            descriptor = font.fontDescriptor.addingAttributes([
+                FontDescriptor.AttributeName.featureSettings: fontFeatures
             ])
-            font = UIFont(descriptor: descriptor, size: font.pointSize)
         }
         
         // SymbolicTraits
         if let emphasis = emphasizeStyle {
-            let descriptor = font.fontDescriptor
-            let existingTraits = descriptor.symbolicTraits
-            let newTraits = existingTraits.union(emphasis.symbolicTraits)
-            
-            let newDescriptor = descriptor.withSymbolicTraits(newTraits)
-            if let descriptor = newDescriptor {
-                font = UIFont(descriptor: descriptor, size: font.pointSize)
+            let existingTraits = descriptor?.symbolicTraits
+            if let newTraits = existingTraits?.union(emphasis.symbolicTraits) {
+                descriptor = descriptor?.withSymbolicTraits(newTraits)
             }
         }
         
-        if #available(iOS 11.0, *), dynamicText != nil {
+        if let descriptor = descriptor {
+            #if os(OSX)
+            font = Font(descriptor: descriptor, size: font.pointSize)!
+            #else
+            font = Font(descriptor: descriptor, size: font.pointSize)
+            #endif
+        }
+        
+        #if os(tvOS) || os(watchOS) || os(iOS)
+        if #available(iOS 11.0, watchOS 4.0, tvOS 11.0, *), dynamicText != nil {
             attributes[.font] = scalable(font: font)
         } else {
             attributes[.font] = font
         }
+        #else
+        attributes[.font] = font
+        #endif
         
         // 字间距
         if let tracking = tracking {
@@ -134,7 +155,8 @@ public struct StyleDescription {
         return attributes
     }
     
-    @available(iOS 11, *)
+    #if os(tvOS) || os(watchOS) || os(iOS)
+    @available(iOS 11, tvOS 11.0, iOSApplicationExtension 11.0, watchOS 4, *)
     private func scalable(font: UIFont) -> UIFont {
         let fontMetrics: UIFontMetrics
         if let textStyle = dynamicText?.style {
@@ -143,12 +165,20 @@ public struct StyleDescription {
             fontMetrics = UIFontMetrics.default
         }
         
+        #if os(iOS) || os(tvOS)
         return fontMetrics.scaledFont(
             for: font,
             maximumPointSize: dynamicText?.maximumPointSize ?? 0.0,
             compatibleWith: dynamicText?.traitCollection
         )
+        #else
+        return fontMetrics.scaledFont(
+            for: font,
+            maximumPointSize: dynamicText?.maximumPointSize ?? 0.0
+        )
+        #endif
     }
+    #endif
     
     static func combine(_ parent: StyleDescription, _ child: StyleDescription) -> StyleDescription {
         let attributes = parent.attributes.merging(child.attributes) { _, new in
@@ -157,7 +187,9 @@ public struct StyleDescription {
         var description = StyleDescription(
             attributes: attributes
         )
+        #if os(tvOS) || os(iOS) || os(watchOS)
         description.dynamicText = child.dynamicText ?? parent.dynamicText
+        #endif
         
         description.lineSpacing = child.lineSpacing ?? parent.lineSpacing
         description.paragraphSpacingBefore = child.paragraphSpacingBefore

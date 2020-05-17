@@ -3,7 +3,6 @@
 //  EasyTextKit macOSTests
 //
 //  Created by shiwei on 2020/5/15.
-//  Copyright © 2020 easy. All rights reserved.
 //
 
 import XCTest

@@ -6,10 +6,37 @@
 //  Copyright © 2020 easy. All rights reserved.
 //
 
+import Foundation
+import CoreGraphics
+
 #if os(OSX)
 import AppKit
+
+public typealias Color = NSColor
+public typealias Image = NSImage
+public typealias Font = NSFont
+
+public typealias FontDescriptor = NSFontDescriptor
+public typealias SymbolicTraits = NSFontDescriptor.SymbolicTraits
+public typealias LineBreak = NSLineBreakMode
+
+let FontDescriptorFeatureSettingsAttribute = NSFontDescriptor.AttributeName.featureSettings
+let FontFeatureTypeIdentifierKey = NSFontDescriptor.FeatureKey.typeIdentifier
+let FontFeatureSelectorIdentifierKey = NSFontDescriptor.FeatureKey.selectorIdentifier
 #else
 import UIKit
+
+public typealias Color = UIColor
+public typealias Image = UIImage
+public typealias Font = UIFont
+
+public typealias FontDescriptor = UIFontDescriptor
+public typealias SymbolicTraits = UIFontDescriptor.SymbolicTraits
+public typealias LineBreak = NSLineBreakMode
+
+let FontDescriptorFeatureSettingsAttribute = UIFontDescriptor.AttributeName.featureSettings
+let FontFeatureTypeIdentifierKey = UIFontDescriptor.FeatureKey.featureIdentifier
+let FontFeatureSelectorIdentifierKey = UIFontDescriptor.FeatureKey.typeIdentifier
 #endif
 
 /// 字间距枚举
@@ -18,7 +45,7 @@ public enum Tracking {
     case point(CGFloat)
     case adobe(CGFloat)
     
-    func kerning(for font: UIFont?) -> CGFloat {
+    func kerning(for font: Font?) -> CGFloat {
         switch self {
         case .point(let kernValue):
             return kernValue
@@ -37,6 +64,9 @@ public enum Tracking {
 public enum Ligature: Int {
     case disabled = 0
     case `default`
+    #if os(OSX)
+    case all = 2
+    #endif
 }
 
 /// 英文自动断词
@@ -52,12 +82,12 @@ public protocol FontFeatureConstructor {
 }
 
 extension FontFeatureConstructor {
-    func attributes() -> [[UIFontDescriptor.FeatureKey: Any]] {
+    func attributes() -> [[FontDescriptor.FeatureKey: Any]] {
         let constructs = featureConstruct()
         return constructs.map {
             [
-                UIFontDescriptor.FeatureKey.featureIdentifier: $0.type,
-                UIFontDescriptor.FeatureKey.typeIdentifier: $0.selector
+                FontFeatureTypeIdentifierKey: $0.type,
+                FontFeatureSelectorIdentifierKey: $0.selector
             ]
         }
     }
@@ -193,8 +223,6 @@ public enum SmallCaps: FontFeatureConstructor {
     
 }
 
-public typealias SymbolicTraits = UIFontDescriptor.SymbolicTraits
-
 /// 字体的特殊样式
 /// 例如: 斜体/粗体/
 public struct EmphasizeStyle: OptionSet {
@@ -238,6 +266,7 @@ extension EmphasizeStyle {
     
     var symbolicTraits: SymbolicTraits {
         var traits: SymbolicTraits = []
+        #if os(tvOS) || os(iOS) || os(watchOS)
         if contains(.italic) {
             traits.insert(.traitItalic)
         }
@@ -265,6 +294,17 @@ extension EmphasizeStyle {
         if contains(.looseLeading) {
             traits.insert(.traitLooseLeading)
         }
+        #else
+        if contains(.uiOptimized) {
+            traits.insert(.UIOptimized)
+        }
+        if contains(.tightLeading) {
+            traits.insert(.tightLeading)
+        }
+        if contains(.looseLeading) {
+            traits.insert(.looseLeading)
+        }
+        #endif
         return traits
     }
     
