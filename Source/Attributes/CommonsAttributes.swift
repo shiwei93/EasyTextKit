@@ -295,6 +295,24 @@ extension EmphasizeStyle {
             traits.insert(.traitLooseLeading)
         }
         #else
+        if contains(.italic) {
+            traits.insert(.italic)
+        }
+        if contains(.bold) {
+            traits.insert(.bold)
+        }
+        if contains(.expanded) {
+            traits.insert(.expanded)
+        }
+        if contains(.condensed) {
+            traits.insert(.condensed)
+        }
+        if contains(.monoSpace) {
+            traits.insert(.monoSpace)
+        }
+        if contains(.vertical) {
+            traits.insert(.vertical)
+        }
         if contains(.uiOptimized) {
             traits.insert(.UIOptimized)
         }

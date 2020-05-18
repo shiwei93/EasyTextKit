@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Superclarendon Black.ttf</string>
 		<string>GillSans.ttc</string>
 		<string>Avenir Next Condensed.ttc</string>
 		<string>Zapfino.ttf</string>
