@@ -28,7 +28,7 @@ public struct AttributedStringBuilder {
         return attr
     }
     
-    #if os(iOS) || os(OSX)
+    #if os(iOS) || os(OSX) || os(tvOS)
     public static func buildExpression(_ image: Image?) -> NSAttributedString {
         let attachment = NSTextAttachment()
         attachment.image = image

@@ -11,42 +11,103 @@ import EasyTextKit
 
 struct Example {
     
+    static var avenirNextCondensed: Font {
+        #if os(iOS)
+        return Font(name: "AvenirNextCondensed-Bold", size: 24)!
+        #else
+        return Font(descriptor: .preferredFontDescriptor(withTextStyle: .headline), size: 24)
+        #endif
+    }
+    
+    static var avenirNextCondensedMedium: Font {
+        #if os(iOS)
+        return Font(name: "AvenirNextCondensed-Medium", size: 18.0)!
+        #else
+        return Font.systemFont(ofSize: 18)
+        #endif
+    }
+    
+    static var gillSans: Font {
+        #if os(iOS)
+        return Font(name: "GillSans-Light", size: 18)!
+        #else
+        return Font(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 18)
+        #endif
+    }
+    
+    static var superClarendon: Font {
+        #if os(iOS)
+        return Font(name: "SuperClarendon-Black", size: 18)!
+        #else
+        return Font(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 18)
+        #endif
+    }
+    
+    static var zapfino: Font {
+        #if os(iOS)
+        return Font(name: "Zapfino", size: 24)!
+        #else
+        return Font(name: "Zapfino", size: 16)!
+        #endif
+    }
+    
+    static var helveticaNeue: Font {
+        #if os(iOS)
+        return Font(name: "HelveticaNeue-Bold", size: 24)!
+        #else
+        return Font.systemFont(ofSize: 24)
+        #endif
+    }
+    
     static let normal: NSAttributedString = {
         let style = Style()
-            .font(UIFont(name: "AvenirNextCondensed-Bold", size: 24)!)
+            .font(avenirNextCondensed)
             .alignment(.center)
             .lineSpacing(5)
             .tracking(.point(6))
-            .foregroundColor(UIColor(red: 0.15, green: 0.4, blue: 0.86, alpha: 1.0))
+            .foregroundColor(Color(red: 0.15, green: 0.4, blue: 0.86, alpha: 1.0))
         
         return "JUST SAMPLE".attributedString(style: style)
     }()
     
     static let xmlSample: NSAttributedString = {
+        #if os(iOS) || os(tvOS)
         let xml = """
         I want to be different. If everyone is wearing <black>\u{00A0}black,\u{00A0}</black> I want to be wearing <red>\u{00A0}red.\u{00A0}</red>
         <signed>\u{2014}Maria Sharapova</signed> <racket/>
+
+        """
+        #else
+        let xml = """
+        I want to be different. If everyone is wearing <black>\u{00A0}black,\u{00A0}</black> I want to be wearing <red>\u{00A0}red.\u{00A0}</red>
+        <signed>\u{2014}Maria Sharapova</signed>
         
         """
-        let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
+        #endif
+        
+        let color = Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
         let style: Style
-        if #available(iOS 11.0, *) {
+        if #available(iOS 11.0, tvOS 11.0, iOSApplicationExtension 11.0, watchOS 4, *) {
+            #if os(iOS) || os(tvOS)
+            let dynamicText = DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone))
+            #else
+            let dynamicText = DynamicText(style: .body, maximumPointSize: 35)
+            #endif
             style = Style()
-                .font(UIFont(name: "GillSans-Light", size: 18)!)
+                .font(gillSans)
                 .lineHeightMultiple(1.8)
                 .foregroundColor(.darkGray)
-                .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
+                .dynamicText(dynamicText)
         } else {
             style = Style()
-                .font(UIFont(name: "GillSans-Light", size: 18)!)
+                .font(gillSans)
                 .lineHeightMultiple(1.8)
                 .foregroundColor(.darkGray)
         }
         
-        
         let accent = style
-            .font(UIFont(name: "SuperClarendon-Black", size: 18)!)
+            .font(superClarendon)
         
         let black = accent
             .foregroundColor(.white)
@@ -59,9 +120,10 @@ struct Example {
         let signed = accent
             .foregroundColor(color)
         
-        let image = UIImage(named: "Tennis Racket")!
+        let image = Image(named: "Tennis Racket")!
         let imageStyle = signed
             .baselineOffset(-4)
+        #if os(iOS) || os(tvOS) || os(OSX)
         let racket = image.attributedString(style: imageStyle)
         
         let group = XMLStyle(
@@ -73,6 +135,17 @@ struct Example {
                 "racket": racket
             ]
         )
+        #else
+        
+        let group = XMLStyle(
+            base: style,
+            [
+                "black": black,
+                "red": red,
+                "signed": signed
+            ]
+        )
+        #endif
         
         return xml.attributedString(style: group)
     }()
@@ -82,14 +155,19 @@ struct Example {
         You can parse HTML with <strong>strong</strong>, <em>em</em>, <strong>and even <em>nested strong and em</em></strong> tags
 
         You can parse HTML with <strong>strong</strong>, <em>em</em>, <strong>and even <em>nested strong and em</em></strong> tags.
+        
         """
         
+        #if os(watchOS)
+        let foregroundColor: Color = .white
+        #else
+        let foregroundColor: Color = .black
+        #endif
         let base = Style()
             .font(.systemFont(ofSize: 17))
-            .foregroundColor(.black)
+            .foregroundColor(foregroundColor)
         
-        let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
-        
+        let color = Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
         let em = base
             .foregroundColor(color)
@@ -111,14 +189,14 @@ struct Example {
     
     static let digital: NSAttributedString = {
         let garamondStyle = Style()
-            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
             .lineHeightMultiple(1.2)
         
         let digits = "\n0123456789"
         
         let color = garamondStyle
             .smallCaps([.fromLowercase])
-            .foregroundColor(UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0))
+            .foregroundColor(Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0))
         
         return NSAttributedString {
             "Number Styles".attributedString(style: color)
@@ -140,13 +218,13 @@ struct Example {
     // 科学符号
     static let scientificInferiors: NSAttributedString = {
         let garamondStyle = Style()
-            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
             .lineHeightMultiple(1.2)
             .numberCase(.upper)
         
         let string = "<name>Johnny</name> was a little boy, but <name>Johnny</name> is no more, for what he thought was <chemical>H<number>2</number>O</chemical> was really <chemical>H<number>2</number>SO<number>4</number></chemical>."
         
-        let foregroundColor = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
+        let foregroundColor = Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
         let name = garamondStyle
             .smallCaps([.fromLowercase])
@@ -171,11 +249,11 @@ struct Example {
     // 分数
     static let fraction: NSAttributedString = {
         let garamondStyle = Style()
-            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
             .lineHeightMultiple(1.2)
             .numberCase(.upper)
         
-        let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
+        let color = Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         
         let string = """
         1336 <fraction>6/10</fraction> + <fraction>4/10</fraction> = 1337
@@ -211,10 +289,10 @@ struct Example {
     
     static let superscript: NSAttributedString = {
         let garamondStyle = Style()
-            .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
             .lineHeightMultiple(1.2)
             
-        let color = UIColor(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
+        let color = Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
         let string = "Today is my <number>111<ordinal>th</ordinal></number> birthday!"
         
         let number = garamondStyle
@@ -236,8 +314,8 @@ struct Example {
     
     static let ligature: NSAttributedString = {
         let style = Style()
-            .font(UIFont(name: "Zapfino", size: 24)!)
-            .foregroundColor(UIColor(red: 0.82, green: 0.41, blue: 0.11, alpha: 1.0))
+            .font(zapfino)
+            .foregroundColor(Color(red: 0.82, green: 0.41, blue: 0.11, alpha: 1.0))
             .tracking(.point(6))
         
         let text = "Hello Swift!!!"
@@ -253,9 +331,11 @@ struct Example {
     
     static let images: NSAttributedString = {
         
-        func accessibleImage(named name: String) -> UIImage {
-            let image = UIImage(named: name)!
+        func accessibleImage(named name: String) -> Image {
+            let image = Image(named: name)!
+            #if os(iOS) || os(tvOS)
             image.accessibilityLabel = name
+            #endif
             return image
         }
         
@@ -264,18 +344,22 @@ struct Example {
         let knot = accessibleImage(named: "knot")
         
         let base = Style()
-            .font(UIFont(name: "HelveticaNeue-Bold", size: 24)!)
+            .font(Font(name: "HelveticaNeue-Bold", size: 24)!)
         
         let style = base
             .baselineOffset(8)
         
         return NSAttributedString {
             "2".attributedString(style: style)
+            #if os(tvOS) || os(iOS) || os(OSX)
             bee
             oar
             knot
+            #endif
             "2".attributedString(style: style)
+            #if os(tvOS) || os(iOS) || os(OSX)
             bee
+            #endif
         }
     }()
     
@@ -285,8 +369,9 @@ struct Example {
             .foregroundColor(.darkGray)
             .baselineOffset(10)
         
+        #if os(tvOS) || os(iOS) || os(OSX)
         return NSAttributedString {
-            UIImage(named: "barn")!
+            Image(named: "barn")!
             " "
             "This".attributedString(style: base)
             " "
@@ -321,6 +406,26 @@ struct Example {
             UIImage(named: "robot")!
             "\n"
         }
+        #else
+        return NSAttributedString {
+            "This".attributedString(style: base)
+            " "
+            "string".attributedString(style: base)
+            " "
+            "is".attributedString(style: base)
+            " "
+            "separated".attributedString(style: base)
+            " "
+            "by".attributedString(style: base)
+            " "
+            "images".attributedString(style: base)
+            " "
+            "and".attributedString(style: base)
+            " "
+            "spaces.".attributedString(style: base)
+            "\n"
+        }
+        #endif
     }()
     
     static let kerning: NSAttributedString = {
@@ -332,16 +437,20 @@ struct Example {
             .font(UIFont(name: "AvenirNext-Medium", size: 16)!)
         
         let phrase = """
-            
         GO AHEAD,
         <large>MAKE
         MY
         DA<kern>Y.</kern></large>
-        
         """
         
+        #if os(iOS)
+        let font = Font(name: "AvenirNext-Heavy", size: 64)!
+        #else
+        let font = Font(name: "AvenirNext-Heavy", size: 32)!
+        #endif
+        let fontSize: CGFloat
         let large = base
-            .font(UIFont(name: "AvenirNext-Heavy", size: 64)!)
+            .font(font)
             .lineSpacing(40)
         
         let kern = large
@@ -363,20 +472,23 @@ struct Example {
         let base = Style()
             .alignment(.center)
         
-        
         let preamble = base
-            .font(UIFont(name: "AvenirNext-Bold", size: 14)!)
+            .font(Font(name: "AvenirNext-Bold", size: 14)!)
         
-        
+        #if os(watchOS)
         let bigger = base
-            .font(UIFont(name: "AvenirNext-Heavy", size: 64)!)
+            .font(Font(name: "AvenirNext-Heavy", size: 30)!)
+        #else
+        let bigger = base
+            .font(Font(name: "AvenirNext-Heavy", size: 64)!)
+        #endif
         
         let imageStyle = base
             .foregroundColor(color)
         
-        let image = UIImage(named: "boat")!
+        let image = Image(named: "boat")!
+        #if os(tvOS) || os(iOS) || os(OSX)
         let boat = image.attributedString(style: imageStyle)
-        
         return NSAttributedString {
             "\n\n"
             "You're going to need a\n".attributedString(style: preamble)
@@ -384,19 +496,23 @@ struct Example {
             boat
             "\n\n"
         }
+        #else
+        return NSAttributedString {
+            "\n\n"
+            "You're going to need a\n".attributedString(style: preamble)
+            "Bigger\n".localizedUppercase.attributedString(style: bigger)
+        }
+        #endif
     }()
     
     static let indention: NSAttributedString = {
         let base = Style()
-            .font(UIFont(name: "AvenirNextCondensed-Medium", size: 18.0)!)
-        
+            .font(avenirNextCondensedMedium)
         
         let indention = base
             .firstLineHeadIndent(18)
             .paragraphSpacingBefore(9)
             .headIndent(30.78)
-        
-        
         
         let emoji = base
             .firstLineHeadIndent(18)
@@ -412,10 +528,15 @@ struct Example {
     }()
     
     static let emphasisSet: NSAttributedString = {
-        
+        #if os(iOS)
         let base = Style()
             .font(.systemFont(ofSize: 24.0))
             .foregroundColor(.systemGreen)
+        #else
+        let base = Style()
+            .font(.systemFont(ofSize: 15.0))
+            .foregroundColor(.green)
+        #endif
         
         return NSAttributedString {
             "加粗 "
@@ -434,14 +555,21 @@ struct Example {
     
     static let dynamic: NSAttributedString = {
         let base: Style
-        if #available(iOS 11.0, *) {
+        if #available(iOS 11.0, tvOS 11.0, iOSApplicationExtension 11.0, watchOS 4, *) {
+            #if os(iOS) || os(tvOS)
             base = Style()
-                .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+                .font(Font(name: "EBGaramond12-Regular", size: 24)!)
                 .lineHeightMultiple(1.2)
                 .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
+            #else
+            base = Style()
+                .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+                .lineHeightMultiple(1.2)
+                .dynamicText(DynamicText(style: .body, maximumPointSize: 35))
+            #endif
         } else {
             base = Style()
-                .font(UIFont(name: "EBGaramond12-Regular", size: 24)!)
+                .font(Font(name: "EBGaramond12-Regular", size: 24)!)
                 .lineHeightMultiple(1.2)
         }
         
