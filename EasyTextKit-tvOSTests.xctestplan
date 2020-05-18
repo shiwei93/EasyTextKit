@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0D7C2807-D194-4F58-90A0-4F890CA44A36",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EasyTextKit.xcodeproj",
+        "identifier" : "C4ACAD49246E9C1000981FEF",
+        "name" : "EasyTextKit tvOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}

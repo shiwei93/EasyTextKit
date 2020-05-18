@@ -117,7 +117,7 @@ public struct StyleDescription {
         var descriptor: FontDescriptor? = font.fontDescriptor
         if !fontFeatures.isEmpty {
             descriptor = font.fontDescriptor.addingAttributes([
-                FontDescriptor.AttributeName.featureSettings: fontFeatures
+                FontDescriptorFeatureSettingsAttribute: fontFeatures
             ])
         }
         

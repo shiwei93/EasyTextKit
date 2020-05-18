@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "5CA52841-2015-4975-80D7-9E090B69057B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "EasyTextKit_iOSTests",
+        "EasyTextKit_iOSTests\/testExample()",
+        "EasyTextKit_iOSTests\/testPerformanceExample()"
+      ],
+      "target" : {
+        "containerPath" : "container:EasyTextKit.xcodeproj",
+        "identifier" : "C4ACAD20246E9BEF00981FEF",
+        "name" : "EasyTextKit iOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
