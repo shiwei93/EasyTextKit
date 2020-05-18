@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C40FE28D246AA507009F8210"
+               BlueprintIdentifier = "895B8C622471968C004F3EA2"
                BuildableName = "Example-iOS.app"
                BlueprintName = "Example-iOS"
                ReferencedContainer = "container:EasyTextKit.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C40FE28D246AA507009F8210"
+            BlueprintIdentifier = "895B8C622471968C004F3EA2"
             BuildableName = "Example-iOS.app"
             BlueprintName = "Example-iOS"
             ReferencedContainer = "container:EasyTextKit.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C40FE28D246AA507009F8210"
+            BlueprintIdentifier = "895B8C622471968C004F3EA2"
             BuildableName = "Example-iOS.app"
             BlueprintName = "Example-iOS"
             ReferencedContainer = "container:EasyTextKit.xcodeproj">

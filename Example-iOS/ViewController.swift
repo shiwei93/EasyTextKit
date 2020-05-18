@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  Example-iOS
 //
-//  Created by shiwei on 2020/5/12.
-//  Copyright © 2020 easy. All rights reserved.
+//  Created by 施伟 on 2020/5/17.
 //
 
 import UIKit
@@ -15,25 +14,25 @@ class ViewController: UITableViewController {
     }
     
     var examples: [(String, [NSAttributedString])] = [
-        ("简单使用", [Example.normal]),
+        ("Simply", [Example.normal]),
         ("XML", [
             Example.xmlSample,
             Example.emphasis
         ]),
-        ("设置了 Font Features 示例", [
+        ("Font Features", [
             Example.digital,
             Example.superscript,
             Example.fraction,
             Example.scientificInferiors
         ]),
         ("Ligature", [Example.ligature]),
-        ("各种 Image", [
+        ("With Images", [
             Example.images,
             Example.multiImages
         ]),
         ("Kerning", [Example.kerning]),
         ("Composition", [Example.composition]),
-        ("缩进排版", [
+        ("Indention", [
             Example.indention
         ]),
         ("Trait", [Example.emphasisSet]),
@@ -61,3 +60,4 @@ class ViewController: UITableViewController {
     }
     
 }
+
