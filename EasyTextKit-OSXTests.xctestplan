@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "176761C6-AD07-47A8-B7A0-4CE094BF004A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EasyTextKit.xcodeproj",
+        "identifier" : "C4ACAD65246E9C2200981FEF",
+        "name" : "EasyTextKit macOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}

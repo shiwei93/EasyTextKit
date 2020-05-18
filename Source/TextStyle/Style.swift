@@ -64,7 +64,7 @@ public struct Style: StyleProtocol {
     @discardableResult
     public func underline(_ style: NSUnderlineStyle?, color: Color?) -> Style {
         var description = styleDescription
-        description.set(value: style, forKey: .underlineStyle)
+        description.set(value: style?.rawValue, forKey: .underlineStyle)
         description.set(value: color, forKey: .underlineColor)
         return Style(description)
     }
@@ -84,7 +84,7 @@ public struct Style: StyleProtocol {
     @discardableResult
     public func strikethroughStyle(_ style: NSUnderlineStyle?, color: Color?) -> Style {
         var description = styleDescription
-        description.set(value: style, forKey: .strikethroughStyle)
+        description.set(value: style?.rawValue, forKey: .strikethroughStyle)
         description.set(value: color, forKey: .strikethroughColor)
         return Style(description)
     }
@@ -297,17 +297,33 @@ public struct Style: StyleProtocol {
     /// 字形修改，实现类似 iPhone XR R 大写但比 X 小的效果
     /// 即保持字符大小写样式，又控制其高度为 xHeight
     @discardableResult
-    public func smallCaps(_ smallCaps: Set<SmallCaps>) -> Style {
+    public func smallCaps(_ smallCaps: Set<SmallCaps>?) -> Style {
         var description = styleDescription
-        description.smallCaps = smallCaps
+        if let smallCaps = smallCaps {
+            if description.smallCaps == nil {
+                description.smallCaps = smallCaps
+            } else {
+                description.smallCaps?.formUnion(smallCaps)
+            }
+        } else {
+            description.smallCaps = nil
+        }
         return Style(description)
     }
     
     /// 字体的特殊样式，例如斜体/加粗等
     @discardableResult
-    public func emphasizeStyle(_ emphasizeStyle: EmphasizeStyle) -> Style {
+    public func emphasizeStyle(_ emphasizeStyle: EmphasizeStyle?) -> Style {
         var description = styleDescription
-        description.emphasizeStyle = emphasizeStyle
+        if let emphasizeStyle = emphasizeStyle {
+            if description.emphasizeStyle == nil {
+                description.emphasizeStyle = emphasizeStyle
+            } else {
+                description.emphasizeStyle?.insert(emphasizeStyle)
+            }
+        } else {
+            description.emphasizeStyle = nil
+        }
         return Style(description)
     }
     
