@@ -14,6 +14,8 @@ struct Example {
     static var avenirNextCondensed: Font {
         #if os(iOS)
         return Font(name: "AvenirNextCondensed-Bold", size: 24)!
+        #elseif os(tvOS)
+        return Font(name: "AvenirNextCondensed-Bold", size: 36)!
         #else
         return Font(descriptor: .preferredFontDescriptor(withTextStyle: .headline), size: 24)
         #endif
@@ -22,6 +24,8 @@ struct Example {
     static var avenirNextCondensedMedium: Font {
         #if os(iOS)
         return Font(name: "AvenirNextCondensed-Medium", size: 18.0)!
+        #elseif os(tvOS)
+        return Font(name: "AvenirNextCondensed-Medium", size: 38.0)!
         #else
         return Font.systemFont(ofSize: 18)
         #endif
@@ -30,6 +34,8 @@ struct Example {
     static var gillSans: Font {
         #if os(iOS)
         return Font(name: "GillSans-Light", size: 18)!
+        #elseif os(tvOS)
+        return Font(name: "GillSans-Light", size: 36)!
         #else
         return Font(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 18)
         #endif
@@ -38,6 +44,8 @@ struct Example {
     static var superClarendon: Font {
         #if os(iOS)
         return Font(name: "SuperClarendon-Black", size: 18)!
+        #elseif os(tvOS)
+        return Font(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 34)
         #else
         return Font(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 18)
         #endif
@@ -46,6 +54,8 @@ struct Example {
     static var zapfino: Font {
         #if os(iOS)
         return Font(name: "Zapfino", size: 24)!
+        #elseif os(tvOS)
+        return Font(name: "Zapfino", size: 36)!
         #else
         return Font(name: "Zapfino", size: 16)!
         #endif
@@ -54,8 +64,18 @@ struct Example {
     static var helveticaNeue: Font {
         #if os(iOS)
         return Font(name: "HelveticaNeue-Bold", size: 24)!
+        #elseif os(tvOS)
+        return Font(name: "HelveticaNeue-Bold", size: 36)!
         #else
         return Font.systemFont(ofSize: 24)
+        #endif
+    }
+    
+    static var custom: Font {
+        #if os(iOS) || os(watchOS)
+        return custom
+        #else
+        return Font(name: "EBGaramond12-Regular", size: 36)!
         #endif
     }
     
@@ -160,11 +180,16 @@ struct Example {
         
         #if os(watchOS)
         let foregroundColor: Color = .white
+        let font: Font = .systemFont(ofSize: 17)
+        #elseif os(iOS)
+        let foregroundColor: Color = .black
+        let font: Font = .systemFont(ofSize: 17)
         #else
         let foregroundColor: Color = .black
+        let font: Font = .systemFont(ofSize: 34)
         #endif
         let base = Style()
-            .font(.systemFont(ofSize: 17))
+            .font(font)
             .foregroundColor(foregroundColor)
         
         let color = Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
@@ -189,7 +214,7 @@ struct Example {
     
     static let digital: NSAttributedString = {
         let garamondStyle = Style()
-            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+            .font(custom)
             .lineHeightMultiple(1.2)
         
         let digits = "\n0123456789"
@@ -218,7 +243,7 @@ struct Example {
     // 科学符号
     static let scientificInferiors: NSAttributedString = {
         let garamondStyle = Style()
-            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+            .font(custom)
             .lineHeightMultiple(1.2)
             .numberCase(.upper)
         
@@ -249,7 +274,7 @@ struct Example {
     // 分数
     static let fraction: NSAttributedString = {
         let garamondStyle = Style()
-            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+            .font(custom)
             .lineHeightMultiple(1.2)
             .numberCase(.upper)
         
@@ -289,7 +314,7 @@ struct Example {
     
     static let superscript: NSAttributedString = {
         let garamondStyle = Style()
-            .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+            .font(custom)
             .lineHeightMultiple(1.2)
             
         let color = Color(red: 0.92549, green: 0.352941, blue: 0.301961, alpha: 1.0)
@@ -325,7 +350,6 @@ struct Example {
             "\n"
             text.attributedString(style: style
                 .ligature(.disabled))
-            "\n"
         }
     }()
     
@@ -364,8 +388,13 @@ struct Example {
     }()
     
     static let multiImages: NSAttributedString = {
+        #if os(tvOS)
+        let font: UIFont = .systemFont(ofSize: 34)
+        #else
+        let font: UIFont = .systemFont(ofSize: 17)
+        #endif
         let base = Style()
-            .font(.systemFont(ofSize: 17))
+            .font(font)
             .foregroundColor(.darkGray)
             .baselineOffset(10)
         
@@ -404,7 +433,6 @@ struct Example {
             "spaces".attributedString(style: base)
             " "
             UIImage(named: "robot")!
-            "\n"
         }
         #else
         return NSAttributedString {
@@ -423,7 +451,6 @@ struct Example {
             "and".attributedString(style: base)
             " "
             "spaces.".attributedString(style: base)
-            "\n"
         }
         #endif
     }()
@@ -443,7 +470,7 @@ struct Example {
         DA<kern>Y.</kern></large>
         """
         
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         let font = Font(name: "AvenirNext-Heavy", size: 64)!
         #else
         let font = Font(name: "AvenirNext-Heavy", size: 32)!
@@ -494,13 +521,13 @@ struct Example {
             "You're going to need a\n".attributedString(style: preamble)
             "Bigger\n".localizedUppercase.attributedString(style: bigger)
             boat
-            "\n\n"
+            "\n"
         }
         #else
         return NSAttributedString {
             "\n\n"
             "You're going to need a\n".attributedString(style: preamble)
-            "Bigger\n".localizedUppercase.attributedString(style: bigger)
+            "Bigger".localizedUppercase.attributedString(style: bigger)
         }
         #endif
     }()
@@ -514,16 +541,22 @@ struct Example {
             .paragraphSpacingBefore(9)
             .headIndent(30.78)
         
+        let headIndent: CGFloat
+        #if os(tvOS)
+        headIndent = 109
+        #else
+        headIndent = 64.78
+        #endif
+        
         let emoji = base
             .firstLineHeadIndent(18)
             .paragraphSpacingBefore(9)
-            .headIndent(64.78)
+            .headIndent(headIndent)
         
         return NSAttributedString {
             "• You can also use strings (including emoji) for bullets, and they will still properly indent the appended text by the right amount.".attributedString(style: indention)
             "\n"
             "🍑 → You can also use strings (including emoji) for bullets, and they will still properly indent the appended text by the right amount.".attributedString(style: emoji)
-            "\n"
         }
     }()
     
@@ -532,6 +565,10 @@ struct Example {
         let base = Style()
             .font(.systemFont(ofSize: 24.0))
             .foregroundColor(.systemGreen)
+        #elseif os(tvOS)
+        let base = Style()
+            .font(.systemFont(ofSize: 36.0))
+            .foregroundColor(.systemGreen)
         #else
         let base = Style()
             .font(.systemFont(ofSize: 15.0))
@@ -539,16 +576,11 @@ struct Example {
         #endif
         
         return NSAttributedString {
-            "加粗 "
             "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.bold))
-            "斜体 "
             "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.italic))
-            "压缩 "
             "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.condensed))
-            "拉伸 "
             "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.expanded))
-            "等宽 "
-            "SymbolicTraits 01234\n".localizedUppercase.attributedString(style: base.emphasizeStyle(.monoSpace))
+            "SymbolicTraits 01234".localizedUppercase.attributedString(style: base.emphasizeStyle(.monoSpace))
         }
         
     }()
@@ -558,18 +590,18 @@ struct Example {
         if #available(iOS 11.0, tvOS 11.0, iOSApplicationExtension 11.0, watchOS 4, *) {
             #if os(iOS) || os(tvOS)
             base = Style()
-                .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+                .font(custom)
                 .lineHeightMultiple(1.2)
                 .dynamicText(DynamicText(style: .body, maximumPointSize: 35, compatibleWith: UITraitCollection(userInterfaceIdiom: .phone)))
             #else
             base = Style()
-                .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+                .font(custom)
                 .lineHeightMultiple(1.2)
                 .dynamicText(DynamicText(style: .body, maximumPointSize: 35))
             #endif
         } else {
             base = Style()
-                .font(Font(name: "EBGaramond12-Regular", size: 24)!)
+                .font(custom)
                 .lineHeightMultiple(1.2)
         }
         

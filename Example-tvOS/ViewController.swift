@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Example-iOS
+//  Example-tvOS
 //
-//  Created by 施伟 on 2020/5/17.
+//  Created by shiwei on 2020/5/18.
 //
 
 import UIKit
@@ -58,6 +58,6 @@ class ViewController: UITableViewController {
         cell.textLabel?.adjustsFontForContentSizeCategory = true
         return cell
     }
-    
+
 }
 
