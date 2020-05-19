@@ -8,13 +8,13 @@
 import WatchKit
 
 class EasyRowController: NSObject {
-    
+
     @IBOutlet var textLabel: WKInterfaceLabel!
-    
+
     var attributedString: NSAttributedString? {
         didSet {
             guard let attributedString = attributedString else { return }
-            
+
             textLabel.setAttributedText(attributedString)
         }
     }

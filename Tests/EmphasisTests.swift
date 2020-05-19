@@ -8,6 +8,7 @@
 @testable import EasyTextKit
 import XCTest
 
+// swiftlint:disable all
 class EmphasisTests: XCTestCase {
 
     func testEmphasizeStyle() {
@@ -20,7 +21,7 @@ class EmphasisTests: XCTestCase {
             XCTFail("Unable to get font.")
             return
         }
-        
+
         let descriptor = baseFont.fontDescriptor
         var traits = descriptor.symbolicTraits
         #if os(OSX)
@@ -34,7 +35,7 @@ class EmphasisTests: XCTestCase {
             return
         }
         let controlFont = Font(descriptor: nonNilNewDescriptor, size: 0)
-        
+
         XCTAssertEqual(font, controlFont)
     }
 

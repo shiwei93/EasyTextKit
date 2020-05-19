@@ -8,9 +8,9 @@
 import Cocoa
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
-    
+
     @IBOutlet weak var tableView: NSTableView!
-    
+
     var examples: [NSAttributedString] = [
         Example.normal,
         Example.xmlSample,
@@ -23,9 +23,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         Example.kerning,
         Example.composition,
         Example.indention,
-        Example.emphasisSet
+        Example.emphasisSet,
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,11 +38,11 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         // Update the view, if already loaded.
         }
     }
-    
+
     func numberOfRows(in tableView: NSTableView) -> Int {
         return examples.count
     }
-    
+
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let identifier = tableColumn?.identifier
         let cellView = tableView.makeView(withIdentifier: identifier!, owner: self) as? EasyTableCellView
@@ -54,10 +54,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     func selectionShouldChange(in tableView: NSTableView) -> Bool {
         return false
     }
-    
+
     func tableView(_ tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool {
         return false
     }
 
 }
-

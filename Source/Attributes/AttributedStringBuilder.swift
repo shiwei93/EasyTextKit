@@ -19,15 +19,15 @@ public struct AttributedStringBuilder {
         segments.forEach(string.append)
         return string
     }
-    
+
     public static func buildExpression(_ text: String) -> NSAttributedString {
         return NSAttributedString(string: text)
     }
-    
+
     public static func buildExpression(_ attr: NSAttributedString) -> NSAttributedString {
         return attr
     }
-    
+
     #if os(iOS) || os(OSX) || os(tvOS)
     public static func buildExpression(_ image: Image?) -> NSAttributedString {
         let attachment = NSTextAttachment()

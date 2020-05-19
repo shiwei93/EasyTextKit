@@ -8,6 +8,7 @@
 @testable import EasyTextKit
 import XCTest
 
+// swiftlint:disable all
 func assert<T: Equatable>(
     style: Style,
     key: NSAttributedString.Key, value: T,
@@ -19,7 +20,7 @@ func assert<T: Equatable>(
         XCTFail("value is not of expected type", file: file, line: line)
         return
     }
-    
+
     XCTAssert(dictValue == value, "\(key): \(dictValue) != \(value)", file: file, line: line)
 }
 
@@ -57,16 +58,16 @@ func assert(
 }
 
 class EBGaramondLoader: NSObject {
-    
+
     static func loadFontIfNeeded() {
         _ = loadFont
     }
-    
+
     private static var loadFont: Void = {
         guard let path = Bundle(for: EBGaramondLoader.self).path(forResource: "EBGaramond12-Regular", ofType: "otf"), let data = NSData(contentsOfFile: path) else {
             fatalError("Can not load EGBaramond12")
         }
-        
+
         guard let provider = CGDataProvider(data: data) else {
             fatalError("Can not create provider")
         }
@@ -79,5 +80,5 @@ class EBGaramondLoader: NSObject {
             fatalError("Unable to load font: \(error)")
         }
     }()
-    
+
 }
