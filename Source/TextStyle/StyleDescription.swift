@@ -15,14 +15,15 @@ import UIKit
 let TVOS_SYSTEMFONT_SIZE: CGFloat = 29.0
 let WATCHOS_SYSTEMFONT_SIZE: CGFloat = 12.0
 
+/// A struct saved all of style's settings.
 public struct StyleDescription {
-    
+
     var attributes: [NSAttributedString.Key: Any]
-    
+
     #if os(tvOS) || os(iOS) || os(watchOS)
     var dynamicText: DynamicText?
     #endif
-    
+
     var lineSpacing: CGFloat?
     var paragraphSpacingBefore: CGFloat?
     var paragraphSpacing: CGFloat?
@@ -34,9 +35,9 @@ public struct StyleDescription {
     var minimumLineHeight: CGFloat?
     var maximumLineHeight: CGFloat?
     var lineHeightMultiple: CGFloat?
-    var hyphenation: Hyphenation?
+    var hyphenationFactor: Float?
     var baseWritingDirection: NSWritingDirection?
-    
+
     var tracking: Tracking?
     var numberCase: NumberCase?
     var numberSpacing: NumberSpacing?
@@ -47,13 +48,13 @@ public struct StyleDescription {
     var scientificInferiors: Bool?
     var smallCaps: Set<SmallCaps>?
     var emphasizeStyle: EmphasizeStyle?
-    
+
     init(
         attributes: [NSAttributedString.Key: Any]
     ) {
         self.attributes = attributes
     }
-    
+
     mutating func set<T>(value: T?, forKey key: NSAttributedString.Key) {
         guard let value = value else {
             attributes.removeValue(forKey: key)
@@ -61,14 +62,14 @@ public struct StyleDescription {
         }
         attributes[key] = value
     }
-    
+
     func get<T>(attributeForKey key: NSAttributedString.Key) -> T? {
         return attributes[key] as? T
     }
-    
+
     func constructAttributes() -> [NSAttributedString.Key: Any] {
         var attributes: [NSAttributedString.Key: Any] = self.attributes
-        
+
         // paragraph style
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing ?? 0.0
@@ -82,7 +83,7 @@ public struct StyleDescription {
         paragraphStyle.minimumLineHeight = minimumLineHeight ?? 0.0
         paragraphStyle.maximumLineHeight = maximumLineHeight ?? 0.0
         paragraphStyle.lineHeightMultiple = lineHeightMultiple ?? 0.0
-        paragraphStyle.hyphenationFactor = (hyphenation ?? .disabled).rawValue
+        paragraphStyle.hyphenationFactor = hyphenationFactor ?? 0.0
         paragraphStyle.baseWritingDirection = baseWritingDirection ?? .natural
         if paragraphStyle != NSParagraphStyle.default {
             attributes[.paragraphStyle] = paragraphStyle
@@ -98,7 +99,7 @@ public struct StyleDescription {
         var font = (attributes[.font] as? Font) ?? Font.systemFont(
             ofSize: size
         )
-        
+
         var fontFeatureConstructors: [FontFeatureConstructor] = []
         fontFeatureConstructors += [numberCase].compactMap { $0 }
         fontFeatureConstructors += [numberSpacing].compactMap { $0 }
@@ -112,15 +113,15 @@ public struct StyleDescription {
         fontFeatureConstructors += [scientificInferiors].compactMap { $0 }
             .map { $0 ? VerticalPosition.scientificInferiors : VerticalPosition.normal }
         fontFeatureConstructors += smallCaps?.map { $0 } ?? []
-        
+
         let fontFeatures = fontFeatureConstructors.flatMap { $0.attributes() }
         var descriptor: FontDescriptor? = font.fontDescriptor
         if !fontFeatures.isEmpty {
             descriptor = font.fontDescriptor.addingAttributes([
-                FontDescriptorFeatureSettingsAttribute: fontFeatures
+                FontDescriptorFeatureSettingsAttribute: fontFeatures,
             ])
         }
-        
+
         // SymbolicTraits
         if let emphasis = emphasizeStyle {
             let existingTraits = descriptor?.symbolicTraits
@@ -128,7 +129,7 @@ public struct StyleDescription {
                 descriptor = descriptor?.withSymbolicTraits(newTraits)
             }
         }
-        
+
         if let descriptor = descriptor {
             #if os(OSX)
             font = Font(descriptor: descriptor, size: font.pointSize)!
@@ -136,7 +137,7 @@ public struct StyleDescription {
             font = Font(descriptor: descriptor, size: font.pointSize)
             #endif
         }
-        
+
         #if os(tvOS) || os(watchOS) || os(iOS)
         if #available(iOS 11.0, watchOS 4.0, tvOS 11.0, *), dynamicText != nil {
             attributes[.font] = scalable(font: font)
@@ -146,15 +147,15 @@ public struct StyleDescription {
         #else
         attributes[.font] = font
         #endif
-        
+
         // 字间距
         if let tracking = tracking {
             attributes[.kern] = tracking.kerning(for: font)
         }
-        
+
         return attributes
     }
-    
+
     #if os(tvOS) || os(watchOS) || os(iOS)
     @available(iOS 11, tvOS 11.0, iOSApplicationExtension 11.0, watchOS 4, *)
     private func scalable(font: UIFont) -> UIFont {
@@ -164,7 +165,7 @@ public struct StyleDescription {
         } else {
             fontMetrics = UIFontMetrics.default
         }
-        
+
         #if os(iOS) || os(tvOS)
         return fontMetrics.scaledFont(
             for: font,
@@ -179,7 +180,7 @@ public struct StyleDescription {
         #endif
     }
     #endif
-    
+
     static func combine(_ parent: StyleDescription, _ child: StyleDescription) -> StyleDescription {
         let attributes = parent.attributes.merging(child.attributes) { _, new in
             return new
@@ -190,7 +191,7 @@ public struct StyleDescription {
         #if os(tvOS) || os(iOS) || os(watchOS)
         description.dynamicText = child.dynamicText ?? parent.dynamicText
         #endif
-        
+
         description.lineSpacing = child.lineSpacing ?? parent.lineSpacing
         description.paragraphSpacingBefore = child.paragraphSpacingBefore
             ?? parent.paragraphSpacingBefore
@@ -203,9 +204,9 @@ public struct StyleDescription {
         description.minimumLineHeight = child.minimumLineHeight ?? parent.minimumLineHeight
         description.maximumLineHeight = child.maximumLineHeight ?? parent.maximumLineHeight
         description.lineHeightMultiple = child.lineHeightMultiple ?? parent.lineHeightMultiple
-        description.hyphenation = child.hyphenation ?? parent.hyphenation
+        description.hyphenationFactor = child.hyphenationFactor ?? parent.hyphenationFactor
         description.baseWritingDirection = child.baseWritingDirection ?? parent.baseWritingDirection
-        
+
         description.tracking = child.tracking ?? parent.tracking
         description.numberCase = child.numberCase ?? parent.numberCase
         description.numberSpacing = child.numberSpacing ?? parent.numberSpacing
@@ -217,8 +218,8 @@ public struct StyleDescription {
         description.smallCaps = parent.smallCaps?.union(child.smallCaps ?? []) ?? child.smallCaps
         description.emphasizeStyle = parent.emphasizeStyle?.union(
             child.emphasizeStyle ?? []) ?? child.emphasizeStyle
-        
+
         return description
     }
-    
+
 }

@@ -13,22 +13,41 @@
 		895B8C6D2471968C004F3EA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6B2471968C004F3EA2 /* Main.storyboard */; };
 		895B8C6F2471968D004F3EA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6E2471968D004F3EA2 /* Assets.xcassets */; };
 		895B8C722471968D004F3EA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C702471968D004F3EA2 /* LaunchScreen.storyboard */; };
-		895B8C962471971B004F3EA2 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */; };
 		895B8C982471976A004F3EA2 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B8C972471976A004F3EA2 /* Example.swift */; };
 		895B8C9A24719914004F3EA2 /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD18246E9BEF00981FEF /* EasyTextKit.framework */; };
 		895B8C9B24719914004F3EA2 /* EasyTextKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD18246E9BEF00981FEF /* EasyTextKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C41A1966247283C5007DD0A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6E2471968D004F3EA2 /* Assets.xcassets */; };
 		C41A1967247283C6007DD0A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6E2471968D004F3EA2 /* Assets.xcassets */; };
 		C41A1968247283C7007DD0A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6E2471968D004F3EA2 /* Assets.xcassets */; };
-		C41A1969247283CD007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */; };
-		C41A196A247283CE007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */; };
-		C41A196B247283CE007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */; };
 		C41A196D24728418007DD0A6 /* AttributedStringStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A196C24728418007DD0A6 /* AttributedStringStyleTests.swift */; };
 		C41A196E24728418007DD0A6 /* AttributedStringStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A196C24728418007DD0A6 /* AttributedStringStyleTests.swift */; };
 		C41A196F24728418007DD0A6 /* AttributedStringStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A196C24728418007DD0A6 /* AttributedStringStyleTests.swift */; };
 		C41A197124728551007DD0A6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A197024728551007DD0A6 /* Helper.swift */; };
 		C41A197224728551007DD0A6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A197024728551007DD0A6 /* Helper.swift */; };
 		C41A197324728551007DD0A6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41A197024728551007DD0A6 /* Helper.swift */; };
+		C41A197724736732007DD0A6 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41A197524736704007DD0A6 /* Image.xcassets */; };
+		C41A19782473673B007DD0A6 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41A197524736704007DD0A6 /* Image.xcassets */; };
+		C41A19792473673B007DD0A6 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41A197524736704007DD0A6 /* Image.xcassets */; };
+		C41A197A2473673C007DD0A6 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41A197524736704007DD0A6 /* Image.xcassets */; };
+		C41A1981247367E1007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */; };
+		C41A1982247367E1007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */; };
+		C41A1983247367E2007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */; };
+		C41A1984247367E2007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */; };
+		C41A1985247367E3007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */; };
+		C41A1986247367E4007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */; };
+		C41A1987247367E4007DD0A6 /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */; };
+		C41A1988247367E8007DD0A6 /* Avenir Next Condensed.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C41A1980247367DA007DD0A6 /* Avenir Next Condensed.ttc */; };
+		C41A1989247367E8007DD0A6 /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C41A197D247367DA007DD0A6 /* GillSans.ttc */; };
+		C41A198A247367E8007DD0A6 /* Superclarendon Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197E247367DA007DD0A6 /* Superclarendon Black.ttf */; };
+		C41A198B247367E8007DD0A6 /* Zapfino.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197F247367DA007DD0A6 /* Zapfino.ttf */; };
+		C41A198C247367E8007DD0A6 /* Avenir Next Condensed.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C41A1980247367DA007DD0A6 /* Avenir Next Condensed.ttc */; };
+		C41A198D247367E8007DD0A6 /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C41A197D247367DA007DD0A6 /* GillSans.ttc */; };
+		C41A198E247367E8007DD0A6 /* Superclarendon Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197E247367DA007DD0A6 /* Superclarendon Black.ttf */; };
+		C41A198F247367E8007DD0A6 /* Zapfino.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197F247367DA007DD0A6 /* Zapfino.ttf */; };
+		C41A1990247367E8007DD0A6 /* Avenir Next Condensed.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C41A1980247367DA007DD0A6 /* Avenir Next Condensed.ttc */; };
+		C41A1991247367E8007DD0A6 /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C41A197D247367DA007DD0A6 /* GillSans.ttc */; };
+		C41A1992247367E8007DD0A6 /* Superclarendon Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197E247367DA007DD0A6 /* Superclarendon Black.ttf */; };
+		C41A1993247367E8007DD0A6 /* Zapfino.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41A197F247367DA007DD0A6 /* Zapfino.ttf */; };
 		C43F178A24721E8100792E2A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C43F178824721E8100792E2A /* Interface.storyboard */; };
 		C43F178C24721E8500792E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C43F178B24721E8500792E2A /* Assets.xcassets */; };
 		C43F179324721E8500792E2A /* Example-watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C43F179224721E8500792E2A /* Example-watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -41,7 +60,6 @@
 		C43F17B1247221BA00792E2A /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD35246E9BFF00981FEF /* EasyTextKit.framework */; };
 		C43F17B2247221BA00792E2A /* EasyTextKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD35246E9BFF00981FEF /* EasyTextKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C43F17B9247225A200792E2A /* EasyRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F17B8247225A200792E2A /* EasyRowController.swift */; };
-		C43F17BA247228DF00792E2A /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */; };
 		C43F17E9247238C300792E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F17E8247238C300792E2A /* AppDelegate.swift */; };
 		C43F17EB247238C300792E2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F17EA247238C300792E2A /* ViewController.swift */; };
 		C43F17EE247238C300792E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C43F17EC247238C300792E2A /* Main.storyboard */; };
@@ -50,7 +68,6 @@
 		C43F17F8247238EB00792E2A /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD42246E9C1000981FEF /* EasyTextKit.framework */; };
 		C43F17F9247238EB00792E2A /* EasyTextKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD42246E9C1000981FEF /* EasyTextKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C43F17FD24723BFD00792E2A /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B8C972471976A004F3EA2 /* Example.swift */; };
-		C43F17FF24723C4700792E2A /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */; };
 		C43F180C2472573B00792E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F180B2472573B00792E2A /* AppDelegate.swift */; };
 		C43F180E2472573B00792E2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F180D2472573B00792E2A /* ViewController.swift */; };
 		C43F18102472573C00792E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C43F180F2472573C00792E2A /* Assets.xcassets */; };
@@ -61,19 +78,6 @@
 		C43F18202472627B00792E2A /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895B8C972471976A004F3EA2 /* Example.swift */; };
 		C43F18212472638300792E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6E2471968D004F3EA2 /* Assets.xcassets */; };
 		C43F18222472638300792E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6E2471968D004F3EA2 /* Assets.xcassets */; };
-		C43F1827247264B800792E2A /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C43F1823247264AD00792E2A /* GillSans.ttc */; };
-		C43F1828247264B900792E2A /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C43F1823247264AD00792E2A /* GillSans.ttc */; };
-		C43F1829247264BD00792E2A /* Superclarendon Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C43F1826247264AD00792E2A /* Superclarendon Black.ttf */; };
-		C43F182A247264BE00792E2A /* Superclarendon Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C43F1826247264AD00792E2A /* Superclarendon Black.ttf */; };
-		C43F182C247264BF00792E2A /* Superclarendon Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C43F1826247264AD00792E2A /* Superclarendon Black.ttf */; };
-		C43F182D247264C200792E2A /* Zapfino.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C43F1824247264AD00792E2A /* Zapfino.ttf */; };
-		C43F182E247264C200792E2A /* Zapfino.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C43F1824247264AD00792E2A /* Zapfino.ttf */; };
-		C43F182F247264C200792E2A /* Zapfino.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C43F1824247264AD00792E2A /* Zapfino.ttf */; };
-		C43F18312472654200792E2A /* Avenir Next Condensed.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C43F1825247264AD00792E2A /* Avenir Next Condensed.ttc */; };
-		C43F18322472654300792E2A /* Avenir Next Condensed.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C43F1825247264AD00792E2A /* Avenir Next Condensed.ttc */; };
-		C43F18332472654300792E2A /* Avenir Next Condensed.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C43F1825247264AD00792E2A /* Avenir Next Condensed.ttc */; };
-		C43F18342472654600792E2A /* GillSans.ttc in Resources */ = {isa = PBXBuildFile; fileRef = C43F1823247264AD00792E2A /* GillSans.ttc */; };
-		C43F18352472682300792E2A /* EBGaramond12-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */; };
 		C43F18362472706F00792E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895B8C6E2471968D004F3EA2 /* Assets.xcassets */; };
 		C43F184824727D4000792E2A /* EmphasisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F184724727D2C00792E2A /* EmphasisTests.swift */; };
 		C43F184924727D4100792E2A /* EmphasisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F184724727D2C00792E2A /* EmphasisTests.swift */; };
@@ -275,11 +279,16 @@
 		895B8C6E2471968D004F3EA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		895B8C712471968D004F3EA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		895B8C732471968D004F3EA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond12-Regular.otf"; sourceTree = "<group>"; };
 		895B8C972471976A004F3EA2 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		C41A196524727F9B007DD0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41A196C24728418007DD0A6 /* AttributedStringStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringStyleTests.swift; sourceTree = "<group>"; };
 		C41A197024728551007DD0A6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		C41A197524736704007DD0A6 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
+		C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EBGaramond12-Regular.otf"; sourceTree = "<group>"; };
+		C41A197D247367DA007DD0A6 /* GillSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = GillSans.ttc; sourceTree = "<group>"; };
+		C41A197E247367DA007DD0A6 /* Superclarendon Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Superclarendon Black.ttf"; sourceTree = "<group>"; };
+		C41A197F247367DA007DD0A6 /* Zapfino.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zapfino.ttf; sourceTree = "<group>"; };
+		C41A1980247367DA007DD0A6 /* Avenir Next Condensed.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next Condensed.ttc"; sourceTree = "<group>"; };
 		C43F178624721E8100792E2A /* Example-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43F178924721E8100792E2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C43F178B24721E8500792E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -307,10 +316,6 @@
 		C43F18142472573C00792E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C43F18152472573C00792E2A /* Example_OSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example_OSX.entitlements; sourceTree = "<group>"; };
 		C43F181E24725FB800792E2A /* EasyTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTableCellView.swift; sourceTree = "<group>"; };
-		C43F1823247264AD00792E2A /* GillSans.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = GillSans.ttc; sourceTree = "<group>"; };
-		C43F1824247264AD00792E2A /* Zapfino.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zapfino.ttf; sourceTree = "<group>"; };
-		C43F1825247264AD00792E2A /* Avenir Next Condensed.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next Condensed.ttc"; sourceTree = "<group>"; };
-		C43F1826247264AD00792E2A /* Superclarendon Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Superclarendon Black.ttf"; sourceTree = "<group>"; };
 		C43F184424727C6D00792E2A /* EasyTextKit-iOSTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "EasyTextKit-iOSTests.xctestplan"; sourceTree = "<group>"; };
 		C43F184524727C7F00792E2A /* EasyTextKit-tvOSTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "EasyTextKit-tvOSTests.xctestplan"; sourceTree = "<group>"; };
 		C43F184624727C8E00792E2A /* EasyTextKit-OSXTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "EasyTextKit-OSXTests.xctestplan"; sourceTree = "<group>"; };
@@ -428,11 +433,6 @@
 		895B8C642471968C004F3EA2 /* Example-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C43F1825247264AD00792E2A /* Avenir Next Condensed.ttc */,
-				C43F1823247264AD00792E2A /* GillSans.ttc */,
-				C43F1826247264AD00792E2A /* Superclarendon Black.ttf */,
-				C43F1824247264AD00792E2A /* Zapfino.ttf */,
-				895B8C952471971B004F3EA2 /* EBGaramond12-Regular.otf */,
 				895B8C652471968C004F3EA2 /* AppDelegate.swift */,
 				895B8C672471968C004F3EA2 /* SceneDelegate.swift */,
 				895B8C692471968C004F3EA2 /* ViewController.swift */,
@@ -450,6 +450,27 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C41A1974247366F6007DD0A6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C41A197B2473679A007DD0A6 /* Font */,
+				C41A197524736704007DD0A6 /* Image.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C41A197B2473679A007DD0A6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C41A1980247367DA007DD0A6 /* Avenir Next Condensed.ttc */,
+				C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */,
+				C41A197D247367DA007DD0A6 /* GillSans.ttc */,
+				C41A197E247367DA007DD0A6 /* Superclarendon Black.ttf */,
+				C41A197F247367DA007DD0A6 /* Zapfino.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		C43F178724721E8100792E2A /* Example-watchOS */ = {
@@ -522,6 +543,7 @@
 				C43F184524727C7F00792E2A /* EasyTextKit-tvOSTests.xctestplan */,
 				C4ACAD75246E9C9400981FEF /* Source */,
 				C43F184324727C3400792E2A /* Tests */,
+				C41A1974247366F6007DD0A6 /* Resource */,
 				895B8C642471968C004F3EA2 /* Example-iOS */,
 				C43F178724721E8100792E2A /* Example-watchOS */,
 				C43F179624721E8500792E2A /* Example-watchOS Extension */,
@@ -740,6 +762,7 @@
 				C4ACAD14246E9BEF00981FEF /* Sources */,
 				C4ACAD15246E9BEF00981FEF /* Frameworks */,
 				C4ACAD16246E9BEF00981FEF /* Resources */,
+				C41A19942473B237007DD0A6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -757,6 +780,7 @@
 				C4ACAD1D246E9BEF00981FEF /* Sources */,
 				C4ACAD1E246E9BEF00981FEF /* Frameworks */,
 				C4ACAD1F246E9BEF00981FEF /* Resources */,
+				C41A19982473B38E007DD0A6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -776,6 +800,7 @@
 				C4ACAD31246E9BFF00981FEF /* Sources */,
 				C4ACAD32246E9BFF00981FEF /* Frameworks */,
 				C4ACAD33246E9BFF00981FEF /* Resources */,
+				C41A19952473B2AB007DD0A6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -794,6 +819,7 @@
 				C4ACAD3E246E9C1000981FEF /* Sources */,
 				C4ACAD3F246E9C1000981FEF /* Frameworks */,
 				C4ACAD40246E9C1000981FEF /* Resources */,
+				C41A19962473B2B7007DD0A6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -811,6 +837,7 @@
 				C4ACAD46246E9C1000981FEF /* Sources */,
 				C4ACAD47246E9C1000981FEF /* Frameworks */,
 				C4ACAD48246E9C1000981FEF /* Resources */,
+				C41A19992473B39D007DD0A6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -830,6 +857,7 @@
 				C4ACAD5A246E9C2200981FEF /* Sources */,
 				C4ACAD5B246E9C2200981FEF /* Frameworks */,
 				C4ACAD5C246E9C2200981FEF /* Resources */,
+				C41A19972473B2C2007DD0A6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -847,6 +875,7 @@
 				C4ACAD62246E9C2200981FEF /* Sources */,
 				C4ACAD63246E9C2200981FEF /* Frameworks */,
 				C4ACAD64246E9C2200981FEF /* Resources */,
+				C41A199A2473B3A9007DD0A6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -940,7 +969,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				895B8C722471968D004F3EA2 /* LaunchScreen.storyboard in Resources */,
-				895B8C962471971B004F3EA2 /* EBGaramond12-Regular.otf in Resources */,
+				C41A1981247367E1007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C41A197724736732007DD0A6 /* Image.xcassets in Resources */,
 				895B8C6F2471968D004F3EA2 /* Assets.xcassets in Resources */,
 				895B8C6D2471968C004F3EA2 /* Main.storyboard in Resources */,
 			);
@@ -960,12 +990,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C43F179E24721E8600792E2A /* Assets.xcassets in Resources */,
-				C43F182C247264BF00792E2A /* Superclarendon Black.ttf in Resources */,
-				C43F1828247264B900792E2A /* GillSans.ttc in Resources */,
-				C43F18312472654200792E2A /* Avenir Next Condensed.ttc in Resources */,
+				C41A1985247367E3007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C41A1989247367E8007DD0A6 /* GillSans.ttc in Resources */,
 				C43F18362472706F00792E2A /* Assets.xcassets in Resources */,
-				C43F182D247264C200792E2A /* Zapfino.ttf in Resources */,
-				C43F17BA247228DF00792E2A /* EBGaramond12-Regular.otf in Resources */,
+				C41A198A247367E8007DD0A6 /* Superclarendon Black.ttf in Resources */,
+				C41A1988247367E8007DD0A6 /* Avenir Next Condensed.ttc in Resources */,
+				C41A198B247367E8007DD0A6 /* Zapfino.ttf in Resources */,
+				C41A19782473673B007DD0A6 /* Image.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,14 +1004,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C41A1992247367E8007DD0A6 /* Superclarendon Black.ttf in Resources */,
 				C43F17F3247238C400792E2A /* LaunchScreen.storyboard in Resources */,
-				C43F182E247264C200792E2A /* Zapfino.ttf in Resources */,
-				C43F17FF24723C4700792E2A /* EBGaramond12-Regular.otf in Resources */,
-				C43F18322472654300792E2A /* Avenir Next Condensed.ttc in Resources */,
 				C43F17F0247238C400792E2A /* Assets.xcassets in Resources */,
-				C43F1827247264B800792E2A /* GillSans.ttc in Resources */,
-				C43F1829247264BD00792E2A /* Superclarendon Black.ttf in Resources */,
+				C41A1991247367E8007DD0A6 /* GillSans.ttc in Resources */,
+				C41A1993247367E8007DD0A6 /* Zapfino.ttf in Resources */,
+				C41A19792473673B007DD0A6 /* Image.xcassets in Resources */,
+				C41A1986247367E4007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
 				C43F18212472638300792E2A /* Assets.xcassets in Resources */,
+				C41A1990247367E8007DD0A6 /* Avenir Next Condensed.ttc in Resources */,
 				C43F17EE247238C300792E2A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -989,14 +1021,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C41A198D247367E8007DD0A6 /* GillSans.ttc in Resources */,
+				C41A198F247367E8007DD0A6 /* Zapfino.ttf in Resources */,
 				C43F18102472573C00792E2A /* Assets.xcassets in Resources */,
-				C43F18352472682300792E2A /* EBGaramond12-Regular.otf in Resources */,
+				C41A1987247367E4007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
 				C43F18222472638300792E2A /* Assets.xcassets in Resources */,
-				C43F18342472654600792E2A /* GillSans.ttc in Resources */,
-				C43F182A247264BE00792E2A /* Superclarendon Black.ttf in Resources */,
+				C41A198C247367E8007DD0A6 /* Avenir Next Condensed.ttc in Resources */,
 				C43F18132472573C00792E2A /* Main.storyboard in Resources */,
-				C43F18332472654300792E2A /* Avenir Next Condensed.ttc in Resources */,
-				C43F182F247264C200792E2A /* Zapfino.ttf in Resources */,
+				C41A198E247367E8007DD0A6 /* Superclarendon Black.ttf in Resources */,
+				C41A197A2473673C007DD0A6 /* Image.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,7 +1045,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41A1966247283C5007DD0A6 /* Assets.xcassets in Resources */,
-				C41A1969247283CD007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C41A1982247367E1007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,7 +1068,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41A1967247283C6007DD0A6 /* Assets.xcassets in Resources */,
-				C41A196A247283CE007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C41A1983247367E2007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,11 +1084,140 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41A1968247283C7007DD0A6 /* Assets.xcassets in Resources */,
-				C41A196B247283CE007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C41A1984247367E2007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C41A19942473B237007DD0A6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C41A19952473B2AB007DD0A6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C41A19962473B2B7007DD0A6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C41A19972473B2C2007DD0A6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C41A19982473B38E007DD0A6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C41A19992473B39D007DD0A6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C41A199A2473B3A9007DD0A6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		895B8C5F2471968C004F3EA2 /* Sources */ = {

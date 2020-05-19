@@ -6,8 +6,10 @@
 //  Copyright © 2020 easy. All rights reserved.
 //
 
-import Foundation
 import CoreGraphics
+import Foundation
+
+// MARK: - Typealias
 
 #if os(OSX)
 import AppKit
@@ -39,12 +41,18 @@ let FontFeatureTypeIdentifierKey = UIFontDescriptor.FeatureKey.featureIdentifier
 let FontFeatureSelectorIdentifierKey = UIFontDescriptor.FeatureKey.typeIdentifier
 #endif
 
-/// 字间距枚举
+// MARK: - Tracking
+
+/// An enumeration representing the tracking to be applied.
+/// - point: point value
+/// - abobe: adobe format point value,
+///          designers working in Adobe Photoshop or Illustrator will be using the type panel’s tracking field,
+///          which specifies values in thousandths of an em (a typographic unit of size).
 public enum Tracking {
-    
+
     case point(CGFloat)
     case adobe(CGFloat)
-    
+
     func kerning(for font: Font?) -> CGFloat {
         switch self {
         case .point(let kernValue):
@@ -57,22 +65,22 @@ public enum Tracking {
             return font.pointSize * (adobeValue / 1000.0)
         }
     }
-    
+
 }
 
-/// 连字，某些字体在特殊字符组合时会有连笔的样式
+// MARK: - Ligature
+
+/// A ligature is a special character that combines two (or sometimes three) characters into a single character.
+///
+/// - disabled: indicates no ligatures.
+/// - default: indicates the use of the default ligatures
+/// - all: indicates the use of all ligatures. (Supported only on OSX)
 public enum Ligature: Int {
     case disabled = 0
     case `default`
     #if os(OSX)
     case all = 2
     #endif
-}
-
-/// 英文自动断词
-public enum Hyphenation: Float {
-    case disabled = 0.0
-    case `default` = 1.0
 }
 
 // MARK: Font 
@@ -87,26 +95,28 @@ extension FontFeatureConstructor {
         return constructs.map {
             [
                 FontFeatureTypeIdentifierKey: $0.type,
-                FontFeatureSelectorIdentifierKey: $0.selector
+                FontFeatureSelectorIdentifierKey: $0.selector,
             ]
         }
     }
 }
 
+// MARK: - NumberCase
+
 /// Number Case is independent of Letter Case.
-/// https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type21
+/// [Apple Document](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type21)
+///
+/// - upper: Uppercase numbers, also known as "lining figures", are the same height
+///          as uppercase letters, and they do not extend below the baseline.
+/// - lower: Lowercase numbers, also known as "oldstyle figures", are similar in
+///          size and visual weight to lowercase letters, allowing them to
+///          blend in better in a block of text.
+///          They may have descenders hich drop below the typographic baseline.
 public enum NumberCase: FontFeatureConstructor {
-    
-    /// These forms of numbers do not descend below the baseline.
-    /// They are sometimes known as "lining" numbers.
-    /// 数字不会出现在 baseline 以下
+
     case upper
-    
-    /// These forms of numbers may descend below the baseline.
-    /// They are sometimes known as "traditional" or "old-style" numbers.
-    /// 数字出现在 baseline 以下
     case lower
-    
+
     public func featureConstruct() -> [(type: Int, selector: Int)] {
         let selector: Int
         if case .upper = self {
@@ -118,16 +128,23 @@ public enum NumberCase: FontFeatureConstructor {
     }
 }
 
-/// https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type6
-/// 数字样式
+// MARK: - NumberSpacing
+
+/// The Number Spacing feature type specifies a choice for the appearance of digits.
+/// [Apple Document](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type6)
+///
+/// - monospaced:   Monospaced numbers, each take up
+///                 the same amount of horizontal space, meaning that different numbers
+///                 will line up when arranged in columns.
+/// - proportional: Proportionally spaced numbers, also known as "proprotional figures",
+///                 are of variable width.
+///                 This makes them look better in most cases, but they should be avoided
+///                 when numbers need to line up in columns.
 public enum NumberSpacing: FontFeatureConstructor {
-    
-    /// 数字等宽
+
     case monospaced
-    
-    /// 数字宽度不同
     case proportional
-    
+
     public func featureConstruct() -> [(type: Int, selector: Int)] {
         let selector: Int
         if case .monospaced = self {
@@ -137,23 +154,25 @@ public enum NumberSpacing: FontFeatureConstructor {
         }
         return [(type: kNumberSpacingType, selector: selector)]
     }
-    
+
 }
 
-/// https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type11
-/// 分数的样式
+// MARK: - Fractions
+
+/// The Fractions feature type controls the selection and/or generation of fractions.
+/// [Apple Document](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type11)
+///
+/// - disabled: No fraction formatting.
+/// - diagonal: Acts like the Vertical Fractions selector,
+///             but fractions will be synthesized using superiors and inferiors
+///             (or special-purpose numerator and denominator forms, if present in the font).
+/// - vertical: Form vertical (pre-drawn) fractions present in the font.
 public enum Fractions: FontFeatureConstructor {
-    
-    /// 不使用格式化，分子分母和 / 都在一行
+
     case disabled
-    
-    /// 分子略高，分母略低
     case diagonal
-    
-    /// 竖向的分数布局
-    /// 需要字体中有绘制好的垂直分数，才生效
     case vertical
-    
+
     public func featureConstruct() -> [(type: Int, selector: Int)] {
         let selector: Int
         switch self {
@@ -163,27 +182,31 @@ public enum Fractions: FontFeatureConstructor {
         }
         return [(type: kFractionsType, selector: selector)]
     }
-    
+
 }
 
-/// https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type10
+// MARK: - VerticalPosition
+
+/// A feature provider for changing the vertical position of characters
+/// using predefined styles in the font, such as superscript and subscript.
+/// [Apple Document](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type10)
 public enum VerticalPosition: FontFeatureConstructor {
-    
-    /// 常规文本显示
+
+    /// No vertical position adjustment is applied.
     case normal
-    
-    /// 上确界 script¹
+
+    /// Superscript (superior) glpyh variants are used, as in footnotes¹.
     case superscript
-    
-    /// 下确界 vₑ
+
+    /// Subscript (inferior) glyph variants are used: vₑ.
     case `subscript`
-    
-    /// 根据上下文，将某些字母更改为它们的高级形式，例如西班牙语中从1a更改为1ª。
+
+    /// Ordinal glyph variants are used, as in the common typesetting of 4th.
     case ordinals
-    
-    /// 例如化学符号
+
+    /// Scientific inferior glyph variants are used: H₂O
     case scientificInferiors
-    
+
     public func featureConstruct() -> [(type: Int, selector: Int)] {
         let selector: Int
         switch self {
@@ -195,75 +218,82 @@ public enum VerticalPosition: FontFeatureConstructor {
         }
         return [(type: kVerticalPositionType, selector: selector)]
     }
-    
+
 }
 
+// MARK: - SmallCaps
+
+/// Configure small caps behavior.
+///
+/// - disabled:      No small caps are used.
+/// - fromUppercase: Uppercase letters in the source string are replaced with small caps.
+///                  Lowercase letters remain unmodified.
+/// - fromLowercase: Lowercase letters in the source string are replaced with small caps.
+///                  Uppercase letters remain unmodified.
 public enum SmallCaps: FontFeatureConstructor {
-    
+
     case disabled
-    
-    /// 将大写的字形显示为小写
-    /// 即 iPhone XR 在官网中的样式，R 大写，但字形略小
     case fromUppercase
-    
-    /// 将小写的字形显示为小写
     case fromLowercase
-    
+
     public func featureConstruct() -> [(type: Int, selector: Int)] {
         switch self {
         case .disabled:
             return [
                 (type: kLowerCaseType, selector: kDefaultLowerCaseSelector),
-                (type: kUpperCaseType, selector: kDefaultUpperCaseSelector)
+                (type: kUpperCaseType, selector: kDefaultUpperCaseSelector),
             ]
         case .fromUppercase: return [(type: kUpperCaseType, selector: kUpperCaseSmallCapsSelector)]
         case .fromLowercase: return [(type: kLowerCaseType, selector: kLowerCaseSmallCapsSelector)]
         }
     }
-    
+
 }
 
-/// 字体的特殊样式
-/// 例如: 斜体/粗体/
+// MARK: - EmphasizeStyle
+
+/// Describe trait variants to apply to the font.
 public struct EmphasizeStyle: OptionSet {
-    
+
     public var rawValue: Int
-    
-    /// 斜体
+
+    /// The font typestyle is italic
     public static let italic = EmphasizeStyle(rawValue: 1)
-    
-    /// 加粗
+
+    /// The font typestyle is bold
     public static let bold = EmphasizeStyle(rawValue: 1 << 1)
-    
-    /// 扩展，适当拉伸
+
+    /// The font’s typestyle is expanded. Expanded and condensed traits are mutually exclusive.
     public static let expanded = EmphasizeStyle(rawValue: 1 << 2)
-    
-    /// 压缩，适当拉伸
+
+    /// The font’s typestyle is condensed. Expanded and condensed traits are mutually exclusive.
     public static let condensed = EmphasizeStyle(rawValue: 1 << 3)
-    
-    /// 等宽，需要字体提供两种空格样式 (普通空格以及等宽填充空格)
+
+    /// The monospace variant of the default typeface.
     public static let monoSpace = EmphasizeStyle(rawValue: 1 << 4)
-    
-    ///
+
+    /// The font uses vertical glyph variants and metrics.
     public static let vertical = EmphasizeStyle(rawValue: 1 << 5)
-    
-    ///
+
+    /// The font synthesizes appropriate attributes for user interface rendering, such as control titles, if necessary.
     public static let uiOptimized = EmphasizeStyle(rawValue: 1 << 6)
-    
-    ///
+
+    /// The font uses tighter leading values.
     public static let tightLeading = EmphasizeStyle(rawValue: 1 << 7)
-    
-    ///
+
+    /// The font uses looser leading values.
     public static let looseLeading = EmphasizeStyle(rawValue: 1 << 8)
-    
+
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
-    
+
 }
 
+// Convert!
+
 extension EmphasizeStyle {
-    
+
     var symbolicTraits: SymbolicTraits {
         var traits: SymbolicTraits = []
         #if os(tvOS) || os(iOS) || os(watchOS)
@@ -325,5 +355,5 @@ extension EmphasizeStyle {
         #endif
         return traits
     }
-    
+
 }

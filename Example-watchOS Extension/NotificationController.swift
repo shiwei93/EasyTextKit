@@ -5,17 +5,16 @@
 //  Created by shiwei on 2020/5/18.
 //
 
-import WatchKit
 import Foundation
 import UserNotifications
-
+import WatchKit
 
 class NotificationController: WKUserNotificationInterfaceController {
 
     override init() {
         // Initialize variables here.
         super.init()
-        
+
         // Configure interface objects here.
     }
 
