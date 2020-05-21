@@ -64,8 +64,13 @@ class EBGaramondLoader: NSObject {
     }
 
     private static var loadFont: Void = {
-        guard let path = Bundle(for: EBGaramondLoader.self).path(forResource: "EBGaramond12-Regular", ofType: "otf"), let data = NSData(contentsOfFile: path) else {
-            fatalError("Can not load EGBaramond12")
+        load(fontWith: "EBGaramond12-Regular", ofType: "otf")
+        load(fontWith: "HypatiaSansPro-Regular", ofType: "otf")
+    }()
+
+    private static func load(fontWith name: String, ofType type: String) {
+        guard let path = Bundle(for: EBGaramondLoader.self).path(forResource: name, ofType: "otf"), let data = NSData(contentsOfFile: path) else {
+            fatalError("Can not load " + name)
         }
 
         guard let provider = CGDataProvider(data: data) else {
@@ -79,6 +84,6 @@ class EBGaramondLoader: NSObject {
         if let error = error {
             fatalError("Unable to load font: \(error)")
         }
-    }()
+    }
 
 }

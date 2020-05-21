@@ -357,3 +357,103 @@ extension EmphasizeStyle {
     }
 
 }
+
+// MARK: - Contextual Alternates
+
+/// Different contextual alternates available for customizing a font.
+/// - Attention:
+///   Only certain fonts support contextual alternates.
+/// [Apple Document](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html#Type36)
+public struct ContextualAlternates: OptionSet, FontFeatureConstructor {
+
+    public var rawValue: Int
+
+    public static let contextualAlternates = ContextualAlternates(rawValue: 1)
+    public static let swashAlternates = ContextualAlternates(rawValue: 1 << 1)
+    public static let contextualSwashAlternates = ContextualAlternates(rawValue: 1 << 2)
+
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+
+    public func featureConstruct() -> [(type: Int, selector: Int)] {
+        var selector: [Int] = []
+        selector.append(
+            contains(.contextualAlternates) ? kContextualAlternatesOnSelector : kContextualAlternatesOffSelector
+        )
+        selector.append(
+            contains(.swashAlternates) ? kSwashAlternatesOnSelector : kSwashAlternatesOffSelector
+        )
+        selector.append(
+            contains(.contextualSwashAlternates) ?
+                kContextualSwashAlternatesOnSelector : kContextualSwashAlternatesOffSelector
+        )
+        return selector.map {
+            (type: kContextualAlternatesType, selector: $0)
+        }
+    }
+
+}
+
+// MARK: - Stylistic Alternatives
+
+/// Different stylistic alternates available for customizing a font.
+/// Typically, a font will support a small subset of these alternates, and
+/// what they mean in a particular font is up to the font's creator.
+public struct StylisticAlternatives: OptionSet, FontFeatureConstructor {
+
+    public var rawValue: Int
+
+    public static let one = StylisticAlternatives(rawValue: 1)
+    public static let two = StylisticAlternatives(rawValue: 1 << 1)
+    public static let three = StylisticAlternatives(rawValue: 1 << 2)
+    public static let four = StylisticAlternatives(rawValue: 1 << 3)
+    public static let five = StylisticAlternatives(rawValue: 1 << 4)
+    public static let six = StylisticAlternatives(rawValue: 1 << 5)
+    public static let seven = StylisticAlternatives(rawValue: 1 << 6)
+    public static let eight = StylisticAlternatives(rawValue: 1 << 7)
+    public static let nine = StylisticAlternatives(rawValue: 1 << 8)
+    public static let ten = StylisticAlternatives(rawValue: 1 << 9)
+    public static let eleven = StylisticAlternatives(rawValue: 1 << 10)
+    public static let twelve = StylisticAlternatives(rawValue: 1 << 11)
+    public static let thirteen = StylisticAlternatives(rawValue: 1 << 12)
+    public static let fourteen = StylisticAlternatives(rawValue: 1 << 13)
+    public static let fifteen = StylisticAlternatives(rawValue: 1 << 14)
+    public static let sixteen = StylisticAlternatives(rawValue: 1 << 15)
+    public static let seventeen = StylisticAlternatives(rawValue: 1 << 16)
+    public static let eighteen = StylisticAlternatives(rawValue: 1 << 17)
+    public static let nineteen = StylisticAlternatives(rawValue: 1 << 18)
+    public static let twenty = StylisticAlternatives(rawValue: 1 << 19)
+
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+
+    public func featureConstruct() -> [(type: Int, selector: Int)] {
+        var selector: [Int] = []
+        selector.append(contains(.one) ? kStylisticAltOneOnSelector : kStylisticAltOneOffSelector)
+        selector.append(contains(.two) ? kStylisticAltTwoOnSelector : kStylisticAltTwoOffSelector)
+        selector.append(contains(.three) ? kStylisticAltThreeOnSelector : kStylisticAltThreeOffSelector)
+        selector.append(contains(.four) ? kStylisticAltFourOnSelector : kStylisticAltFourOffSelector)
+        selector.append(contains(.five) ? kStylisticAltFiveOnSelector : kStylisticAltFiveOffSelector)
+        selector.append(contains(.six) ? kStylisticAltSixOnSelector : kStylisticAltSixOffSelector)
+        selector.append(contains(.seven) ? kStylisticAltSevenOnSelector : kStylisticAltSevenOffSelector)
+        selector.append(contains(.eight) ? kStylisticAltEightOnSelector : kStylisticAltEightOffSelector)
+        selector.append(contains(.nine) ? kStylisticAltNineOnSelector : kStylisticAltNineOffSelector)
+        selector.append(contains(.ten) ? kStylisticAltTenOnSelector : kStylisticAltTenOffSelector)
+        selector.append(contains(.eleven) ? kStylisticAltElevenOnSelector : kStylisticAltElevenOffSelector)
+        selector.append(contains(.twelve) ? kStylisticAltTwelveOnSelector : kStylisticAltTwelveOffSelector)
+        selector.append(contains(.thirteen) ? kStylisticAltThirteenOnSelector : kStylisticAltThirteenOffSelector)
+        selector.append(contains(.fourteen) ? kStylisticAltFourteenOnSelector : kStylisticAltFourteenOffSelector)
+        selector.append(contains(.fifteen) ? kStylisticAltFifteenOnSelector : kStylisticAltFifteenOffSelector)
+        selector.append(contains(.sixteen) ? kStylisticAltSixteenOnSelector : kStylisticAltSixteenOffSelector)
+        selector.append(contains(.seventeen) ? kStylisticAltSeventeenOnSelector : kStylisticAltSeventeenOffSelector)
+        selector.append(contains(.eighteen) ? kStylisticAltEighteenOnSelector : kStylisticAltEighteenOffSelector)
+        selector.append(contains(.nineteen) ? kStylisticAltNineteenOnSelector : kStylisticAltNineteenOffSelector)
+        selector.append(contains(.twenty) ? kStylisticAltTwentyOnSelector : kStylisticAltTwentyOffSelector)
+        return selector.map {
+            (type: kStylisticAlternativesType, selector: $0)
+        }
+    }
+
+}

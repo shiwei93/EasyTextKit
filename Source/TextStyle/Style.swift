@@ -14,6 +14,7 @@ import UIKit
 
 public typealias AttributedString = NSMutableAttributedString
 
+// swiftlint:disable:next type_body_length
 public struct Style: StyleProtocol {
 
     /// This struct modified when you set style.
@@ -393,14 +394,32 @@ public struct Style: StyleProtocol {
     @discardableResult
     public func smallCaps(_ smallCaps: Set<SmallCaps>?) -> Style {
         var description = styleDescription
-        if let smallCaps = smallCaps {
-            if description.smallCaps == nil {
-                description.smallCaps = smallCaps
-            } else {
-                description.smallCaps?.formUnion(smallCaps)
-            }
+        description.smallCaps = smallCaps
+        return Style(description)
+    }
+
+    /// Different contextual alternates available for customizing a font.
+    /// - Attention:
+    ///   Only certain fonts support contextual alternates.
+    @discardableResult
+    public func contextualAlternates(_ contextualAlternates: ContextualAlternates?) -> Style {
+        var description = styleDescription
+        if let contextualAlternates = contextualAlternates {
+            description.contextualAlternates = contextualAlternates
         } else {
-            description.smallCaps = nil
+            description.contextualAlternates = nil
+        }
+        return Style(description)
+    }
+
+    /// Different stylistic alternates available for customizing a font.
+    @discardableResult
+    public func stylisticAlternatives(_ stylisticAlternatives: StylisticAlternatives?) -> Style {
+        var description = styleDescription
+        if let stylisticAlternatives = stylisticAlternatives {
+            description.stylisticAlternatives = stylisticAlternatives
+        } else {
+            description.stylisticAlternatives = nil
         }
         return Style(description)
     }

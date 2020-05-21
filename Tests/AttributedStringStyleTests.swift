@@ -301,6 +301,25 @@ class AttributedStringStyleTests: XCTestCase {
         XCTAssertEqual(featureArray[0][FontFeatureSelectorIdentifierKey], kUpperCaseSmallCapsSelector)
     }
 
+    func testStylisticAlternatives() {
+        let style = Style().font(Font(name: "HypatiaSansPro-Regular", size: 24)!).stylisticAlternatives([.one, .three, .twenty])
+        let font = style.styleDescription.constructAttributes()[.font] as? Font
+        XCTAssertNotNil(font)
+        let fontAttributes = font?.fontDescriptor.fontAttributes
+        XCTAssertNotNil(fontAttributes)
+        let featureAttribute = fontAttributes?[FontDescriptorFeatureSettingsAttribute]
+        XCTAssertNotNil(featureAttribute)
+        guard let featureArray = featureAttribute as? [[FontDescriptor.FeatureKey: Int]] else {
+            XCTFail("Failed to cast \(String(describing: featureAttribute)) as [[FontDescriptor.FeatureKey: Int]]")
+            return
+        }
+        XCTAssertEqual(featureArray.count, 2)
+        XCTAssertTrue(featureArray.contains { $0[FontFeatureSelectorIdentifierKey] == kStylisticAltOneOnSelector })
+        XCTAssertTrue(featureArray.contains { $0[FontFeatureSelectorIdentifierKey] == kStylisticAltThreeOnSelector })
+        // Stylistic Alternatives twenty is not supported!
+        XCTAssertFalse(featureArray.contains { $0[FontFeatureSelectorIdentifierKey] == kStylisticAltTwentyOnSelector })
+    }
+
 }
 
 extension AttributedStringStyleTests {

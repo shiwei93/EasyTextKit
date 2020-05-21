@@ -133,6 +133,13 @@
 		C4ACAE0F246E9F6700981FEF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADE1246E9F6600981FEF /* Parser.swift */; };
 		C4ACAE10246E9F6700981FEF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADE1246E9F6600981FEF /* Parser.swift */; };
 		C4ACAE11246E9F6700981FEF /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADE1246E9F6600981FEF /* Parser.swift */; };
+		C4B0B93B24765DAE00115CDF /* HypatiaSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */; };
+		C4B0B93C24765DB100115CDF /* HypatiaSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */; };
+		C4B0B93D24765DB200115CDF /* HypatiaSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */; };
+		C4B0B93E24765DB700115CDF /* HypatiaSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */; };
+		C4B0B93F2476739000115CDF /* HypatiaSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */; };
+		C4B0B9402476739000115CDF /* HypatiaSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */; };
+		C4B0B9412476739100115CDF /* HypatiaSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +347,7 @@
 		C4ACADDE246E9F6600981FEF /* DynamicText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicText.swift; sourceTree = "<group>"; };
 		C4ACADDF246E9F6600981FEF /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		C4ACADE1246E9F6600981FEF /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HypatiaSansPro-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +474,7 @@
 			children = (
 				C41A1980247367DA007DD0A6 /* Avenir Next Condensed.ttc */,
 				C41A197C247367DA007DD0A6 /* EBGaramond12-Regular.otf */,
+				C4B0B93A24765DA900115CDF /* HypatiaSansPro-Regular.otf */,
 				C41A197D247367DA007DD0A6 /* GillSans.ttc */,
 				C41A197E247367DA007DD0A6 /* Superclarendon Black.ttf */,
 				C41A197F247367DA007DD0A6 /* Zapfino.ttf */,
@@ -970,6 +979,7 @@
 			files = (
 				895B8C722471968D004F3EA2 /* LaunchScreen.storyboard in Resources */,
 				C41A1981247367E1007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C4B0B93B24765DAE00115CDF /* HypatiaSansPro-Regular.otf in Resources */,
 				C41A197724736732007DD0A6 /* Image.xcassets in Resources */,
 				895B8C6F2471968D004F3EA2 /* Assets.xcassets in Resources */,
 				895B8C6D2471968C004F3EA2 /* Main.storyboard in Resources */,
@@ -991,6 +1001,7 @@
 			files = (
 				C43F179E24721E8600792E2A /* Assets.xcassets in Resources */,
 				C41A1985247367E3007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C4B0B93E24765DB700115CDF /* HypatiaSansPro-Regular.otf in Resources */,
 				C41A1989247367E8007DD0A6 /* GillSans.ttc in Resources */,
 				C43F18362472706F00792E2A /* Assets.xcassets in Resources */,
 				C41A198A247367E8007DD0A6 /* Superclarendon Black.ttf in Resources */,
@@ -1012,6 +1023,7 @@
 				C41A19792473673B007DD0A6 /* Image.xcassets in Resources */,
 				C41A1986247367E4007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
 				C43F18212472638300792E2A /* Assets.xcassets in Resources */,
+				C4B0B93C24765DB100115CDF /* HypatiaSansPro-Regular.otf in Resources */,
 				C41A1990247367E8007DD0A6 /* Avenir Next Condensed.ttc in Resources */,
 				C43F17EE247238C300792E2A /* Main.storyboard in Resources */,
 			);
@@ -1021,6 +1033,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B0B93D24765DB200115CDF /* HypatiaSansPro-Regular.otf in Resources */,
 				C41A198D247367E8007DD0A6 /* GillSans.ttc in Resources */,
 				C41A198F247367E8007DD0A6 /* Zapfino.ttf in Resources */,
 				C43F18102472573C00792E2A /* Assets.xcassets in Resources */,
@@ -1046,6 +1059,7 @@
 			files = (
 				C41A1966247283C5007DD0A6 /* Assets.xcassets in Resources */,
 				C41A1982247367E1007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C4B0B93F2476739000115CDF /* HypatiaSansPro-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1069,6 +1083,7 @@
 			files = (
 				C41A1967247283C6007DD0A6 /* Assets.xcassets in Resources */,
 				C41A1983247367E2007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C4B0B9402476739000115CDF /* HypatiaSansPro-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,6 +1100,7 @@
 			files = (
 				C41A1968247283C7007DD0A6 /* Assets.xcassets in Resources */,
 				C41A1984247367E2007DD0A6 /* EBGaramond12-Regular.otf in Resources */,
+				C4B0B9412476739100115CDF /* HypatiaSansPro-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

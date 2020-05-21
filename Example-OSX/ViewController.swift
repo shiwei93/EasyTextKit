@@ -19,6 +19,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         Example.superscript,
         Example.fraction,
         Example.scientificInferiors,
+        Example.stylisticAlternatives,
         Example.ligature,
         Example.kerning,
         Example.composition,
