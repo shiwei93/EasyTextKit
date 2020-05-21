@@ -630,4 +630,57 @@ struct Example {
         return string.attributedString(style: base)
     }()
 
+    static let stylisticAlternatives: NSAttributedString = {
+        let string = "The quick brown fox jumps over the lazy dog."
+        #if os(iOS)
+        let font = Font(name: "HypatiaSansPro-Regular", size: 22)!
+        #elseif os(OSX) || os(tvOS)
+        let font = Font(name: "HypatiaSansPro-Regular", size: 26)!
+        #else
+        let font = Font(name: "HypatiaSansPro-Regular", size: 16)!
+        #endif
+
+        let style = Style()
+            .foregroundColor(.black)
+            .font(font)
+
+        return NSAttributedString {
+            string.attributedString(
+                style: style.stylisticAlternatives(
+                    [
+                        .one, .two, .three, .four, .five,
+                        .six, .seven, .eight, .nine, .ten,
+                        .eleven, .twelve, .thirteen,
+                    ]
+                )
+            )
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.one))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.two))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.three))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.four))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.five))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.six))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.seven))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.eight))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.nine))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.ten))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.eleven))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.twelve))
+            "\n"
+            string.attributedString(style: style.stylisticAlternatives(.thirteen))
+        }
+    }()
+
 }

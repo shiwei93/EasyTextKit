@@ -24,6 +24,7 @@ class ViewController: UITableViewController {
             Example.superscript,
             Example.fraction,
             Example.scientificInferiors,
+            Example.stylisticAlternatives,
         ]),
         ("Ligature", [Example.ligature]),
         ("With Images", [

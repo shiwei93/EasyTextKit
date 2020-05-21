@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>HypatiaSansPro-Regular.otf</string>
 		<string>EBGaramond12-Regular.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

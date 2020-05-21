@@ -47,6 +47,8 @@ public struct StyleDescription {
     var ordinals: Bool?
     var scientificInferiors: Bool?
     var smallCaps: Set<SmallCaps>?
+    var contextualAlternates: ContextualAlternates?
+    var stylisticAlternatives: StylisticAlternatives?
     var emphasizeStyle: EmphasizeStyle?
 
     init(
@@ -113,6 +115,8 @@ public struct StyleDescription {
         fontFeatureConstructors += [scientificInferiors].compactMap { $0 }
             .map { $0 ? VerticalPosition.scientificInferiors : VerticalPosition.normal }
         fontFeatureConstructors += smallCaps?.map { $0 } ?? []
+        fontFeatureConstructors += [contextualAlternates].compactMap { $0 }
+        fontFeatureConstructors += [stylisticAlternatives].compactMap { $0 }
 
         let fontFeatures = fontFeatureConstructors.flatMap { $0.attributes() }
         var descriptor: FontDescriptor? = font.fontDescriptor
@@ -215,7 +219,11 @@ public struct StyleDescription {
         description.subscript = child.subscript ?? parent.subscript
         description.ordinals = child.ordinals ?? parent.ordinals
         description.scientificInferiors = child.scientificInferiors ?? parent.scientificInferiors
-        description.smallCaps = parent.smallCaps?.union(child.smallCaps ?? []) ?? child.smallCaps
+        description.smallCaps = child.smallCaps ?? parent.smallCaps
+        description.contextualAlternates = parent.contextualAlternates?.union(
+            child.contextualAlternates ?? []) ?? child.contextualAlternates
+        description.stylisticAlternatives = parent.stylisticAlternatives?.union(
+            child.stylisticAlternatives ?? []) ?? child.stylisticAlternatives
         description.emphasizeStyle = parent.emphasizeStyle?.union(
             child.emphasizeStyle ?? []) ?? child.emphasizeStyle
 
