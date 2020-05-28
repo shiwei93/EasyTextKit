@@ -20,6 +20,10 @@ public struct AttributedStringBuilder {
         return string
     }
 
+    public static func buildBlock() -> NSAttributedString {
+        return NSAttributedString()
+    }
+
     public static func buildExpression(_ text: String) -> NSAttributedString {
         return NSAttributedString(string: text)
     }
@@ -35,6 +39,22 @@ public struct AttributedStringBuilder {
         return NSAttributedString(attachment: attachment)
     }
     #endif
+
+    public static func buildOptional(_ attr: NSAttributedString?) -> NSAttributedString {
+        return attr ?? NSAttributedString()
+    }
+
+    public static func buildIf(_ attr: NSAttributedString?) -> NSAttributedString {
+        return attr ?? NSAttributedString()
+    }
+
+    public static func buildEither(first: NSAttributedString) -> NSAttributedString {
+        return first
+    }
+
+    public static func buildEither(second: NSAttributedString) -> NSAttributedString {
+        return second
+    }
 }
 
 public extension NSAttributedString {
