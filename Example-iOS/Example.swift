@@ -683,4 +683,37 @@ struct Example {
         }
     }()
 
+    static let functionBuilder: NSAttributedString = {
+        let string = "The quick brown fox jumps over the lazy dog."
+        #if os(iOS)
+        let font = Font(name: "HypatiaSansPro-Regular", size: 22)!
+        #elseif os(OSX) || os(tvOS)
+        let font = Font(name: "HypatiaSansPro-Regular", size: 26)!
+        #else
+        let font = Font(name: "HypatiaSansPro-Regular", size: 16)!
+        #endif
+
+        let style = Style()
+            .foregroundColor(.black)
+            .font(font)
+
+        let condition1 = true
+        let condition2 = false
+        let index = 1
+
+        return NSAttributedString {
+            if condition1 {
+                "Condition1".attributedString(style: style.foregroundColor(.green))
+            } else {
+                "Condition1".attributedString(style: style.foregroundColor(.red))
+            }
+
+            "\n"
+
+            if !condition2 {
+                "Condition2".attributedString(style: style.foregroundColor(.cyan))
+            }
+        }
+    }()
+
 }

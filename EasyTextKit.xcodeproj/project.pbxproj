@@ -82,6 +82,7 @@
 		C43F184824727D4000792E2A /* EmphasisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F184724727D2C00792E2A /* EmphasisTests.swift */; };
 		C43F184924727D4100792E2A /* EmphasisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F184724727D2C00792E2A /* EmphasisTests.swift */; };
 		C43F184A24727D4100792E2A /* EmphasisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F184724727D2C00792E2A /* EmphasisTests.swift */; };
+		C447AEC3247F62F000FB15C1 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD4246E9F6600981FEF /* AttributedStringBuilder.swift */; };
 		C4ACAD22246E9BEF00981FEF /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD18246E9BEF00981FEF /* EasyTextKit.framework */; };
 		C4ACAD4B246E9C1000981FEF /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD42246E9C1000981FEF /* EasyTextKit.framework */; };
 		C4ACAD67246E9C2200981FEF /* EasyTextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ACAD5E246E9C2200981FEF /* EasyTextKit.framework */; };
@@ -89,7 +90,6 @@
 		C4ACADE3246E9F6600981FEF /* CommonsAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD3246E9F6600981FEF /* CommonsAttributes.swift */; };
 		C4ACADE4246E9F6600981FEF /* CommonsAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD3246E9F6600981FEF /* CommonsAttributes.swift */; };
 		C4ACADE5246E9F6600981FEF /* CommonsAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD3246E9F6600981FEF /* CommonsAttributes.swift */; };
-		C4ACADE6246E9F6600981FEF /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD4246E9F6600981FEF /* AttributedStringBuilder.swift */; };
 		C4ACADE7246E9F6600981FEF /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD4246E9F6600981FEF /* AttributedStringBuilder.swift */; };
 		C4ACADE8246E9F6600981FEF /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD4246E9F6600981FEF /* AttributedStringBuilder.swift */; };
 		C4ACADE9246E9F6600981FEF /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACADD4246E9F6600981FEF /* AttributedStringBuilder.swift */; };
@@ -1285,7 +1285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4ACAE06246E9F6700981FEF /* DynamicText.swift in Sources */,
-				C4ACADE6246E9F6600981FEF /* AttributedStringBuilder.swift in Sources */,
 				C4ACADFE246E9F6700981FEF /* StyleProtocol.swift in Sources */,
 				C4ACADFA246E9F6600981FEF /* StyleDescription.swift in Sources */,
 				C4ACADF6246E9F6600981FEF /* Extensions.swift in Sources */,
@@ -1295,6 +1294,7 @@
 				C4ACAE0E246E9F6700981FEF /* Parser.swift in Sources */,
 				C4ACADEE246E9F6600981FEF /* UIImage+Extensions.swift in Sources */,
 				C4ACADF2246E9F6600981FEF /* AttributedString+Extension.swift in Sources */,
+				C447AEC3247F62F000FB15C1 /* AttributedStringBuilder.swift in Sources */,
 				C4ACAE0A246E9F6700981FEF /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

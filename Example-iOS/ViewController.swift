@@ -38,6 +38,7 @@ class ViewController: UITableViewController {
         ]),
         ("Trait", [Example.emphasisSet]),
         ("Dynamic Text", [Example.dynamic]),
+        ("Function Builder", [Example.functionBuilder]),
     ]
 
     override func numberOfSections(in tableView: UITableView) -> Int {
