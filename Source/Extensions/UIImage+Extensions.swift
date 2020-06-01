@@ -32,7 +32,7 @@ extension Image {
         let imageIsTemplate = (renderingMode != .alwaysOriginal)
         #endif
 
-        var imageToUse = self
+        var imageToUse: Image? = self
         if let color = attributes[.foregroundColor] as? Color {
             if imageIsTemplate {
                 imageToUse = tintedImage(color: color)
@@ -48,41 +48,42 @@ extension Image {
             attachment: attachment).mutableAttributedStringCopy()
 
         attributes[.baselineOffset] = nil
-        attachmentString.addAttributes(
+        attachmentString?.addAttributes(
             attributes,
-            range: NSRange(location: 0, length: attachmentString.length)
+            range: NSRange(location: 0, length: attachmentString?.length ?? 0)
         )
 
-        return attachmentString
+        return attachmentString ?? AttributedString()
     }
 
     #if os(OSX)
-    private func tintedImage(color: Color) -> Image {
+    private func tintedImage(color: Color) -> Image? {
         let imageRect = CGRect(origin: .zero, size: size)
 
         let image = Image(size: size)
 
-        let rep = NSBitmapImageRep(
-            bitmapDataPlanes: nil,
-            pixelsWide: Int(size.width),
-            pixelsHigh: Int(size.height),
-            bitsPerSample: 8,
-            samplesPerPixel: 4,
-            hasAlpha: true,
-            isPlanar: false,
-            colorSpaceName: color.colorSpaceName,
-            bytesPerRow: 0,
-            bitsPerPixel: 0
-        )!
+        guard
+            let rep = NSBitmapImageRep(
+                bitmapDataPlanes: nil,
+                pixelsWide: Int(size.width),
+                pixelsHigh: Int(size.height),
+                bitsPerSample: 8,
+                samplesPerPixel: 4,
+                hasAlpha: true,
+                isPlanar: false,
+                colorSpaceName: color.colorSpaceName,
+                bytesPerRow: 0,
+                bitsPerPixel: 0
+            ) else { return nil }
 
         image.addRepresentation(rep)
 
         image.lockFocus()
 
-        let context = NSGraphicsContext.current!.cgContext
+        guard let context = NSGraphicsContext.current?.cgContext else { return nil }
 
         context.setBlendMode(.normal)
-        let cgImage = self.cgImage(forProposedRect: nil, context: nil, hints: nil)!
+        guard let cgImage = self.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
         context.draw(cgImage, in: imageRect)
 
         // .sourceIn: resulting color = source color * destination alpha
@@ -101,7 +102,7 @@ extension Image {
         return image
     }
     #else
-    private func tintedImage(color: Color) -> Image {
+    private func tintedImage(color: Color) -> Image? {
         let imageRect = CGRect(origin: .zero, size: size)
 
         let originalCapInsets = capInsets
@@ -109,7 +110,10 @@ extension Image {
         let originalAlignmentRectInsets = alignmentRectInsets
 
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        let context = UIGraphicsGetCurrentContext()!
+        guard let context = UIGraphicsGetCurrentContext() else {
+            assertionFailure("current graphics's context was nil.")
+            return nil
+        }
 
         context.translateBy(x: 0.0, y: size.height)
         context.scaleBy(x: 1.0, y: -1.0)
@@ -117,13 +121,14 @@ extension Image {
         // http://stackoverflow.com/a/22528426/255489
 
         context.setBlendMode(.normal)
-        context.draw(cgImage!, in: imageRect)
+        guard let cgImage = cgImage else { return nil }
+        context.draw(cgImage, in: imageRect)
 
         context.setBlendMode(.sourceIn)
         context.setFillColor(color.cgColor)
         context.fill(imageRect)
 
-        var image = UIGraphicsGetImageFromCurrentImageContext()!
+        var image = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
         UIGraphicsEndImageContext()
 
         image = image.withRenderingMode(.alwaysOriginal)

@@ -100,9 +100,10 @@ class Parser: NSObject, XMLParserDelegate {
             let shiftSize = Parser.topTag.lengthOfBytes(using: .utf8) + 2
             let column = xmlParser.columnNumber - (shiftColumn ? shiftSize : 0)
 
-            let error = xmlParser.parserError
-            assert(error != nil)
-            throw ParserError(parserError: error!, line: line, column: column)
+            guard let error = xmlParser.parserError else {
+                return AttributedString()
+            }
+            throw ParserError(parserError: error, line: line, column: column)
         }
 
         return attributedString

@@ -13,7 +13,7 @@ import UIKit
 #endif
 import EasyTextKit
 
-// swiftlint:disable:next type_body_length
+// swiftlint:disable all
 struct Example {
 
     static var avenirNextCondensed: Font {

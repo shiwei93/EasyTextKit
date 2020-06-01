@@ -7,6 +7,7 @@
 
 import Cocoa
 
+// swiftlint:disable force_unwrapping
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
     @IBOutlet weak var tableView: NSTableView!

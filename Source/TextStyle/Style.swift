@@ -34,7 +34,8 @@ public struct Style: StyleProtocol {
         self.styleDescription = styleDescription
     }
 
-    /// 动态字体，根据用户设置实现对字体大小的控制
+    /// DynamicText encapsulate the attributes for fonts to automatically
+    /// scale to match the current Dynamic Type settings.
     #if os(tvOS) || os(iOS) || os(watchOS)
     @discardableResult @available(iOS 11.0, tvOS 11.0, iOSApplicationExtension 11.0, watchOS 4, *)
     public func dynamicText(_ dynamicText: DynamicText?) -> Style {
@@ -333,7 +334,7 @@ public struct Style: StyleProtocol {
         return Style(description)
     }
 
-    /// 显示数字时，数字是否会出现在 baseline 以下
+    /// A feature provider for changing the number case, also known as "figure style".
     @discardableResult
     public func numberCase(_ numberCase: NumberCase?) -> Style {
         var description = styleDescription
@@ -341,7 +342,7 @@ public struct Style: StyleProtocol {
         return Style(description)
     }
 
-    /// 显示数字时，数字字符是否等宽
+    /// A feature provider for changing the number spacing, also known as "figure spacing".
     @discardableResult
     public func numberSpacing(_ numberSpacing: NumberSpacing?) -> Style {
         var description = styleDescription

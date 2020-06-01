@@ -136,7 +136,7 @@ public struct StyleDescription {
 
         if let descriptor = descriptor {
             #if os(OSX)
-            font = Font(descriptor: descriptor, size: font.pointSize)!
+            font = Font(descriptor: descriptor, size: font.pointSize) ?? Font.systemFont(ofSize: font.pointSize)
             #else
             font = Font(descriptor: descriptor, size: font.pointSize)
             #endif
@@ -152,7 +152,7 @@ public struct StyleDescription {
         attributes[.font] = font
         #endif
 
-        // 字间距
+        // Tracking
         if let tracking = tracking {
             attributes[.kern] = tracking.kerning(for: font)
         }

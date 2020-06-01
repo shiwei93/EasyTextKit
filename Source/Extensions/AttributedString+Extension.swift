@@ -55,10 +55,7 @@ extension NSAttributedString {
 extension NSAttributedString: StyleProtocol { }
 
 extension NSAttributedString {
-    func mutableAttributedStringCopy() -> AttributedString {
-        guard let new = mutableCopy() as? AttributedString else {
-            fatalError("mutableCopy() 拷贝失败!!")
-        }
-        return new
+    func mutableAttributedStringCopy() -> AttributedString? {
+        mutableCopy() as? AttributedString
     }
 }

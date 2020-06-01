@@ -1,9 +1,7 @@
 disabled_rules: # rule identifiers to exclude from running
-  - line_length
   - nesting
   - identifier_name
   - large_tuple
-  - file_length
   - implicit_return # Re-enable when we drop support for Swift 4.2
   - statement_position
 
@@ -12,6 +10,13 @@ statement_position:
 
 function_body_length:
   - 75 # warning
+
+line_length:
+  - 120
+
+file_length:
+  warning: 500
+  error: 1200
 
 opt_in_rules:
   - anyobject_protocol
@@ -26,6 +31,12 @@ opt_in_rules:
   - toggle_bool
   - unused_control_flow_label
   - vertical_whitespace
+  - force_unwrapping
+
+force_cast: warning
+
+force_try:
+  severity: warning
 
 trailing_comma:
   mandatory_comma: true
